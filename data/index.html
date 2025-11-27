@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Directory Manager</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>AI Directory Manager <small class="muted">v1.0 — offline-ready</small></h1>
+    <nav class="tabs" id="tabs">
+      <button data-tab="companies" class="active">Companies</button>
+      <button data-tab="signals">Signals</button>
+      <button data-tab="changes">Changes</button>
+      <button data-tab="newcos">New Companies</button>
+      <button data-tab="export">Export</button>
+      <div class="grow"></div>
+      <div class="menu">
+        <button id="importBtn">Import Files</button>
+        <input id="importFiles" type="file" accept=".json" multiple hidden />
+        <button id="saveWs">Save Workspace</button>
+        <button id="loadWs">Load Workspace</button>
+        <input id="loadWsFile" type="file" accept="application/json" hidden />
+        <button id="resetBtn" class="danger">Reset</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="view"></main>
+
+  <footer class="foot">
+    <span>Tip: import your <b>companies.json</b> and the watcher outputs (<b>signals.json</b>, <b>status_changes.json</b>, <b>new_companies.json</b>) to get started.</span>
+  </footer>
+
+  <dialog id="companyModal">
+    <form method="dialog" class="card modal">
+      <h2 id="cmTitle">Edit Company</h2>
+      <div class="grid">
+        <label>Name<input id="cmName" /></label>
+        <label>Bucket<input id="cmBucket" /></label>
+        <label>Category<input id="cmCategory" /></label>
+        <label>Bucket Color<input id="cmColor" placeholder="#FFB347" /></label>
+        <label>Country<input id="cmCountry" /></label>
+        <label>Flag<input id="cmFlag" placeholder="🇺🇸" /></label>
+        <label>Parent ID<input id="cmParent" /></label>
+      </div>
+      <label>Summary<textarea id="cmSummary"></textarea></label>
+      <menu class="row">
+        <button class="btn" value="cancel">Cancel</button>
+        <button class="btn primary" id="cmSave" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+How to test with 100 nodes (Generator)
+
+In index.html, make sure this line is uncommented:
+
+<script src="data/generator.js" defer></script>
+
+
+In scripts.js, flip the flags at the top of “Data source”:
+
+const USE_GENERATOR = true;
+const GENERATOR_N = 100; // try 70, 100, then 150 if you like
+
+
+Reload the page.
+
+That’s it—the app will render a synthetic directory of N companies with realistic categories/statuses, so you can exercise:
+
+N→template mapping (31–80 → three bands; 81+ → fibonacci)
+
+smartFit + zoom clamp after every sidebar change
+
+LOD behavior (labels/edges) as you zoom
+
+What to look for (quick checklist)
+
+Lands centered, reasonable zoom after each filter/search change.
+
+No label crowding at far zoom; labels appear crisply ~0.6+ zoom.
+
+Edges thin/hide appropriately as you zoom out.
+
+Drawer interaction stays flicker-free with rapid node clicks.
+
+If you want to try your 500 later
+
+Totally doable. We’ll:
+
+keep fibonacci for 81+,
+
+tighten smartPaddingForN a notch,
+
+be a bit more aggressive on edge LOD (hide low-weight edges earlier).
+No architecture changes needed.
+
+Give 100 a spin; if anything feels off at that scale, we’ll tune the template thresholds/padding next.

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artiligenz Pipeline & Review Dashboard</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'slate-950': '#020617',
+          },
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* 1. Global Background Gradient (Artiligenz Glass Dark Theme) */
+    body {
+      background-image: linear-gradient(135deg, #020617, #0f172a, #082f49);
+      min-height: 100vh;
+      color: #f1f5f9;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
+
+    /* 2. Glass Panel Styling */
+    .glass-panel {
+      background-color: rgba(2, 6, 23, 0.7); /* bg-slate-950/70 */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* border border-white/10 */
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border-radius: 1.5rem; /* rounded-xl */
+    }
+
+    /* 3. Button Styles (Artiligenz Neon/Glass) */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 9999px; /* rounded-full */
+      color: #020617; /* text-slate-950 */
+      background-color: #38bdf8; /* sky-400 */
+      transition: background-color 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #0ea5e9; /* sky-500 */
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 9999px; /* rounded-full */
+      color: #60a5fa; /* blue-400 */
+      background-color: transparent;
+      border: 1px solid #60a5fa;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover {
+      color: #e0f2f1; /* cyan-50 */
+      background-color: #1e3a8a; /* blue-900 */
+      border-color: #1e3a8a;
+    }
+
+    /* 4. Scrollbar Styling for list (minimalist dark mode) */
+    .company-list-container::-webkit-scrollbar {
+      width: 8px;
+    }
+    .company-list-container::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+    .company-list-container::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    /* 5. Active/Hover List Item */
+    .company-item.active {
+        border-left: 4px solid #38bdf8;
+        background-color: rgba(56, 189, 248, 0.1);
+    }
+    .company-item:not(.active):hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+
+<body class="p-8">
+  <div class="max-w-7xl mx-auto">
+    <header class="mb-8">
+      <h1 class="text-4xl font-extrabold text-white tracking-wider border-b border-cyan-400/50 pb-2">
+        Artiligenz Data Pipeline Dashboard
+      </h1>
+      <p class="text-cyan-300 mt-2">
+        Review and Refine Automated Company Summaries.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column: Company List -->
+      <section class="lg:col-span-1">
+        <div class="glass-panel p-6">
+          <h2 class="text-2xl font-bold text-slate-50 mb-4 border-b border-white/10 pb-2">
+            Companies Awaiting Review (<span id="company-count">0</span>)
+          </h2>
+          <div id="company-list" class="company-list-container h-[70vh] overflow-y-auto pr-2 space-y-2">
+            <!-- List items populated by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Review Panel -->
+      <section class="lg:col-span-2">
+        <div id="review-container" class="glass-panel p-8">
+          <div id="no-selection" class="text-center py-20 text-slate-400">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto mb-4 text-cyan-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.841A8.969 8.969 0 0 0 8.016 3.69c-3.193 0-5.75 2.57-5.75 5.75a5.75 5.75 0 0 0 5.75 5.75c.957 0 1.874-.236 2.684-.666M17.067 11.25a6.002 6.002 0 0 0-4.965-2.853m0 0a6.002 6.002 0 0 0-3.321 6.004M17.067 11.25a6.002 6.002 0 0 1-4.965-2.853m4.965 2.853c.189 0 .373.011.554.032" />
+            </svg>
+            <p class="text-xl">Select a company from the list to begin review.</p>
+          </div>
+
+          <!-- Review Form (hidden until selection) -->
+          <div id="review-form" class="hidden">
+            <h3 class="text-3xl font-bold text-slate-50 border-b border-white/10 pb-3 mb-4" id="company-name-title"></h3>
+            
+            <!-- Metadata and Summary Source -->
+            <div class="flex flex-wrap gap-4 text-sm text-slate-400 mb-6">
+                <p><strong>Source:</strong> <span id="source-tag" class="text-cyan-300 font-medium"></span></p>
+                <p><strong>URL:</strong> <a id="company-url" href="#" target="_blank" class="text-sky-400 hover:text-sky-300 transition duration-150">Visit Website ↗</a></p>
+                <p><strong>Category:</strong> <span id="company-category" class="text-yellow-400 font-medium"></span></p>
+            </div>
+
+            <!-- Original Scraped Content -->
+            <div class="mb-8">
+                <h4 class="text-lg font-semibold text-slate-200 mb-2">Original Scraped Content:</h4>
+                <div id="original-summary" class="glass-panel p-4 text-slate-300 text-sm rounded-lg border-white/5 overflow-x-auto">
+                    <!-- Original summary text -->
+                </div>
+            </div>
+
+            <!-- Final Summary for Editing -->
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold text-slate-200 mb-2 flex justify-between items-center">
+                    Final Summary (100-200 Words)
+                    <span id="word-count" class="text-sm text-slate-400">0 words</span>
+                </h4>
+                <textarea id="final-summary" rows="8" 
+                    class="w-full p-4 rounded-lg bg-slate-900/50 border border-cyan-400/25 text-slate-50 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition duration-150" 
+                    placeholder="Enter the final, curated 100-200 word summary here..."></textarea>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex space-x-4 items-center mt-6">
+                <button id="btn-save" class="flex-shrink-0 btn-primary">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 3.75V16.5L12 14.25 7.5 16.5V3.75m9 0H20.25a.75.75 0 0 1 .75.75v16.5a.75.75 0 0 1-.75.75H3.75a.75.75 0 0 1-.75-.75V4.5c0-.414.336-.75.75-.75H7.5m9 0H7.5" />
+                    </svg>
+                    Save draft
+                </button>
+                <button id="btn-approve" class="flex-shrink-0 btn-secondary">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    Approve & flag
+                </button>
+                
+                <!-- Spacer to push 'Guide' button to the right -->
+                <div class="flex-grow"></div>
+                
+                <!-- New Guide Button -->
+                <button id="btn-guide" class="flex-shrink-0 btn-secondary">
+                    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.447-.297.144-.657.237-1.027.265A1.897 1.897 0 0 0 12 11.25c.105 0 .21.008.315.025.37.028.73.121 1.027.265.24.121.467.268.67.447 1.172 1.025 1.172 2.687 0 3.712-1.171 1.025-3.071 1.025-4.242 0-1.172-1.025-1.172-2.687 0-3.712-.203-.179-.43-.326-.67-.447-.297-.144-.657-.237-1.027-.265A1.897 1.897 0 0 0 12 11.25c.105 0 .21.008.315.025.37.028.73.121 1.027.265.24.121.467.268.67.447 1.172 1.025 1.172 2.687 0 3.712" />
+                    </svg>
+                    Guide
+                </button>
+            </div>
+
+            <!-- Guide Content Section (Initially hidden) -->
+            <section id="guide-content" class="mt-6 transition-all duration-500 max-h-0 overflow-hidden opacity-0">
+                <div class="glass-panel p-6 border border-white/10 rounded-xl">
+                    <h3 class="text-xl font-semibold text-cyan-300 mb-3 border-b border-white/10 pb-2">Artiligenz Reviewer's Guide</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-sm text-slate-200/85">
+                        <li><strong>Review Scrape:</strong> The initial summary is an automated scrape (`Source: meta` or `Source: manual`). Your task is to refine it into a clear, concise, **100-200 word** bio.</li>
+                        <li><strong>Editing Guidelines:</strong> Summaries must describe the company's core function, key products, primary users, and its specific role in the AI technology stack (e.g., 'A vector database for RAG' or 'An LLM for creative video').</li>
+                        <li><strong>Save Draft:</strong> Saves the summary *locally* in the browser and flags it as `Source: manual_edit`. Use this to save work-in-progress.</li>
+                        <li><strong>Approve & Flag:</strong> Signifies the summary is finalized. This is the **final step** and prevents future automated scrapes from overwriting your curated text.</li>
+                        <li><strong>Navigation:</strong> Use the company list on the left to quickly jump between entries.</li>
+                    </ol>
+                </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Global Data Object (Mock) -->
+  <script src="./company_summaries.js"></script>
+
+  <script>
+    // Console logging helper for guide
+    const CONSOLE_GUIDE_TEXT = [
+        "1. Review Scrape: The initial summary is an automated scrape ('Source: meta' or 'Source: manual'). Your task is to refine it into a clear, concise, 100-200 word bio.",
+        "2. Editing Guidelines: Summaries should describe the company's core function, key products, primary users, and its specific role in the AI technology stack (e.g., 'A vector database for RAG' or 'An LLM for creative video generation').",
+        "3. Save Draft: The 'Save draft' button saves the new summary *locally* in the browser (non-persistent) and flags it as 'Source: manual_edit'.",
+        "4. Approve & Flag: The 'Approve & flag' button signifies the summary is finalized. This prevents future automated scraping.",
+        "5. Navigation: Use the company list on the left to quickly jump between entries needing review."
+    ];
+
+
+    let allSummaries = window.CompanySummaries || {};
+    let currentReviewKey = null;
+
+    const $companyList = document.getElementById('company-list');
+    const $reviewForm = document.getElementById('review-form');
+    const $noSelection = document.getElementById('no-selection');
+    const $companyCount = document.getElementById('company-count');
+    const $finalSummary = document.getElementById('final-summary');
+
+    function renderCompanyList(summaries) {
+        $companyList.innerHTML = '';
+        const keys = Object.keys(summaries);
+        $companyCount.textContent = keys.length;
+        
+        if (keys.length === 0) {
+            $companyList.innerHTML = '<p class="text-slate-400">No companies found in data.</p>';
+            return;
+        }
+
+        keys.forEach(key => {
+            const data = summaries[key];
+            const item = document.createElement('div');
+            item.className = 'company-item p-3 rounded-lg cursor-pointer transition duration-150';
+            item.setAttribute('data-key', key);
+            item.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span class="font-semibold text-slate-50">${data.name}</span>
+                    <span class="text-xs text-slate-400">${data.source}</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-1 truncate">${data.summary.substring(0, 70)}...</p>
+            `;
+            item.onclick = () => selectCompany(key);
+            $companyList.appendChild(item);
+        });
+    }
+
+    function selectCompany(key) {
+        if (currentReviewKey) {
+            const oldItem = $companyList.querySelector(`[data-key="${currentReviewKey}"]`);
+            if (oldItem) oldItem.classList.remove('active');
+        }
+
+        currentReviewKey = key;
+        const data = allSummaries[key];
+
+        // 1. Update UI
+        $noSelection.classList.add('hidden');
+        $reviewForm.classList.remove('hidden');
+
+        document.getElementById('company-name-title').textContent = data.name;
+        document.getElementById('source-tag').textContent = data.source;
+        document.getElementById('company-url').href = data.url || '#';
+        document.getElementById('company-url').textContent = (data.url ? new URL(data.url).hostname : 'No URL') + ' ↗';
+        document.getElementById('original-summary').textContent = data.summary;
+        
+        // Mock category for display, as summaries don't have it directly.
+        // In a real app, this would come from the main directory.
+        document.getElementById('company-category').textContent = data.type === 'parent' ? 'Parent Company' : 'Orbiting Entity';
+
+        $finalSummary.value = data.summary;
+        
+        // 2. Update list active state
+        const newItem = $companyList.querySelector(`[data-key="${key}"]`);
+        if (newItem) newItem.classList.add('active');
+
+        // 3. Update word count
+        updateWordCount();
+    }
+
+    function updateWordCount() {
+        const text = document.getElementById('final-summary').value;
+        const words = text.match(/\S+/g) || [];
+        document.getElementById('word-count').textContent = `${words.length} words`;
+    }
+
+    // Attach listeners
+    document.addEventListener('DOMContentLoaded', () => {
+        renderCompanyList(allSummaries);
+
+        $finalSummary.addEventListener('input', updateWordCount);
+
+        // Mock functions for review actions
+        document.getElementById('btn-save').onclick = () => {
+            if (!currentReviewKey) return;
+            const summary = document.getElementById('final-summary').value;
+            
+            // The core data file (company_summaries.js) is updated here, 
+            // but this change IS NOT persistent on disk.
+            console.log(`Summary for ${allSummaries[currentReviewKey].name} saved *in the browser*. 
+            
+***TO PERSIST THIS CHANGE:***
+1. In a real environment, you'd send this data to a server.
+2. Or, you need to manually copy the new summary back into your master CSV file.`);
+            
+            allSummaries[currentReviewKey].summary = summary;
+            allSummaries[currentReviewKey].source = 'manual_edit';
+            renderCompanyList(allSummaries); 
+            // Re-select to update the source tag
+            selectCompany(currentReviewKey);
+        };
+        
+        document.getElementById('btn-approve').onclick = () => {
+            if (!currentReviewKey) return;
+            console.log(`Summary for ${allSummaries[currentReviewKey].name} approved! 
+            
+*ACTION REQUIRED:* This approval should be represented as a status flag (e.g., 'Summary_Status: Approved') in your master CSV to prevent future automated scraping from overwriting it.`);
+        };
+
+        // GUIDE BUTTON LOGIC
+        const $guideContent = document.getElementById('guide-content');
+        document.getElementById('btn-guide').onclick = () => {
+            const isHidden = $guideContent.classList.contains('max-h-0');
+
+            if (isHidden) {
+                // Show guide
+                $guideContent.classList.remove('max-h-0', 'opacity-0');
+                $guideContent.classList.add('max-h-[1000px]', 'opacity-100'); // Use a large max-height for smooth transition
+                
+                // Log to console (as requested)
+                console.groupCollapsed('%cARTILIGENZ REVIEWER\'S GUIDE', 'color: #38bdf8; font-weight: bold;');
+                CONSOLE_GUIDE_TEXT.forEach(line => console.log(`%c${line}`, 'color: #cbd5e1;'));
+                console.groupEnd();
+
+            } else {
+                // Hide guide
+                $guideContent.classList.add('max-h-0', 'opacity-0');
+                $guideContent.classList.remove('max-h-[1000px]', 'opacity-100');
+            }
+        };
+    });
+
+  </script>
+</body>
+</html>

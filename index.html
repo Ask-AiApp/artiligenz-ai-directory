@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artiligenz — Live Directory</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tailwind (dev only) -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <!-- Core libs -->
+  <script src="https://unpkg.com/cytoscape@3.28.0/dist/cytoscape.min.js" defer></script>
+  <script src="https://unpkg.com/feather-icons" defer></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+  <custom-header data-active="home"></custom-header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div class="lg:col-span-1">
+        <custom-sidebar></custom-sidebar>
+      </div>
+
+      <div class="lg:col-span-3 relative">
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative">
+          <div id="cy" class="w-full h-[600px]"></div>
+
+          <!-- Navigation Controls (Rendered here on top of #cy) -->
+          <nav-controls></nav-controls>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  
+
+  <!-- Components -->
+  <script src="components/header.js" defer></script>
+  <script src="components/sidebar.js" defer></script>
+  <script src="components/footer.js" defer></script>
+  <script src="components/drawer.js" defer></script>
+
+  <!-- Data -->
+  <script src="data/directory.js" defer></script>
+  <script src="data/company_summaries.js" defer></script>
+
+  <!-- Layout / Skin -->
+  <script src="layouts/layouts.js" defer></script>
+  <script src="skins/defaultskin.js" defer></script>
+
+  <!-- Views -->
+  <script src="views/utils.js" defer></script>
+  <script src="views/universeview.js" defer></script>
+  <script src="views/orbitalview.js" defer></script>
+  <script src="views/index.js" defer></script>
+
+  <!-- *** IMPORTANT ***
+       Nav Controls must load WITHOUT defer 
+       so the element definition exists before scripts.js runs -->
+  <script src="components/nav-controls.js"></script>
+
+  <!-- App entry -->
+  <script src="scripts.js" defer></script>
+
+  <info-drawer></info-drawer>
+</body>
+</html>

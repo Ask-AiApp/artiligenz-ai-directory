@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore — Artiligenz Live Directory</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="components/header.js" defer></script>
+  <script src="components/footer.js" defer></script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-950 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-sky-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <custom-header mode="simple"></custom-header>
+
+  <main class="container mx-auto px-4 py-10 space-y-10">
+
+    <section class="max-w-4xl mx-auto bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-2xl shadow p-8">
+      <h1 class="text-3xl font-bold mb-4">Explore the Directory</h1>
+
+      <p class="leading-relaxed text-gray-700 dark:text-gray-200">
+        The Artiligenz Live Directory has two main views —
+        <span class="font-semibold">Universe</span> and <span class="font-semibold">Grid</span> —
+        plus filters, search, and navigation controls. Here’s how to use them.
+      </p>
+    </section>
+
+    <section class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+      <div class="bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-xl shadow p-7">
+        <h2 class="text-xl font-semibold mb-3">1. Choose a view</h2>
+        <p class="leading-relaxed mb-3">
+          Switch between:
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Universe:</strong> a full AI “galaxy” showing structure and clusters.</li>
+          <li><strong>Grid:</strong> neat rows/columns for scanning names + logos.</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <div class="h-40 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
+          [ Universe view screenshot placeholder ]
+        </div>
+        <div class="h-40 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
+          [ Grid view screenshot placeholder ]
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+      <div class="bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-xl shadow p-7">
+        <h2 class="text-xl font-semibold mb-3">2. Filters & Search</h2>
+        <p class="leading-relaxed mb-3">
+          Use the sidebar to slice the map in real time:
+        </p>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Category chips</strong> show one main segment (single-select).</li>
+          <li><strong>Search</strong> highlights entities instantly as you type.</li>
+          <li>Changing view resets filters and recenters layout.</li>
+        </ul>
+      </div>
+
+      <div class="h-44 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
+        [ Sidebar filters + search screenshot placeholder ]
+      </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow p-8">
+      <h2 class="text-xl font-semibold mb-3">3. Navigating the map</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Pan + zoom directly using your mouse or trackpad.</li>
+        <li>“Nav Controls“ toggle is only on the main directory (not here).</li>
+        <li>The Reset button recenters the layout instantly.</li>
+      </ul>
+    </section>
+
+    <section class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+      <div class="bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-xl shadow p-7">
+        <h2 class="text-xl font-semibold mb-3">4. Microcards & Profiles</h2>
+        <ul class="list-disc list-inside space-y-2">
+          <li><strong>Microcard:</strong> shows logo, category, quick actions.</li>
+          <li><strong>More:</strong> opens a full profile drawer.</li>
+          <li><strong>Explore:</strong> shows local “neighbourhood” orbits (if available).</li>
+        </ul>
+      </div>
+
+      <div class="space-y-4">
+        <div class="h-44 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
+          [ Node + microcard screenshot placeholder ]
+        </div>
+        <div class="h-44 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
+          [ Info drawer screenshot placeholder ]
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      const prefersDark =
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const isDark = stored === 'dark' || (!stored && prefersDark);
+      document.documentElement.classList.toggle('dark', isDark);
+    })();
+  </script>
+</body>
+</html>

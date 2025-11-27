@@ -1,0 +1,46 @@
+{
+  "foundation_models": {
+    "label": "Foundation Models",
+    "color": "#FFB347"
+  },
+  "assistants_search": {
+    "label": "Assistants & Search",
+    "color": "#81C784"
+  },
+  "creative_genmedia": {
+    "label": "Creative Media",
+    "color": "#9FA8DA"
+  },
+  "productivity_collab": {
+    "label": "Productivity",
+    "color": "#80DEEA"
+  },
+  "enterprise_apps": {
+    "label": "Enterprise Apps",
+    "color": "#F48FB1"
+  },
+  "healthcare_biotech": {
+    "label": "Healthcare",
+    "color": "#AED581"
+  },
+  "education_ai": {
+    "label": "Education & Learning",
+    "color": "#FDD835"
+  },
+  "robotics_industrial_edge": {
+    "label": "Robotics & Edge",
+    "color": "#B0BEC5"
+  },
+  "dev_coding_tools": {
+    "label": "Dev Tools",
+    "color": "#CE93D8"
+  },
+  "data_vector_mlops": {
+    "label": "Data & MLOps",
+    "color": "#4DB6AC"
+  },
+  "platforms_cloud_infra": {
+    "label": "Cloud & Infra",
+    "color": "#64B5F6"
+  }
+}
