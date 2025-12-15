@@ -235,7 +235,7 @@ class CustomHeader extends HTMLElement {
             </button>
           ` : `
             <!-- Full header: main directory -->
-            <a href="https://artiligenz-gateway.onrender.com/" class="gateway-btn">
+            <a href="https://artiligenz.ai" class="gateway-btn">
               ← Back to Gateway
             </a>
 
