@@ -7,37 +7,52 @@
 
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Phase 2: unified theme behavior for all pages -->
+  <script src="theme.js" defer></script>
+
+  <!-- REQUIRED: Tailwind CDN must use class-based dark mode for dark: utilities to react to .dark on <html> -->
+  <script>
+    tailwind = { config: { darkMode: 'class' } };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script src="components/header.js" defer></script>
   <script src="components/footer.js" defer></script>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-950 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-sky-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="transition-colors duration-300">
 
   <custom-header mode="simple" data-active="about"></custom-header>
 
   <main class="max-w-6xl mx-auto px-4 py-10">
-    <section class="max-w-3xl bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-2xl shadow-lg p-8 md:p-10">
-      <h1 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900 dark:text-slate-50">
+    <!-- Targeted edit: remove duplicated/unfinished second section and keep one clean About card -->
+    <section class="max-w-3xl az-card">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-sm font-medium accent-text mb-6"
+      >
+        ← Back to live map
+      </a>
+
+      <h1 class="text-2xl md:text-3xl font-bold mb-4">
         About the Artiligenz Live Directory
       </h1>
 
-      <p class="text-xs md:text-sm uppercase tracking-wide text-indigo-500 font-semibold mb-2">
+      <p class="text-xs md:text-sm uppercase tracking-wide accent-text font-semibold mb-2">
         What is this?
       </p>
-      <p class="mb-6 leading-relaxed text-slate-700 dark:text-slate-200 text-sm md:text-base">
+      <p class="mb-6 leading-relaxed text-sm md:text-base">
         The Artiligenz Live Directory is a visual map of the modern AI ecosystem. Each node represents
         a company or product. Connections and groupings show how they relate across categories such as
         foundation models, assistants, creative media, data &amp; MLOps, cloud infrastructure, and more.
       </p>
 
-      <p class="text-xs md:text-sm uppercase tracking-wide text-indigo-500 font-semibold mb-2">
+      <p class="text-xs md:text-sm uppercase tracking-wide accent-text font-semibold mb-2">
         How it’s organised
       </p>
-      <ul class="list-disc list-inside space-y-2 mb-6 leading-relaxed text-slate-700 dark:text-slate-200 text-sm md:text-base">
+      <ul class="list-disc list-inside space-y-2 mb-6 leading-relaxed text-sm md:text-base">
         <li>
-          <span class="font-semibold">Universe view</span> shows a full “galaxy” of AI entities,
+          <span class="font-semibold">Universe view</span> shows a full "galaxy" of AI entities,
           clustered into orbits and tiers (suns, planets, moons) based on their role and relative scale.
         </li>
         <li>
@@ -53,58 +68,36 @@
         </li>
       </ul>
 
-      <p class="text-xs md:text-sm uppercase tracking-wide text-indigo-500 font-semibold mb-2">
-        Who it’s for
+      <p class="text-xs md:text-sm uppercase tracking-wide accent-text font-semibold mb-2">
+        Who it's for
       </p>
-      <p class="mb-4 leading-relaxed text-slate-700 dark:text-slate-200 text-sm md:text-base">
+      <p class="mb-4 leading-relaxed text-sm md:text-base">
         The directory is designed for people who need a clear, high-level picture of AI:
       </p>
-      <ul class="list-disc list-inside space-y-2 mb-6 leading-relaxed text-slate-700 dark:text-slate-200 text-sm md:text-base">
+      <ul class="list-disc list-inside space-y-2 mb-6 leading-relaxed text-sm md:text-base">
         <li>Founders and product teams exploring the competitive landscape.</li>
         <li>Investors and analysts tracking emerging categories and key players.</li>
         <li>Researchers and practitioners looking for tools, platforms, and partners.</li>
-        <li>Anyone simply curious about “who does what” in the AI ecosystem.</li>
+        <li>Anyone simply curious about "who does what" in the AI ecosystem.</li>
       </ul>
 
-      <p class="text-xs md:text-sm uppercase tracking-wide text-indigo-500 font-semibold mb-2">
+      <p class="text-xs md:text-sm uppercase tracking-wide accent-text font-semibold mb-2">
         How to read it
       </p>
-      <p class="mb-2 leading-relaxed text-slate-700 dark:text-slate-200 text-sm md:text-base">
+      <p class="mb-2 leading-relaxed text-sm md:text-base">
         Each point in the map is a company or product. Colours map to high-level categories, and size
         roughly reflects prominence or scale. Clicking a node reveals a compact micro-card, and the
-        “More” option opens a richer profile in the info drawer with links and additional context.
+        "More" option opens a richer profile in the info drawer with links and additional context.
       </p>
-      <p class="leading-relaxed text-slate-700 dark:text-slate-200 text-sm md:text-base">
-        The goal isn’t to be exhaustive; it’s to be readable. The directory favours clarity over noise,
+      <p class="leading-relaxed text-sm md:text-base">
+        The goal isn't to be exhaustive; it's to be readable. The directory favours clarity over noise,
         so you can get oriented quickly and then drill down where it matters.
       </p>
     </section>
-    <section class="max-w-3xl bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-2xl shadow-lg p-8 md:p-10">
-  <a
-    href="index.html"
-    class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-700 mb-4"
-  >
-    ← Back to live map
-  </a>
-
-  <h1 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900 dark:text-slate-50">
-    About the Artiligenz Live Directory
-  </h1>
-  ...
-</section>
-
   </main>
 
   <custom-footer></custom-footer>
 
-  <script>
-    (function () {
-      const stored = localStorage.getItem('theme');
-      const prefersDark =
-        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = stored === 'dark' || (!stored && prefersDark);
-      document.documentElement.classList.toggle('dark', isDark);
-    })();
-  </script>
+  <!-- Targeted edit: removed inline theme init (now handled by theme.js) -->
 </body>
-</html>
+</html> 

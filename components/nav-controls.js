@@ -1,12 +1,12 @@
 // components/nav-controls.js
 class NavControls extends HTMLElement {
   constructor() {
-  super();
-  this._minPanY = null;          // will be set lazily in grid mode
-  this._currentMode = 'universe'; // default
-  this._modeListener = null;
-  this._visListener = null;
-}
+    super();
+    this._minPanY = null;           // legacy (grid clamp removed, kept harmlessly)
+    this._currentMode = 'universe'; // default
+    this._modeListener = null;
+    this._visListener = null;
+  }
 
   connectedCallback() {
     this.attachShadow({ mode: 'open' });
@@ -86,53 +86,33 @@ class NavControls extends HTMLElement {
 
         :host-context(html.dark) button {
           background: rgba(15,23,42,0.95);
-          color: #e5e7eb;
-          border-color: rgba(148,163,184,0.55);
+          border-color: rgba(56,189,248,0.35);
+          color: rgba(226,232,240,0.98);
         }
 
         :host-context(html.dark) button:hover {
-          background: rgba(30,64,175,0.96);
-          border-color: rgba(56,189,248,0.7);
-          box-shadow:
-            0 0 18px rgba(56,189,248,0.8),
-            0 10px 26px rgba(15,23,42,0.85);
+          background: rgba(30,41,59,0.96);
+          box-shadow: 0 0 0 1px rgba(56,189,248,0.25);
         }
 
         :host-context(html.dark) button:active {
-          background: rgba(56,189,248,0.98);
-          border-color: rgba(125,211,252,1);
-          color: #0b1120;
-          box-shadow:
-            0 0 22px rgba(56,189,248,0.95),
-            0 16px 40px rgba(15,23,42,0.9);
-          transform: scale(0.95);
-        }
-
-        /* Compact on very small screens */
-        @media (max-width: 640px) {
-          :host {
-            top: 96px;
-          }
-          .dock {
-            padding: 6px 8px;
-          }
-          button {
-            width: 28px;
-            height: 28px;
-          }
+          background: rgba(56,189,248,0.92);
+          border-color: rgba(56,189,248,1);
+          color: #0b1220;
+          box-shadow: 0 0 0 1px rgba(56,189,248,0.55);
         }
       </style>
 
       <div class="dock">
-        <!-- Horizontal order, still intuitive: Up, Left, Reset, Right, Down, then Zoom -->
-        <button data-act="up"        title="Pan up">▲</button>
-        <button data-act="left"      title="Pan left">◀</button>
-        <button data-act="reset"     title="Reset view">⟳</button>
-        <button data-act="right"     title="Pan right">▶</button>
-        <button data-act="down"      title="Pan down">▼</button>
-        <div class="sep"></div>
-        <button data-act="zoom-in"   title="Zoom in">＋</button>
-        <button data-act="zoom-out"  title="Zoom out">－</button>
+        <button data-act="up" aria-label="Pan up">↑</button>
+        <button data-act="down" aria-label="Pan down">↓</button>
+        <button data-act="left" aria-label="Pan left">←</button>
+        <button data-act="right" aria-label="Pan right">→</button>
+        <span class="sep"></span>
+        <button data-act="zoom-in" aria-label="Zoom in">＋</button>
+        <button data-act="zoom-out" aria-label="Zoom out">－</button>
+        <span class="sep"></span>
+        <button data-act="reset" aria-label="Reset view">⟲</button>
       </div>
     `;
 
@@ -141,8 +121,6 @@ class NavControls extends HTMLElement {
 
     const PAN_STEP = 70;
     const ZOOM_STEP = 0.12;
-    const MIN_PAN_Y = 0;
-    this._minPanY = MIN_PAN_Y;
 
     const actions = {
       'up':       () => this.panBy(0, -PAN_STEP),
@@ -192,7 +170,7 @@ class NavControls extends HTMLElement {
       attachPressRepeat(btn, fn);
     });
 
-    // Track current mode (universe / grid / orbit)
+    // Track current mode (universe / grid / orbit) — kept for compatibility
     this._modeListener = (e) => {
       const mode = e.detail && e.detail.mode;
       if (mode) this._currentMode = mode;
@@ -221,8 +199,9 @@ class NavControls extends HTMLElement {
     }
   }
 
+  // ✅ Use the app’s actual Cytoscape handle (scripts.js exposes window.__cy)
   get cy() {
-    return window.cy || null;
+    return window.__cy || window.cy || null;
   }
 
   show() { this._applyVisibility(true); }
@@ -236,27 +215,14 @@ class NavControls extends HTMLElement {
     this.style.display = visible ? 'block' : 'none';
   }
 
+  // ✅ Free motion pan (grid clamp removed)
   panBy(dx, dy) {
-  const cy = this.cy;
-  if (!cy) return;
+    const cy = this.cy;
+    if (!cy) return;
 
-  const p = cy.pan();
-  let newX = p.x + dx;
-  let newY = p.y + dy;
-
-  // Only apply the vertical clamp in GRID view
-  if (this._currentMode === 'grid') {
-    // Lazily capture the "top" pan when grid is first used
-    if (this._minPanY == null) {
-      this._minPanY = p.y;
-    }
-    if (newY > this._minPanY) {
-      newY = this._minPanY;
-    }
+    const p = cy.pan();
+    cy.pan({ x: p.x + dx, y: p.y + dy });
   }
-
-  cy.pan({ x: newX, y: newY });
-}
 
   zoomBy(delta) {
     const cy = this.cy;
@@ -270,10 +236,10 @@ class NavControls extends HTMLElement {
     });
   }
 
+  // ✅ Grid view is redundant → reset always returns to universe
   resetView() {
     const cy = this.cy;
-    const currentMode = this._currentMode || 'universe';
-    const targetMode = (currentMode === 'grid') ? 'grid' : 'universe';
+    const targetMode = 'universe';
 
     const sidebar = document.querySelector('custom-sidebar');
     if (sidebar && sidebar.shadowRoot) {

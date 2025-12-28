@@ -4,5 +4,9 @@
   const { placeOrbital } = window.OrbitalView;
   const { smartFit } = window.ViewUtils;
 
-  window.Views = { placeUniverse, placeOrbital, smartFit };
+  // ✅ Grid view module
+  const placeGrid = (cy) => window.GridView?.apply?.(cy);
+  const destroyGrid = () => window.GridView?.destroy?.();
+
+  window.Views = { placeUniverse, placeOrbital, smartFit, placeGrid, destroyGrid };
 })();

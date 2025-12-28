@@ -7,15 +7,22 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Tailwind (dev only) -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
+  <!-- Phase 2: unified theme behavior for all pages -->
+  <script src="theme.js" defer></script>
+
+  <!-- REQUIRED: Tailwind CDN must use class-based dark mode for dark: utilities to react to .dark on <html> -->
+  <script>
+    tailwind = { config: { darkMode: 'class' } };
+  </script>
+  <!-- Keep Tailwind CDN non-deferred to avoid dark: timing/FOUC issues -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Core libs -->
   <script src="https://unpkg.com/cytoscape@3.28.0/dist/cytoscape.min.js" defer></script>
   <script src="https://unpkg.com/feather-icons" defer></script>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+<body class="bg-gray-100 dark:bg-gray-950 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-sky-950 transition-colors duration-300">
   <custom-header data-active="home"></custom-header>
 
   <main class="container mx-auto px-4 py-8">
@@ -35,33 +42,43 @@
     </div>
   </main>
 
-  
-
   <!-- Components -->
   <script src="components/header.js" defer></script>
   <script src="components/sidebar.js" defer></script>
   <script src="components/footer.js" defer></script>
   <script src="components/drawer.js" defer></script>
+  
+   <script src="HedronLayout.js"></script>
+  <!-- Data (REQUIRED ORDER) -->
+  <script src="data/directory.edges.js" defer></script>
+  <script src="data/directory_suns.js" defer></script>
+  <script src="data/directory_planets_moons.js" defer></script>
+  
+  
+ 
 
-  <!-- Data -->
-  <script src="data/directory.js" defer></script>
+  <!-- Optional supporting data -->
   <script src="data/company_summaries.js" defer></script>
 
   <!-- Layout / Skin -->
   <script src="layouts/layouts.js" defer></script>
   <script src="skins/defaultskin.js" defer></script>
 
+  <!-- New extracted modules (must load before scripts.js) -->
+  <script src="components/starfield.js"></script>
+  <script src="components/microcard.js"></script>
+
   <!-- Views -->
+   <script src="HedronLayout.js"></script>
   <script src="views/utils.js" defer></script>
   <script src="views/universeview.js" defer></script>
   <script src="views/orbitalview.js" defer></script>
+  <script src="views/gridview.js" defer></script>
   <script src="views/index.js" defer></script>
 
-  <!-- *** IMPORTANT ***
-       Nav Controls must load WITHOUT defer 
-       so the element definition exists before scripts.js runs -->
+  <!-- IMPORTANT: Nav Controls must load WITHOUT defer -->
   <script src="components/nav-controls.js"></script>
-
+  
   <!-- App entry -->
   <script src="scripts.js" defer></script>
 

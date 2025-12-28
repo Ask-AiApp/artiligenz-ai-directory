@@ -1,3757 +1,1685 @@
-// Auto-generated from company_summaries.json
-// Do not edit by hand. Regenerate from the source JSON if needed.
+// Auto-generated from directory_Updated.js + AI Company Solar System Schema 26_12_25.docx
+// Updated with summaries and use case meta tags
+// Do not edit by hand. Regenerate from the source files if needed.
 
 window.CompanySummaries = {
-  "Microsoft": {
-    "name": "Microsoft",
-    "type": "parent",
-    "url": "",
+  // ===== SUNS (Foundational Models & Core AI Platforms) =====
+  "parent:OpenAI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "GPT (OpenAI)",
+    "notes": "",
     "parent": null,
-    "summary": "Microsoft is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Google": {
-    "name": "Google",
+    "summary": "OpenAI's GPT series represents the most widely recognized family of large language models, pioneering transformer-based architectures and setting benchmarks for natural language understanding and generation.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Google is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://openai.com",
+    "use_case_tags": ["Foundation Models", "Assistants & Search", "Productivity", "Creative Media", "Education & Learning", "Dev Tools"]
   },
-  "Meta Platforms": {
-    "name": "Meta Platforms",
+  "parent:Google-Gemini": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Gemini (Google)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Google's multimodal AI model family that natively processes text, images, audio, and video, representing Google's flagship AI system integrated across search, workspace, and cloud services.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Meta Platforms is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://deepmind.google/gemini",
+    "use_case_tags": ["Foundation Models", "Assistants & Search", "Cloud & Infra", "Productivity", "Enterprise Apps", "Creative Media"]
   },
-  "Apple": {
-    "name": "Apple",
+  "parent:Anthropic": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Claude (Anthropic)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "AI assistant developed with constitutional AI principles, emphasizing safety, helpfulness, and honesty, with industry-leading context windows for document processing.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Apple is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://anthropic.com/claude",
+    "use_case_tags": ["Foundation Models", "Assistants & Search", "Enterprise Apps", "Productivity", "Education & Learning", "Dev Tools"]
   },
-  "Amazon": {
-    "name": "Amazon",
+  "parent:Meta-Llama": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Llama (Meta)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Meta's open-weight large language model family that has democratized access to state-of-the-art AI, powering research, commercial applications, and Meta's own AI products.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Amazon is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://llama.meta.com",
+    "use_case_tags": ["Foundation Models", "Dev Tools", "Open Source", "Research", "Enterprise Apps", "Cloud & Infra"]
   },
-  "NVIDIA": {
-    "name": "NVIDIA",
+  "parent:xAI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Grok (xAI)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "AI assistant developed by Elon Musk's xAI, integrated with X (formerly Twitter), featuring real-time knowledge access and a distinctive personality.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "NVIDIA is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://x.ai",
+    "use_case_tags": ["Assistants & Search", "Foundation Models", "Real-time Data", "Social Media", "Productivity", "Education & Learning"]
   },
-  "AMD": {
-    "name": "AMD",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "AMD is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Intel": {
-    "name": "Intel",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Intel is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Oracle": {
-    "name": "Oracle",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Oracle is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "IBM": {
-    "name": "IBM",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "IBM is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Salesforce": {
-    "name": "Salesforce",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Salesforce is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Snowflake": {
-    "name": "Snowflake",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Snowflake is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Databricks": {
-    "name": "Databricks",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Databricks is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "OpenAI": {
-    "name": "OpenAI",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "OpenAI is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Anthropic": {
-    "name": "Anthropic",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Anthropic is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "xAI": {
-    "name": "xAI",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "xAI is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cohere": {
+  "parent:Cohere": {
+    "last_updated": "2025-12-27T12:00:00Z",
     "name": "Cohere",
-    "type": "parent",
-    "url": "",
+    "notes": "",
     "parent": null,
-    "summary": "Cohere is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Hugging Face": {
-    "name": "Hugging Face",
+    "summary": "Enterprise-focused AI platform specializing in retrieval-augmented generation (RAG), multilingual capabilities, and secure deployment for business applications.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Hugging Face is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://cohere.com",
+    "use_case_tags": ["Enterprise Apps", "Foundation Models", "Cloud & Infra", "Productivity", "Assistants & Search", "Multilingual"]
   },
-  "Palantir": {
-    "name": "Palantir",
+  "parent:DeepSeek": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "DeepSeek",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Chinese AI company developing powerful open-source language models and assistants, known for strong reasoning capabilities and cost-effective deployment options.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Palantir is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://deepseek.com",
+    "use_case_tags": ["Foundation Models", "Dev Tools", "Open Source", "Productivity", "Education & Learning", "Assistants & Search"]
   },
-  "Adobe": {
-    "name": "Adobe",
+  "parent:01AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Yi (01.AI)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "High-performance Chinese-English bilingual models achieving competitive benchmarks with efficient training approaches and strong reasoning capabilities.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Adobe is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://01.ai",
+    "use_case_tags": ["Foundation Models", "Bilingual AI", "High Performance", "Research", "Enterprise Apps", "Dev Tools"]
   },
-  "ServiceNow": {
-    "name": "ServiceNow",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "ServiceNow is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Qualcomm": {
-    "name": "Qualcomm",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Qualcomm is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SAP": {
-    "name": "SAP",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "SAP is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Siemens": {
-    "name": "Siemens",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Siemens is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bosch": {
-    "name": "Bosch",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Bosch is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Aleph Alpha": {
-    "name": "Aleph Alpha",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Aleph Alpha is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Arm": {
-    "name": "Arm",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Arm is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Graphcore": {
-    "name": "Graphcore",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Graphcore is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Stability AI": {
-    "name": "Stability AI",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Stability AI is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "NXP Semiconductors": {
-    "name": "NXP Semiconductors",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "NXP Semiconductors is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ASML": {
-    "name": "ASML",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "ASML is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ABB": {
-    "name": "ABB",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "ABB is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Baidu": {
-    "name": "Baidu",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Baidu is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Alibaba Group": {
-    "name": "Alibaba Group",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Alibaba Group is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Tencent": {
-    "name": "Tencent",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Tencent is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ByteDance": {
-    "name": "ByteDance",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "ByteDance is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Huawei": {
-    "name": "Huawei",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Huawei is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SenseTime": {
-    "name": "SenseTime",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "SenseTime is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Megvii": {
-    "name": "Megvii",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Megvii is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "iFlytek": {
-    "name": "iFlytek",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "iFlytek is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "01.AI": {
-    "name": "01.AI",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "01.AI is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Zhipu AI": {
-    "name": "Zhipu AI",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Zhipu AI is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Samsung Electronics": {
-    "name": "Samsung Electronics",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Samsung Electronics is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Naver": {
-    "name": "Naver",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Naver is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Kakao": {
-    "name": "Kakao",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Kakao is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Preferred Networks": {
-    "name": "Preferred Networks",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Preferred Networks is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Sony Group": {
-    "name": "Sony Group",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Sony Group is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "G42": {
-    "name": "G42",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "G42 is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MGX": {
-    "name": "MGX",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "MGX is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Saudi Company for Artificial Intelligence (SCAI)": {
-    "name": "Saudi Company for Artificial Intelligence (SCAI)",
-    "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Saudi Company for Artificial Intelligence (SCAI) is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mistral AI": {
+  "parent:Mistral": {
+    "last_updated": "2025-12-27T12:00:00Z",
     "name": "Mistral AI",
-    "type": "parent",
-    "url": "",
+    "notes": "",
     "parent": null,
-    "summary": "Mistral AI is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cerebras Systems": {
-    "name": "Cerebras Systems",
+    "summary": "French AI company producing efficient open-weight models optimized for European languages and enterprise deployment, challenging larger competitors with specialized architectures.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Cerebras Systems is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://mistral.ai",
+    "use_case_tags": ["Foundation Models", "Enterprise Apps", "Cloud & Infra", "Open Source", "Multilingual", "Dev Tools"]
   },
-  "Runway": {
-    "name": "Runway",
+  "parent:AI21": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Jurassic (AI21 Labs)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Israeli AI company's model family emphasizing controllable text generation and specialized writing assistants for professional content creation.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Runway is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://ai21.com",
+    "use_case_tags": ["Foundation Models", "Content Creation", "Productivity", "Enterprise Apps", "Creative Writing", "Dev Tools"]
   },
-  "ElevenLabs": {
-    "name": "ElevenLabs",
+  "parent:Baidu": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Ernie (Baidu)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Baidu's flagship AI model powering China's largest search engine and enterprise AI services, with strong Chinese language understanding and industry applications.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "ElevenLabs is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://yiyan.baidu.com",
+    "use_case_tags": ["Foundation Models", "Assistants & Search", "Enterprise Apps", "Chinese NLP", "Cloud & Infra", "Education & Learning"]
   },
-  "AI21 Labs": {
-    "name": "AI21 Labs",
+  "parent:Alibaba": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Qwen (Alibaba)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Alibaba Cloud's comprehensive model family covering language, vision, and audio, deeply integrated with Alibaba's e-commerce and cloud ecosystems.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "AI21 Labs is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://tongyi.aliyun.com",
+    "use_case_tags": ["Foundation Models", "E-commerce", "Cloud & Infra", "Multimodal", "Enterprise Apps", "Chinese NLP"]
   },
-  "Wix": {
-    "name": "Wix",
+  "parent:Tencent": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Hunyuan (Tencent)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Tencent's multimodal AI system integrated across WeChat, gaming, and advertising platforms, optimized for Chinese digital ecosystems.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Wix is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://hunyuan.tencent.com",
+    "use_case_tags": ["Foundation Models", "Social Media", "Gaming", "Advertising", "Multimodal", "Enterprise Apps"]
   },
-  "Tata Consultancy Services (TCS)": {
-    "name": "Tata Consultancy Services (TCS)",
+  "parent:TII": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Falcon (TII)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "UAE's Technology Innovation Institute's open-source model family emphasizing efficiency and Middle Eastern language support, challenging established Western models.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Tata Consultancy Services (TCS) is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://falconllm.tii.ae",
+    "use_case_tags": ["Foundation Models", "Open Source", "Middle Eastern NLP", "Research", "Dev Tools", "Cloud & Infra"]
   },
-  "Infosys": {
-    "name": "Infosys",
+  "parent:Databricks": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "MPT (MosaicML)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Efficient transformer models optimized for fast training and inference, with strong commercial use licensing and specialized variants.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Infosys is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://www.mosaicml.com/mpt",
+    "use_case_tags": ["Enterprise Apps", "Efficient AI", "Cloud & Infra", "Dev Tools", "Foundation Models", "Commercial Use"]
   },
-  "Grab": {
-    "name": "Grab",
+  "parent:BigScience": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "BLOOM (BigScience)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Multilingual large language model developed through international collaboration, emphasizing ethical AI development and diverse language support.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Grab is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://bigscience.huggingface.co/bloom",
+    "use_case_tags": ["Multilingual", "Research", "Open Source", "Foundation Models", "Global AI", "Education & Learning"]
   },
-  "AI Singapore (AISG)": {
-    "name": "AI Singapore (AISG)",
+  "parent:Zhipu": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "ChatGLM (Zhipu AI)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Chinese bilingual GLM architecture models known for efficient deployment and strong performance in both English and Chinese contexts.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "AI Singapore (AISG) is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://chatglm.cn",
+    "use_case_tags": ["Foundation Models", "Bilingual AI", "Enterprise Apps", "Cloud & Infra", "Productivity", "Education & Learning"]
   },
-  "Temasek": {
-    "name": "Temasek",
+  "parent:G42": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Jais (G42)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "World's highest-performing Arabic large language model, developed for the Middle Eastern market with strong Arabic language capabilities.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Temasek is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://www.g42.ai/jais",
+    "use_case_tags": ["Foundation Models", "Arabic NLP", "Regional AI", "Enterprise Apps", "Education & Learning", "Multilingual"]
   },
-  "LightOn": {
-    "name": "LightOn",
+  "parent:Google-BERT": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "BERT (Google)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Transformer-based model revolutionizing natural language understanding through bidirectional context, foundational to modern NLP.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "LightOn is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://ai.google/research/pubs/pub48151",
+    "use_case_tags": ["Foundation Models", "NLP Research", "Dev Tools", "Search", "Enterprise Apps", "Education & Learning"]
   },
-  "Lambda Labs": {
-    "name": "Lambda Labs",
+  "parent:Google-PaLM": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "PaLM (Google)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Google's Pathways Language Model preceding Gemini, demonstrating breakthrough capabilities in reasoning and multilingual understanding.",
     "type": "parent",
-    "url": "",
-    "parent": null,
-    "summary": "Lambda Labs is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "url": "https://ai.google/discover/palm2",
+    "use_case_tags": ["Foundation Models", "Research", "Reasoning", "Multilingual", "Education & Learning", "Dev Tools"]
   },
-  "CoreWeave": {
-    "name": "CoreWeave",
+  "parent:EleutherAI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "GPT-NeoX (EleutherAI)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Open-source replication of GPT architecture by EleutherAI, advancing accessible AI research and community-driven model development.",
     "type": "parent",
-    "url": "",
+    "url": "https://www.eleuther.ai/projects/gpt-neox",
+    "use_case_tags": ["Open Source", "Research", "Foundation Models", "Community", "Dev Tools", "Education & Learning"]
+  },
+  "parent:Meta-OPT": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "OPT (Meta)",
+    "notes": "",
     "parent": null,
-    "summary": "CoreWeave is a company listed in your AI ecosystem dataset. This entry is pending a richer summary from the official site or trusted sources. Include products, customers, role in the AI stack, and notable highlights.",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Copilot": {
-    "name": "Copilot",
-    "type": "orbit",
-    "url": "",
-    "parent": "Microsoft",
-    "summary": "Copilot is an orbiting entity associated with Microsoft. This placeholder will be refined. Describe what it does, how it relates to Microsoft, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "GitHub": {
-    "name": "GitHub",
-    "type": "orbit",
-    "url": "",
-    "parent": "Microsoft",
-    "summary": "GitHub is an orbiting entity associated with Microsoft. This placeholder will be refined. Describe what it does, how it relates to Microsoft, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "LinkedIn": {
-    "name": "LinkedIn",
-    "type": "orbit",
-    "url": "",
-    "parent": "Microsoft",
-    "summary": "LinkedIn is an orbiting entity associated with Microsoft. This placeholder will be refined. Describe what it does, how it relates to Microsoft, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Azure AI": {
-    "name": "Azure AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Microsoft",
-    "summary": "Azure AI is an orbiting entity associated with Microsoft. This placeholder will be refined. Describe what it does, how it relates to Microsoft, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Nuance Communications": {
-    "name": "Nuance Communications",
-    "type": "orbit",
-    "url": "",
-    "parent": "Microsoft",
-    "summary": "Nuance Communications is an orbiting entity associated with Microsoft. This placeholder will be refined. Describe what it does, how it relates to Microsoft, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Google DeepMind": {
-    "name": "Google DeepMind",
-    "type": "orbit",
-    "url": "",
-    "parent": "Google",
-    "summary": "Google DeepMind is an orbiting entity associated with Google. This placeholder will be refined. Describe what it does, how it relates to Google, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Gemini": {
-    "name": "Gemini",
-    "type": "orbit",
-    "url": "",
-    "parent": "Google",
-    "summary": "Gemini is an orbiting entity associated with Google. This placeholder will be refined. Describe what it does, how it relates to Google, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Vertex AI": {
-    "name": "Vertex AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Google",
-    "summary": "Vertex AI is an orbiting entity associated with Google. This placeholder will be refined. Describe what it does, how it relates to Google, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Google Cloud AI": {
-    "name": "Google Cloud AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Google",
-    "summary": "Google Cloud AI is an orbiting entity associated with Google. This placeholder will be refined. Describe what it does, how it relates to Google, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Waymo": {
-    "name": "Waymo",
-    "type": "orbit",
-    "url": "",
-    "parent": "Google",
-    "summary": "Waymo is an orbiting entity associated with Google. This placeholder will be refined. Describe what it does, how it relates to Google, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "FAIR (Meta AI Research)": {
-    "name": "FAIR (Meta AI Research)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Meta Platforms",
-    "summary": "FAIR (Meta AI Research) is an orbiting entity associated with Meta Platforms. This placeholder will be refined. Describe what it does, how it relates to Meta Platforms, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Llama": {
-    "name": "Llama",
-    "type": "orbit",
-    "url": "",
-    "parent": "Meta Platforms",
-    "summary": "Llama is an orbiting entity associated with Meta Platforms. This placeholder will be refined. Describe what it does, how it relates to Meta Platforms, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Instagram": {
-    "name": "Instagram",
-    "type": "orbit",
-    "url": "",
-    "parent": "Meta Platforms",
-    "summary": "Instagram is an orbiting entity associated with Meta Platforms. This placeholder will be refined. Describe what it does, how it relates to Meta Platforms, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "WhatsApp": {
-    "name": "WhatsApp",
-    "type": "orbit",
-    "url": "",
-    "parent": "Meta Platforms",
-    "summary": "WhatsApp is an orbiting entity associated with Meta Platforms. This placeholder will be refined. Describe what it does, how it relates to Meta Platforms, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Reality Labs": {
-    "name": "Reality Labs",
-    "type": "orbit",
-    "url": "",
-    "parent": "Meta Platforms",
-    "summary": "Reality Labs is an orbiting entity associated with Meta Platforms. This placeholder will be refined. Describe what it does, how it relates to Meta Platforms, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Siri": {
-    "name": "Siri",
-    "type": "orbit",
-    "url": "",
-    "parent": "Apple",
-    "summary": "Siri is an orbiting entity associated with Apple. This placeholder will be refined. Describe what it does, how it relates to Apple, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Apple Intelligence": {
-    "name": "Apple Intelligence",
-    "type": "orbit",
-    "url": "",
-    "parent": "Apple",
-    "summary": "Apple Intelligence is an orbiting entity associated with Apple. This placeholder will be refined. Describe what it does, how it relates to Apple, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Apple Neural Engine (ANE)": {
-    "name": "Apple Neural Engine (ANE)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Apple",
-    "summary": "Apple Neural Engine (ANE) is an orbiting entity associated with Apple. This placeholder will be refined. Describe what it does, how it relates to Apple, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Turi": {
-    "name": "Turi",
-    "type": "orbit",
-    "url": "",
-    "parent": "Apple",
-    "summary": "Turi is an orbiting entity associated with Apple. This placeholder will be refined. Describe what it does, how it relates to Apple, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "XNOR.ai": {
-    "name": "XNOR.ai",
-    "type": "orbit",
-    "url": "",
-    "parent": "Apple",
-    "summary": "XNOR.ai is an orbiting entity associated with Apple. This placeholder will be refined. Describe what it does, how it relates to Apple, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AWS SageMaker": {
-    "name": "AWS SageMaker",
-    "type": "orbit",
-    "url": "",
-    "parent": "Amazon",
-    "summary": "AWS SageMaker is an orbiting entity associated with Amazon. This placeholder will be refined. Describe what it does, how it relates to Amazon, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Amazon Bedrock": {
-    "name": "Amazon Bedrock",
-    "type": "orbit",
-    "url": "",
-    "parent": "Amazon",
-    "summary": "Amazon Bedrock is an orbiting entity associated with Amazon. This placeholder will be refined. Describe what it does, how it relates to Amazon, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Alexa": {
-    "name": "Alexa",
-    "type": "orbit",
-    "url": "",
-    "parent": "Amazon",
-    "summary": "Alexa is an orbiting entity associated with Amazon. This placeholder will be refined. Describe what it does, how it relates to Amazon, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Ring": {
-    "name": "Ring",
-    "type": "orbit",
-    "url": "",
-    "parent": "Amazon",
-    "summary": "Ring is an orbiting entity associated with Amazon. This placeholder will be refined. Describe what it does, how it relates to Amazon, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Zoox": {
-    "name": "Zoox",
-    "type": "orbit",
-    "url": "",
-    "parent": "Amazon",
-    "summary": "Zoox is an orbiting entity associated with Amazon. This placeholder will be refined. Describe what it does, how it relates to Amazon, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "CUDA": {
-    "name": "CUDA",
-    "type": "orbit",
-    "url": "",
-    "parent": "NVIDIA",
-    "summary": "CUDA is an orbiting entity associated with NVIDIA. This placeholder will be refined. Describe what it does, how it relates to NVIDIA, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "DGX Systems": {
-    "name": "DGX Systems",
-    "type": "orbit",
-    "url": "",
-    "parent": "NVIDIA",
-    "summary": "DGX Systems is an orbiting entity associated with NVIDIA. This placeholder will be refined. Describe what it does, how it relates to NVIDIA, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Omniverse": {
-    "name": "Omniverse",
-    "type": "orbit",
-    "url": "",
-    "parent": "NVIDIA",
-    "summary": "Omniverse is an orbiting entity associated with NVIDIA. This placeholder will be refined. Describe what it does, how it relates to NVIDIA, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "NVIDIA AI Enterprise": {
-    "name": "NVIDIA AI Enterprise",
-    "type": "orbit",
-    "url": "",
-    "parent": "NVIDIA",
-    "summary": "NVIDIA AI Enterprise is an orbiting entity associated with NVIDIA. This placeholder will be refined. Describe what it does, how it relates to NVIDIA, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mellanox Technologies": {
-    "name": "Mellanox Technologies",
-    "type": "orbit",
-    "url": "",
-    "parent": "NVIDIA",
-    "summary": "Mellanox Technologies is an orbiting entity associated with NVIDIA. This placeholder will be refined. Describe what it does, how it relates to NVIDIA, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ROCm": {
-    "name": "ROCm",
-    "type": "orbit",
-    "url": "",
-    "parent": "AMD",
-    "summary": "ROCm is an orbiting entity associated with AMD. This placeholder will be refined. Describe what it does, how it relates to AMD, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Instinct Accelerators": {
-    "name": "Instinct Accelerators",
-    "type": "orbit",
-    "url": "",
-    "parent": "AMD",
-    "summary": "Instinct Accelerators is an orbiting entity associated with AMD. This placeholder will be refined. Describe what it does, how it relates to AMD, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Xilinx": {
-    "name": "Xilinx",
-    "type": "orbit",
-    "url": "",
-    "parent": "AMD",
-    "summary": "Xilinx is an orbiting entity associated with AMD. This placeholder will be refined. Describe what it does, how it relates to AMD, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Pensando": {
-    "name": "Pensando",
-    "type": "orbit",
-    "url": "",
-    "parent": "AMD",
-    "summary": "Pensando is an orbiting entity associated with AMD. This placeholder will be refined. Describe what it does, how it relates to AMD, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Ryzen AI": {
-    "name": "Ryzen AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "AMD",
-    "summary": "Ryzen AI is an orbiting entity associated with AMD. This placeholder will be refined. Describe what it does, how it relates to AMD, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Habana Labs": {
-    "name": "Habana Labs",
-    "type": "orbit",
-    "url": "",
-    "parent": "Intel",
-    "summary": "Habana Labs is an orbiting entity associated with Intel. This placeholder will be refined. Describe what it does, how it relates to Intel, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Gaudi": {
-    "name": "Gaudi",
-    "type": "orbit",
-    "url": "",
-    "parent": "Intel",
-    "summary": "Gaudi is an orbiting entity associated with Intel. This placeholder will be refined. Describe what it does, how it relates to Intel, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "OpenVINO": {
-    "name": "OpenVINO",
-    "type": "orbit",
-    "url": "",
-    "parent": "Intel",
-    "summary": "OpenVINO is an orbiting entity associated with Intel. This placeholder will be refined. Describe what it does, how it relates to Intel, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Intel Core Ultra NPU": {
-    "name": "Intel Core Ultra NPU",
-    "type": "orbit",
-    "url": "",
-    "parent": "Intel",
-    "summary": "Intel Core Ultra NPU is an orbiting entity associated with Intel. This placeholder will be refined. Describe what it does, how it relates to Intel, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Xeon AI features": {
-    "name": "Xeon AI features",
-    "type": "orbit",
-    "url": "",
-    "parent": "Intel",
-    "summary": "Xeon AI features is an orbiting entity associated with Intel. This placeholder will be refined. Describe what it does, how it relates to Intel, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Oracle Cloud Infrastructure (OCI) AI": {
-    "name": "Oracle Cloud Infrastructure (OCI) AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Oracle",
-    "summary": "Oracle Cloud Infrastructure (OCI) AI is an orbiting entity associated with Oracle. This placeholder will be refined. Describe what it does, how it relates to Oracle, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cerner": {
-    "name": "Cerner",
-    "type": "orbit",
-    "url": "",
-    "parent": "Oracle",
-    "summary": "Cerner is an orbiting entity associated with Oracle. This placeholder will be refined. Describe what it does, how it relates to Oracle, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MySQL HeatWave AutoML/AI": {
-    "name": "MySQL HeatWave AutoML/AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Oracle",
-    "summary": "MySQL HeatWave AutoML/AI is an orbiting entity associated with Oracle. This placeholder will be refined. Describe what it does, how it relates to Oracle, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Oracle Data Science": {
-    "name": "Oracle Data Science",
-    "type": "orbit",
-    "url": "",
-    "parent": "Oracle",
-    "summary": "Oracle Data Science is an orbiting entity associated with Oracle. This placeholder will be refined. Describe what it does, how it relates to Oracle, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Fusion Apps with AI": {
-    "name": "Fusion Apps with AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Oracle",
-    "summary": "Fusion Apps with AI is an orbiting entity associated with Oracle. This placeholder will be refined. Describe what it does, how it relates to Oracle, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "watsonx": {
-    "name": "watsonx",
-    "type": "orbit",
-    "url": "",
-    "parent": "IBM",
-    "summary": "watsonx is an orbiting entity associated with IBM. This placeholder will be refined. Describe what it does, how it relates to IBM, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Red Hat": {
-    "name": "Red Hat",
-    "type": "orbit",
-    "url": "",
-    "parent": "IBM",
-    "summary": "Red Hat is an orbiting entity associated with IBM. This placeholder will be refined. Describe what it does, how it relates to IBM, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "IBM Research AI": {
-    "name": "IBM Research AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "IBM",
-    "summary": "IBM Research AI is an orbiting entity associated with IBM. This placeholder will be refined. Describe what it does, how it relates to IBM, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Turbonomic": {
-    "name": "Turbonomic",
-    "type": "orbit",
-    "url": "",
-    "parent": "IBM",
-    "summary": "Turbonomic is an orbiting entity associated with IBM. This placeholder will be refined. Describe what it does, how it relates to IBM, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SPSS": {
-    "name": "SPSS",
-    "type": "orbit",
-    "url": "",
-    "parent": "IBM",
-    "summary": "SPSS is an orbiting entity associated with IBM. This placeholder will be refined. Describe what it does, how it relates to IBM, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Einstein": {
-    "name": "Einstein",
-    "type": "orbit",
-    "url": "",
-    "parent": "Salesforce",
-    "summary": "Einstein is an orbiting entity associated with Salesforce. This placeholder will be refined. Describe what it does, how it relates to Salesforce, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Slack": {
-    "name": "Slack",
-    "type": "orbit",
-    "url": "",
-    "parent": "Salesforce",
-    "summary": "Slack is an orbiting entity associated with Salesforce. This placeholder will be refined. Describe what it does, how it relates to Salesforce, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Tableau": {
-    "name": "Tableau",
-    "type": "orbit",
-    "url": "",
-    "parent": "Salesforce",
-    "summary": "Tableau is an orbiting entity associated with Salesforce. This placeholder will be refined. Describe what it does, how it relates to Salesforce, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MuleSoft": {
-    "name": "MuleSoft",
-    "type": "orbit",
-    "url": "",
-    "parent": "Salesforce",
-    "summary": "MuleSoft is an orbiting entity associated with Salesforce. This placeholder will be refined. Describe what it does, how it relates to Salesforce, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Data Cloud": {
-    "name": "Data Cloud",
-    "type": "orbit",
-    "url": "",
-    "parent": "Salesforce",
-    "summary": "Data Cloud is an orbiting entity associated with Salesforce. This placeholder will be refined. Describe what it does, how it relates to Salesforce, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Snowflake Cortex AI": {
-    "name": "Snowflake Cortex AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Snowflake",
-    "summary": "Snowflake Cortex AI is an orbiting entity associated with Snowflake. This placeholder will be refined. Describe what it does, how it relates to Snowflake, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Streamlit": {
-    "name": "Streamlit",
-    "type": "orbit",
-    "url": "",
-    "parent": "Snowflake",
-    "summary": "Streamlit is an orbiting entity associated with Snowflake. This placeholder will be refined. Describe what it does, how it relates to Snowflake, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Neeva": {
-    "name": "Neeva",
-    "type": "orbit",
-    "url": "",
-    "parent": "Snowflake",
-    "summary": "Neeva is an orbiting entity associated with Snowflake. This placeholder will be refined. Describe what it does, how it relates to Snowflake, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Snowpark": {
-    "name": "Snowpark",
-    "type": "orbit",
-    "url": "",
-    "parent": "Snowflake",
-    "summary": "Snowpark is an orbiting entity associated with Snowflake. This placeholder will be refined. Describe what it does, how it relates to Snowflake, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Applica": {
-    "name": "Applica",
-    "type": "orbit",
-    "url": "",
-    "parent": "Snowflake",
-    "summary": "Applica is an orbiting entity associated with Snowflake. This placeholder will be refined. Describe what it does, how it relates to Snowflake, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "DBRX": {
-    "name": "DBRX",
-    "type": "orbit",
-    "url": "",
-    "parent": "Databricks",
-    "summary": "DBRX is an orbiting entity associated with Databricks. This placeholder will be refined. Describe what it does, how it relates to Databricks, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MosaicML": {
-    "name": "MosaicML",
-    "type": "orbit",
-    "url": "",
-    "parent": "Databricks",
-    "summary": "MosaicML is an orbiting entity associated with Databricks. This placeholder will be refined. Describe what it does, how it relates to Databricks, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Lakehouse Platform": {
-    "name": "Lakehouse Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "Databricks",
-    "summary": "Lakehouse Platform is an orbiting entity associated with Databricks. This placeholder will be refined. Describe what it does, how it relates to Databricks, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MLflow": {
-    "name": "MLflow",
-    "type": "orbit",
-    "url": "",
-    "parent": "Databricks",
-    "summary": "MLflow is an orbiting entity associated with Databricks. This placeholder will be refined. Describe what it does, how it relates to Databricks, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Unity Catalog": {
-    "name": "Unity Catalog",
-    "type": "orbit",
-    "url": "",
-    "parent": "Databricks",
-    "summary": "Unity Catalog is an orbiting entity associated with Databricks. This placeholder will be refined. Describe what it does, how it relates to Databricks, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ChatGPT": {
-    "name": "ChatGPT",
-    "type": "orbit",
-    "url": "",
-    "parent": "OpenAI",
-    "summary": "ChatGPT is an orbiting entity associated with OpenAI. This placeholder will be refined. Describe what it does, how it relates to OpenAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "GPT models": {
-    "name": "GPT models",
-    "type": "orbit",
-    "url": "",
-    "parent": "OpenAI",
-    "summary": "GPT models is an orbiting entity associated with OpenAI. This placeholder will be refined. Describe what it does, how it relates to OpenAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "DALL_E": {
-    "name": "DALL_E",
-    "type": "orbit",
-    "url": "",
-    "parent": "OpenAI",
-    "summary": "DALL_E is an orbiting entity associated with OpenAI. This placeholder will be refined. Describe what it does, how it relates to OpenAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Sora": {
-    "name": "Sora",
-    "type": "orbit",
-    "url": "",
-    "parent": "OpenAI",
-    "summary": "Sora is an orbiting entity associated with OpenAI. This placeholder will be refined. Describe what it does, how it relates to OpenAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "OpenAI Research": {
-    "name": "OpenAI Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "OpenAI",
-    "summary": "OpenAI Research is an orbiting entity associated with OpenAI. This placeholder will be refined. Describe what it does, how it relates to OpenAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Claude": {
-    "name": "Claude",
-    "type": "orbit",
-    "url": "",
-    "parent": "Anthropic",
-    "summary": "Claude is an orbiting entity associated with Anthropic. This placeholder will be refined. Describe what it does, how it relates to Anthropic, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Anthropic Research": {
-    "name": "Anthropic Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Anthropic",
-    "summary": "Anthropic Research is an orbiting entity associated with Anthropic. This placeholder will be refined. Describe what it does, how it relates to Anthropic, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Claude Artifacts": {
-    "name": "Claude Artifacts",
-    "type": "orbit",
-    "url": "",
-    "parent": "Anthropic",
-    "summary": "Claude Artifacts is an orbiting entity associated with Anthropic. This placeholder will be refined. Describe what it does, how it relates to Anthropic, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Anthropic API": {
-    "name": "Anthropic API",
-    "type": "orbit",
-    "url": "",
-    "parent": "Anthropic",
-    "summary": "Anthropic API is an orbiting entity associated with Anthropic. This placeholder will be refined. Describe what it does, how it relates to Anthropic, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Tool Use / Agents": {
-    "name": "Tool Use / Agents",
-    "type": "orbit",
-    "url": "",
-    "parent": "Anthropic",
-    "summary": "Tool Use / Agents is an orbiting entity associated with Anthropic. This placeholder will be refined. Describe what it does, how it relates to Anthropic, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Grok": {
-    "name": "Grok",
-    "type": "orbit",
-    "url": "",
-    "parent": "xAI",
-    "summary": "Grok is an orbiting entity associated with xAI. This placeholder will be refined. Describe what it does, how it relates to xAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "xAI Studio": {
-    "name": "xAI Studio",
-    "type": "orbit",
-    "url": "",
-    "parent": "xAI",
-    "summary": "xAI Studio is an orbiting entity associated with xAI. This placeholder will be refined. Describe what it does, how it relates to xAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "xAI Research": {
-    "name": "xAI Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "xAI",
-    "summary": "xAI Research is an orbiting entity associated with xAI. This placeholder will be refined. Describe what it does, how it relates to xAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Grok for X": {
-    "name": "Grok for X",
-    "type": "orbit",
-    "url": "",
-    "parent": "xAI",
-    "summary": "Grok for X is an orbiting entity associated with xAI. This placeholder will be refined. Describe what it does, how it relates to xAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "API & Inference": {
-    "name": "API & Inference",
-    "type": "orbit",
-    "url": "",
-    "parent": "xAI",
-    "summary": "API & Inference is an orbiting entity associated with xAI. This placeholder will be refined. Describe what it does, how it relates to xAI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Command": {
-    "name": "Command",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cohere",
-    "summary": "Command is an orbiting entity associated with Cohere. This placeholder will be refined. Describe what it does, how it relates to Cohere, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Embed": {
-    "name": "Embed",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cohere",
-    "summary": "Embed is an orbiting entity associated with Cohere. This placeholder will be refined. Describe what it does, how it relates to Cohere, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cohere Platform": {
-    "name": "Cohere Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cohere",
-    "summary": "Cohere Platform is an orbiting entity associated with Cohere. This placeholder will be refined. Describe what it does, how it relates to Cohere, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Rerank": {
-    "name": "Rerank",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cohere",
-    "summary": "Rerank is an orbiting entity associated with Cohere. This placeholder will be refined. Describe what it does, how it relates to Cohere, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cohere for AI (C4AI)": {
-    "name": "Cohere for AI (C4AI)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cohere",
-    "summary": "Cohere for AI (C4AI) is an orbiting entity associated with Cohere. This placeholder will be refined. Describe what it does, how it relates to Cohere, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Transformers": {
-    "name": "Transformers",
-    "type": "orbit",
-    "url": "",
-    "parent": "Hugging Face",
-    "summary": "Transformers is an orbiting entity associated with Hugging Face. This placeholder will be refined. Describe what it does, how it relates to Hugging Face, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Hugging Face Hub": {
-    "name": "Hugging Face Hub",
-    "type": "orbit",
-    "url": "",
-    "parent": "Hugging Face",
-    "summary": "Hugging Face Hub is an orbiting entity associated with Hugging Face. This placeholder will be refined. Describe what it does, how it relates to Hugging Face, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Spaces": {
-    "name": "Spaces",
-    "type": "orbit",
-    "url": "",
-    "parent": "Hugging Face",
-    "summary": "Spaces is an orbiting entity associated with Hugging Face. This placeholder will be refined. Describe what it does, how it relates to Hugging Face, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Inference Endpoints": {
-    "name": "Inference Endpoints",
-    "type": "orbit",
-    "url": "",
-    "parent": "Hugging Face",
-    "summary": "Inference Endpoints is an orbiting entity associated with Hugging Face. This placeholder will be refined. Describe what it does, how it relates to Hugging Face, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Diffusers": {
-    "name": "Diffusers",
-    "type": "orbit",
-    "url": "",
-    "parent": "Hugging Face",
-    "summary": "Diffusers is an orbiting entity associated with Hugging Face. This placeholder will be refined. Describe what it does, how it relates to Hugging Face, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AIP (Artificial Intelligence Platform)": {
-    "name": "AIP (Artificial Intelligence Platform)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Palantir",
-    "summary": "AIP (Artificial Intelligence Platform) is an orbiting entity associated with Palantir. This placeholder will be refined. Describe what it does, how it relates to Palantir, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Foundry": {
-    "name": "Foundry",
-    "type": "orbit",
-    "url": "",
-    "parent": "Palantir",
-    "summary": "Foundry is an orbiting entity associated with Palantir. This placeholder will be refined. Describe what it does, how it relates to Palantir, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Gotham": {
-    "name": "Gotham",
-    "type": "orbit",
-    "url": "",
-    "parent": "Palantir",
-    "summary": "Gotham is an orbiting entity associated with Palantir. This placeholder will be refined. Describe what it does, how it relates to Palantir, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Apollo": {
-    "name": "Apollo",
-    "type": "orbit",
-    "url": "",
-    "parent": "Palantir",
-    "summary": "Apollo is an orbiting entity associated with Palantir. This placeholder will be refined. Describe what it does, how it relates to Palantir, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Palantir Labs": {
-    "name": "Palantir Labs",
-    "type": "orbit",
-    "url": "",
-    "parent": "Palantir",
-    "summary": "Palantir Labs is an orbiting entity associated with Palantir. This placeholder will be refined. Describe what it does, how it relates to Palantir, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Firefly": {
-    "name": "Firefly",
-    "type": "orbit",
-    "url": "",
-    "parent": "Adobe",
-    "summary": "Firefly is an orbiting entity associated with Adobe. This placeholder will be refined. Describe what it does, how it relates to Adobe, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Photoshop Generative Fill": {
-    "name": "Photoshop Generative Fill",
-    "type": "orbit",
-    "url": "",
-    "parent": "Adobe",
-    "summary": "Photoshop Generative Fill is an orbiting entity associated with Adobe. This placeholder will be refined. Describe what it does, how it relates to Adobe, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Premiere Pro AI features": {
-    "name": "Premiere Pro AI features",
-    "type": "orbit",
-    "url": "",
-    "parent": "Adobe",
-    "summary": "Premiere Pro AI features is an orbiting entity associated with Adobe. This placeholder will be refined. Describe what it does, how it relates to Adobe, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Adobe Experience Platform AI": {
-    "name": "Adobe Experience Platform AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Adobe",
-    "summary": "Adobe Experience Platform AI is an orbiting entity associated with Adobe. This placeholder will be refined. Describe what it does, how it relates to Adobe, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Adobe Research": {
-    "name": "Adobe Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Adobe",
-    "summary": "Adobe Research is an orbiting entity associated with Adobe. This placeholder will be refined. Describe what it does, how it relates to Adobe, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Now Assist": {
-    "name": "Now Assist",
-    "type": "orbit",
-    "url": "",
-    "parent": "ServiceNow",
-    "summary": "Now Assist is an orbiting entity associated with ServiceNow. This placeholder will be refined. Describe what it does, how it relates to ServiceNow, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Element AI": {
-    "name": "Element AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "ServiceNow",
-    "summary": "Element AI is an orbiting entity associated with ServiceNow. This placeholder will be refined. Describe what it does, how it relates to ServiceNow, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Lightstep": {
-    "name": "Lightstep",
-    "type": "orbit",
-    "url": "",
-    "parent": "ServiceNow",
-    "summary": "Lightstep is an orbiting entity associated with ServiceNow. This placeholder will be refined. Describe what it does, how it relates to ServiceNow, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Now Platform AI": {
-    "name": "Now Platform AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "ServiceNow",
-    "summary": "Now Platform AI is an orbiting entity associated with ServiceNow. This placeholder will be refined. Describe what it does, how it relates to ServiceNow, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AI Search": {
-    "name": "AI Search",
-    "type": "orbit",
-    "url": "",
-    "parent": "ServiceNow",
-    "summary": "AI Search is an orbiting entity associated with ServiceNow. This placeholder will be refined. Describe what it does, how it relates to ServiceNow, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Snapdragon AI": {
-    "name": "Snapdragon AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Qualcomm",
-    "summary": "Snapdragon AI is an orbiting entity associated with Qualcomm. This placeholder will be refined. Describe what it does, how it relates to Qualcomm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AI Hub": {
-    "name": "AI Hub",
-    "type": "orbit",
-    "url": "",
-    "parent": "Qualcomm",
-    "summary": "AI Hub is an orbiting entity associated with Qualcomm. This placeholder will be refined. Describe what it does, how it relates to Qualcomm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Hexagon DSP": {
-    "name": "Hexagon DSP",
-    "type": "orbit",
-    "url": "",
-    "parent": "Qualcomm",
-    "summary": "Hexagon DSP is an orbiting entity associated with Qualcomm. This placeholder will be refined. Describe what it does, how it relates to Qualcomm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "FastConnect": {
-    "name": "FastConnect",
-    "type": "orbit",
-    "url": "",
-    "parent": "Qualcomm",
-    "summary": "FastConnect is an orbiting entity associated with Qualcomm. This placeholder will be refined. Describe what it does, how it relates to Qualcomm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Qualcomm AI Research": {
-    "name": "Qualcomm AI Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Qualcomm",
-    "summary": "Qualcomm AI Research is an orbiting entity associated with Qualcomm. This placeholder will be refined. Describe what it does, how it relates to Qualcomm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Joule": {
-    "name": "Joule",
-    "type": "orbit",
-    "url": "",
-    "parent": "SAP",
-    "summary": "Joule is an orbiting entity associated with SAP. This placeholder will be refined. Describe what it does, how it relates to SAP, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SAP AI Core": {
-    "name": "SAP AI Core",
-    "type": "orbit",
-    "url": "",
-    "parent": "SAP",
-    "summary": "SAP AI Core is an orbiting entity associated with SAP. This placeholder will be refined. Describe what it does, how it relates to SAP, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Signavio": {
-    "name": "Signavio",
-    "type": "orbit",
-    "url": "",
-    "parent": "SAP",
-    "summary": "Signavio is an orbiting entity associated with SAP. This placeholder will be refined. Describe what it does, how it relates to SAP, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Concur": {
-    "name": "Concur",
-    "type": "orbit",
-    "url": "",
-    "parent": "SAP",
-    "summary": "Concur is an orbiting entity associated with SAP. This placeholder will be refined. Describe what it does, how it relates to SAP, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "LeanIX": {
-    "name": "LeanIX",
-    "type": "orbit",
-    "url": "",
-    "parent": "SAP",
-    "summary": "LeanIX is an orbiting entity associated with SAP. This placeholder will be refined. Describe what it does, how it relates to SAP, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Industrial Copilot": {
-    "name": "Industrial Copilot",
-    "type": "orbit",
-    "url": "",
-    "parent": "Siemens",
-    "summary": "Industrial Copilot is an orbiting entity associated with Siemens. This placeholder will be refined. Describe what it does, how it relates to Siemens, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MindSphere": {
-    "name": "MindSphere",
-    "type": "orbit",
-    "url": "",
-    "parent": "Siemens",
-    "summary": "MindSphere is an orbiting entity associated with Siemens. This placeholder will be refined. Describe what it does, how it relates to Siemens, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Siemens Xcelerator": {
-    "name": "Siemens Xcelerator",
-    "type": "orbit",
-    "url": "",
-    "parent": "Siemens",
-    "summary": "Siemens Xcelerator is an orbiting entity associated with Siemens. This placeholder will be refined. Describe what it does, how it relates to Siemens, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mendix": {
-    "name": "Mendix",
-    "type": "orbit",
-    "url": "",
-    "parent": "Siemens",
-    "summary": "Mendix is an orbiting entity associated with Siemens. This placeholder will be refined. Describe what it does, how it relates to Siemens, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Siemens AI Lab": {
-    "name": "Siemens AI Lab",
-    "type": "orbit",
-    "url": "",
-    "parent": "Siemens",
-    "summary": "Siemens AI Lab is an orbiting entity associated with Siemens. This placeholder will be refined. Describe what it does, how it relates to Siemens, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bosch Center for Artificial Intelligence (BCAI)": {
-    "name": "Bosch Center for Artificial Intelligence (BCAI)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Bosch",
-    "summary": "Bosch Center for Artificial Intelligence (BCAI) is an orbiting entity associated with Bosch. This placeholder will be refined. Describe what it does, how it relates to Bosch, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bosch Sensortec": {
-    "name": "Bosch Sensortec",
-    "type": "orbit",
-    "url": "",
-    "parent": "Bosch",
-    "summary": "Bosch Sensortec is an orbiting entity associated with Bosch. This placeholder will be refined. Describe what it does, how it relates to Bosch, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bosch Rexroth": {
-    "name": "Bosch Rexroth",
-    "type": "orbit",
-    "url": "",
-    "parent": "Bosch",
-    "summary": "Bosch Rexroth is an orbiting entity associated with Bosch. This placeholder will be refined. Describe what it does, how it relates to Bosch, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "eBike Systems Analytics": {
-    "name": "eBike Systems Analytics",
-    "type": "orbit",
-    "url": "",
-    "parent": "Bosch",
-    "summary": "eBike Systems Analytics is an orbiting entity associated with Bosch. This placeholder will be refined. Describe what it does, how it relates to Bosch, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bosch IoT Suite": {
-    "name": "Bosch IoT Suite",
-    "type": "orbit",
-    "url": "",
-    "parent": "Bosch",
-    "summary": "Bosch IoT Suite is an orbiting entity associated with Bosch. This placeholder will be refined. Describe what it does, how it relates to Bosch, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Luminous": {
-    "name": "Luminous",
-    "type": "orbit",
-    "url": "",
-    "parent": "Aleph Alpha",
-    "summary": "Luminous is an orbiting entity associated with Aleph Alpha. This placeholder will be refined. Describe what it does, how it relates to Aleph Alpha, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "API Platform": {
-    "name": "API Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "Aleph Alpha",
-    "summary": "API Platform is an orbiting entity associated with Aleph Alpha. This placeholder will be refined. Describe what it does, how it relates to Aleph Alpha, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Aleph Alpha Research": {
-    "name": "Aleph Alpha Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Aleph Alpha",
-    "summary": "Aleph Alpha Research is an orbiting entity associated with Aleph Alpha. This placeholder will be refined. Describe what it does, how it relates to Aleph Alpha, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Embedding/Control Models": {
-    "name": "Embedding/Control Models",
-    "type": "orbit",
-    "url": "",
-    "parent": "Aleph Alpha",
-    "summary": "Embedding/Control Models is an orbiting entity associated with Aleph Alpha. This placeholder will be refined. Describe what it does, how it relates to Aleph Alpha, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Compute Partnerships": {
-    "name": "Compute Partnerships",
-    "type": "orbit",
-    "url": "",
-    "parent": "Aleph Alpha",
-    "summary": "Compute Partnerships is an orbiting entity associated with Aleph Alpha. This placeholder will be refined. Describe what it does, how it relates to Aleph Alpha, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Ethos-N NPU": {
-    "name": "Ethos-N NPU",
-    "type": "orbit",
-    "url": "",
-    "parent": "Arm",
-    "summary": "Ethos-N NPU is an orbiting entity associated with Arm. This placeholder will be refined. Describe what it does, how it relates to Arm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Arm Compute Library": {
-    "name": "Arm Compute Library",
-    "type": "orbit",
-    "url": "",
-    "parent": "Arm",
-    "summary": "Arm Compute Library is an orbiting entity associated with Arm. This placeholder will be refined. Describe what it does, how it relates to Arm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Arm AI": {
-    "name": "Arm AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Arm",
-    "summary": "Arm AI is an orbiting entity associated with Arm. This placeholder will be refined. Describe what it does, how it relates to Arm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Neoverse": {
-    "name": "Neoverse",
-    "type": "orbit",
-    "url": "",
-    "parent": "Arm",
-    "summary": "Neoverse is an orbiting entity associated with Arm. This placeholder will be refined. Describe what it does, how it relates to Arm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Partner Ecosystem": {
-    "name": "Partner Ecosystem",
-    "type": "orbit",
-    "url": "",
-    "parent": "Arm",
-    "summary": "Partner Ecosystem is an orbiting entity associated with Arm. This placeholder will be refined. Describe what it does, how it relates to Arm, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "IPU": {
-    "name": "IPU",
-    "type": "orbit",
-    "url": "",
-    "parent": "Graphcore",
-    "summary": "IPU is an orbiting entity associated with Graphcore. This placeholder will be refined. Describe what it does, how it relates to Graphcore, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bow IPU": {
-    "name": "Bow IPU",
-    "type": "orbit",
-    "url": "",
-    "parent": "Graphcore",
-    "summary": "Bow IPU is an orbiting entity associated with Graphcore. This placeholder will be refined. Describe what it does, how it relates to Graphcore, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Poplar SDK": {
-    "name": "Poplar SDK",
-    "type": "orbit",
-    "url": "",
-    "parent": "Graphcore",
-    "summary": "Poplar SDK is an orbiting entity associated with Graphcore. This placeholder will be refined. Describe what it does, how it relates to Graphcore, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "PopTorch": {
-    "name": "PopTorch",
-    "type": "orbit",
-    "url": "",
-    "parent": "Graphcore",
-    "summary": "PopTorch is an orbiting entity associated with Graphcore. This placeholder will be refined. Describe what it does, how it relates to Graphcore, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Graphcloud": {
-    "name": "Graphcloud",
-    "type": "orbit",
-    "url": "",
-    "parent": "Graphcore",
-    "summary": "Graphcloud is an orbiting entity associated with Graphcore. This placeholder will be refined. Describe what it does, how it relates to Graphcore, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Stable Diffusion": {
-    "name": "Stable Diffusion",
-    "type": "orbit",
-    "url": "",
-    "parent": "Stability AI",
-    "summary": "Stable Diffusion is an orbiting entity associated with Stability AI. This placeholder will be refined. Describe what it does, how it relates to Stability AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Stable Audio": {
-    "name": "Stable Audio",
-    "type": "orbit",
-    "url": "",
-    "parent": "Stability AI",
-    "summary": "Stable Audio is an orbiting entity associated with Stability AI. This placeholder will be refined. Describe what it does, how it relates to Stability AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ClipDrop": {
-    "name": "ClipDrop",
-    "type": "orbit",
-    "url": "",
-    "parent": "Stability AI",
-    "summary": "ClipDrop is an orbiting entity associated with Stability AI. This placeholder will be refined. Describe what it does, how it relates to Stability AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Stability AI Research": {
-    "name": "Stability AI Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Stability AI",
-    "summary": "Stability AI Research is an orbiting entity associated with Stability AI. This placeholder will be refined. Describe what it does, how it relates to Stability AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Stability Platform": {
-    "name": "Stability Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "Stability AI",
-    "summary": "Stability Platform is an orbiting entity associated with Stability AI. This placeholder will be refined. Describe what it does, how it relates to Stability AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "eIQ ML Software": {
-    "name": "eIQ ML Software",
-    "type": "orbit",
-    "url": "",
-    "parent": "NXP Semiconductors",
-    "summary": "eIQ ML Software is an orbiting entity associated with NXP Semiconductors. This placeholder will be refined. Describe what it does, how it relates to NXP Semiconductors, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "S32 Platforms": {
-    "name": "S32 Platforms",
-    "type": "orbit",
-    "url": "",
-    "parent": "NXP Semiconductors",
-    "summary": "S32 Platforms is an orbiting entity associated with NXP Semiconductors. This placeholder will be refined. Describe what it does, how it relates to NXP Semiconductors, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "EdgeVerse": {
-    "name": "EdgeVerse",
-    "type": "orbit",
-    "url": "",
-    "parent": "NXP Semiconductors",
-    "summary": "EdgeVerse is an orbiting entity associated with NXP Semiconductors. This placeholder will be refined. Describe what it does, how it relates to NXP Semiconductors, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "i.MX Applications Processors": {
-    "name": "i.MX Applications Processors",
-    "type": "orbit",
-    "url": "",
-    "parent": "NXP Semiconductors",
-    "summary": "i.MX Applications Processors is an orbiting entity associated with NXP Semiconductors. This placeholder will be refined. Describe what it does, how it relates to NXP Semiconductors, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "NPU/Accelerators": {
-    "name": "NPU/Accelerators",
-    "type": "orbit",
-    "url": "",
-    "parent": "NXP Semiconductors",
-    "summary": "NPU/Accelerators is an orbiting entity associated with NXP Semiconductors. This placeholder will be refined. Describe what it does, how it relates to NXP Semiconductors, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Computational Lithography": {
-    "name": "Computational Lithography",
-    "type": "orbit",
-    "url": "",
-    "parent": "ASML",
-    "summary": "Computational Lithography is an orbiting entity associated with ASML. This placeholder will be refined. Describe what it does, how it relates to ASML, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Brion": {
-    "name": "Brion",
-    "type": "orbit",
-    "url": "",
-    "parent": "ASML",
-    "summary": "Brion is an orbiting entity associated with ASML. This placeholder will be refined. Describe what it does, how it relates to ASML, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Holistic Lithography Suite": {
-    "name": "Holistic Lithography Suite",
-    "type": "orbit",
-    "url": "",
-    "parent": "ASML",
-    "summary": "Holistic Lithography Suite is an orbiting entity associated with ASML. This placeholder will be refined. Describe what it does, how it relates to ASML, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "YieldStar/Metrology": {
-    "name": "YieldStar/Metrology",
-    "type": "orbit",
-    "url": "",
-    "parent": "ASML",
-    "summary": "YieldStar/Metrology is an orbiting entity associated with ASML. This placeholder will be refined. Describe what it does, how it relates to ASML, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ASML Software Products": {
-    "name": "ASML Software Products",
-    "type": "orbit",
-    "url": "",
-    "parent": "ASML",
-    "summary": "ASML Software Products is an orbiting entity associated with ASML. This placeholder will be refined. Describe what it does, how it relates to ASML, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ABB Ability": {
-    "name": "ABB Ability",
-    "type": "orbit",
-    "url": "",
-    "parent": "ABB",
-    "summary": "ABB Ability is an orbiting entity associated with ABB. This placeholder will be refined. Describe what it does, how it relates to ABB, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ABB Robotics": {
-    "name": "ABB Robotics",
-    "type": "orbit",
-    "url": "",
-    "parent": "ABB",
-    "summary": "ABB Robotics is an orbiting entity associated with ABB. This placeholder will be refined. Describe what it does, how it relates to ABB, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "B&R": {
-    "name": "B&R",
-    "type": "orbit",
-    "url": "",
-    "parent": "ABB",
-    "summary": "B&R is an orbiting entity associated with ABB. This placeholder will be refined. Describe what it does, how it relates to ABB, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Process Automation AI": {
-    "name": "Process Automation AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "ABB",
-    "summary": "Process Automation AI is an orbiting entity associated with ABB. This placeholder will be refined. Describe what it does, how it relates to ABB, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ABB Research": {
-    "name": "ABB Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "ABB",
-    "summary": "ABB Research is an orbiting entity associated with ABB. This placeholder will be refined. Describe what it does, how it relates to ABB, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ERNIE": {
-    "name": "ERNIE",
-    "type": "orbit",
-    "url": "",
-    "parent": "Baidu",
-    "summary": "ERNIE is an orbiting entity associated with Baidu. This placeholder will be refined. Describe what it does, how it relates to Baidu, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Qianfan": {
-    "name": "Qianfan",
-    "type": "orbit",
-    "url": "",
-    "parent": "Baidu",
-    "summary": "Qianfan is an orbiting entity associated with Baidu. This placeholder will be refined. Describe what it does, how it relates to Baidu, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "DuerOS": {
-    "name": "DuerOS",
-    "type": "orbit",
-    "url": "",
-    "parent": "Baidu",
-    "summary": "DuerOS is an orbiting entity associated with Baidu. This placeholder will be refined. Describe what it does, how it relates to Baidu, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Baidu Research": {
-    "name": "Baidu Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Baidu",
-    "summary": "Baidu Research is an orbiting entity associated with Baidu. This placeholder will be refined. Describe what it does, how it relates to Baidu, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Qwen (Tongyi Qianwen)": {
-    "name": "Qwen (Tongyi Qianwen)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Alibaba Group",
-    "summary": "Qwen (Tongyi Qianwen) is an orbiting entity associated with Alibaba Group. This placeholder will be refined. Describe what it does, how it relates to Alibaba Group, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Alibaba Cloud Intelligent": {
-    "name": "Alibaba Cloud Intelligent",
-    "type": "orbit",
-    "url": "",
-    "parent": "Alibaba Group",
-    "summary": "Alibaba Cloud Intelligent is an orbiting entity associated with Alibaba Group. This placeholder will be refined. Describe what it does, how it relates to Alibaba Group, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "DAMO Academy": {
-    "name": "DAMO Academy",
-    "type": "orbit",
-    "url": "",
-    "parent": "Alibaba Group",
-    "summary": "DAMO Academy is an orbiting entity associated with Alibaba Group. This placeholder will be refined. Describe what it does, how it relates to Alibaba Group, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cainiao": {
-    "name": "Cainiao",
-    "type": "orbit",
-    "url": "",
-    "parent": "Alibaba Group",
-    "summary": "Cainiao is an orbiting entity associated with Alibaba Group. This placeholder will be refined. Describe what it does, how it relates to Alibaba Group, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Tmall/Taobao AI": {
-    "name": "Tmall/Taobao AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Alibaba Group",
-    "summary": "Tmall/Taobao AI is an orbiting entity associated with Alibaba Group. This placeholder will be refined. Describe what it does, how it relates to Alibaba Group, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Hunyuan": {
-    "name": "Hunyuan",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tencent",
-    "summary": "Hunyuan is an orbiting entity associated with Tencent. This placeholder will be refined. Describe what it does, how it relates to Tencent, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Tencent Cloud TI": {
-    "name": "Tencent Cloud TI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tencent",
-    "summary": "Tencent Cloud TI is an orbiting entity associated with Tencent. This placeholder will be refined. Describe what it does, how it relates to Tencent, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "WeChat": {
-    "name": "WeChat",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tencent",
-    "summary": "WeChat is an orbiting entity associated with Tencent. This placeholder will be refined. Describe what it does, how it relates to Tencent, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Sogou": {
-    "name": "Sogou",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tencent",
-    "summary": "Sogou is an orbiting entity associated with Tencent. This placeholder will be refined. Describe what it does, how it relates to Tencent, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Tencent AI Lab": {
-    "name": "Tencent AI Lab",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tencent",
-    "summary": "Tencent AI Lab is an orbiting entity associated with Tencent. This placeholder will be refined. Describe what it does, how it relates to Tencent, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "TikTok": {
-    "name": "TikTok",
-    "type": "orbit",
-    "url": "",
-    "parent": "ByteDance",
-    "summary": "TikTok is an orbiting entity associated with ByteDance. This placeholder will be refined. Describe what it does, how it relates to ByteDance, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "CapCut": {
-    "name": "CapCut",
-    "type": "orbit",
-    "url": "",
-    "parent": "ByteDance",
-    "summary": "CapCut is an orbiting entity associated with ByteDance. This placeholder will be refined. Describe what it does, how it relates to ByteDance, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Volcano Engine": {
-    "name": "Volcano Engine",
-    "type": "orbit",
-    "url": "",
-    "parent": "ByteDance",
-    "summary": "Volcano Engine is an orbiting entity associated with ByteDance. This placeholder will be refined. Describe what it does, how it relates to ByteDance, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ByteDance AI Lab": {
-    "name": "ByteDance AI Lab",
-    "type": "orbit",
-    "url": "",
-    "parent": "ByteDance",
-    "summary": "ByteDance AI Lab is an orbiting entity associated with ByteDance. This placeholder will be refined. Describe what it does, how it relates to ByteDance, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Toutiao": {
-    "name": "Toutiao",
-    "type": "orbit",
-    "url": "",
-    "parent": "ByteDance",
-    "summary": "Toutiao is an orbiting entity associated with ByteDance. This placeholder will be refined. Describe what it does, how it relates to ByteDance, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Ascend AI": {
-    "name": "Ascend AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Huawei",
-    "summary": "Ascend AI is an orbiting entity associated with Huawei. This placeholder will be refined. Describe what it does, how it relates to Huawei, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ModelArts": {
-    "name": "ModelArts",
-    "type": "orbit",
-    "url": "",
-    "parent": "Huawei",
-    "summary": "ModelArts is an orbiting entity associated with Huawei. This placeholder will be refined. Describe what it does, how it relates to Huawei, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MindSpore": {
-    "name": "MindSpore",
-    "type": "orbit",
-    "url": "",
-    "parent": "Huawei",
-    "summary": "MindSpore is an orbiting entity associated with Huawei. This placeholder will be refined. Describe what it does, how it relates to Huawei, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Noah's Ark Lab": {
-    "name": "Noah's Ark Lab",
-    "type": "orbit",
-    "url": "",
-    "parent": "Huawei",
-    "summary": "Noah's Ark Lab is an orbiting entity associated with Huawei. This placeholder will be refined. Describe what it does, how it relates to Huawei, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Huawei Cloud EI": {
-    "name": "Huawei Cloud EI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Huawei",
-    "summary": "Huawei Cloud EI is an orbiting entity associated with Huawei. This placeholder will be refined. Describe what it does, how it relates to Huawei, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SenseCore": {
-    "name": "SenseCore",
-    "type": "orbit",
-    "url": "",
-    "parent": "SenseTime",
-    "summary": "SenseCore is an orbiting entity associated with SenseTime. This placeholder will be refined. Describe what it does, how it relates to SenseTime, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SenseTime Research": {
-    "name": "SenseTime Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "SenseTime",
-    "summary": "SenseTime Research is an orbiting entity associated with SenseTime. This placeholder will be refined. Describe what it does, how it relates to SenseTime, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SenseAuto": {
-    "name": "SenseAuto",
-    "type": "orbit",
-    "url": "",
-    "parent": "SenseTime",
-    "summary": "SenseAuto is an orbiting entity associated with SenseTime. This placeholder will be refined. Describe what it does, how it relates to SenseTime, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SenseRobot": {
-    "name": "SenseRobot",
-    "type": "orbit",
-    "url": "",
-    "parent": "SenseTime",
-    "summary": "SenseRobot is an orbiting entity associated with SenseTime. This placeholder will be refined. Describe what it does, how it relates to SenseTime, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SenseTime Open Platform": {
-    "name": "SenseTime Open Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "SenseTime",
-    "summary": "SenseTime Open Platform is an orbiting entity associated with SenseTime. This placeholder will be refined. Describe what it does, how it relates to SenseTime, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Face++": {
-    "name": "Face++",
-    "type": "orbit",
-    "url": "",
-    "parent": "Megvii",
-    "summary": "Face++ is an orbiting entity associated with Megvii. This placeholder will be refined. Describe what it does, how it relates to Megvii, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Brain++": {
-    "name": "Brain++",
-    "type": "orbit",
-    "url": "",
-    "parent": "Megvii",
-    "summary": "Brain++ is an orbiting entity associated with Megvii. This placeholder will be refined. Describe what it does, how it relates to Megvii, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "MegAIoT": {
-    "name": "MegAIoT",
-    "type": "orbit",
-    "url": "",
-    "parent": "Megvii",
-    "summary": "MegAIoT is an orbiting entity associated with Megvii. This placeholder will be refined. Describe what it does, how it relates to Megvii, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Megvii Research": {
-    "name": "Megvii Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Megvii",
-    "summary": "Megvii Research is an orbiting entity associated with Megvii. This placeholder will be refined. Describe what it does, how it relates to Megvii, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Logistics Robotics": {
-    "name": "Logistics Robotics",
-    "type": "orbit",
-    "url": "",
-    "parent": "Megvii",
-    "summary": "Logistics Robotics is an orbiting entity associated with Megvii. This placeholder will be refined. Describe what it does, how it relates to Megvii, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SparkDesk (Xinghuo)": {
-    "name": "SparkDesk (Xinghuo)",
-    "type": "orbit",
-    "url": "",
-    "parent": "iFlytek",
-    "summary": "SparkDesk (Xinghuo) is an orbiting entity associated with iFlytek. This placeholder will be refined. Describe what it does, how it relates to iFlytek, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "iFlytek Open Platform": {
-    "name": "iFlytek Open Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "iFlytek",
-    "summary": "iFlytek Open Platform is an orbiting entity associated with iFlytek. This placeholder will be refined. Describe what it does, how it relates to iFlytek, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Education AI": {
-    "name": "Education AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "iFlytek",
-    "summary": "Education AI is an orbiting entity associated with iFlytek. This placeholder will be refined. Describe what it does, how it relates to iFlytek, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "iFlytek Research": {
-    "name": "iFlytek Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "iFlytek",
-    "summary": "iFlytek Research is an orbiting entity associated with iFlytek. This placeholder will be refined. Describe what it does, how it relates to iFlytek, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Healthcare AI": {
-    "name": "Healthcare AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "iFlytek",
-    "summary": "Healthcare AI is an orbiting entity associated with iFlytek. This placeholder will be refined. Describe what it does, how it relates to iFlytek, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Yi": {
-    "name": "Yi",
-    "type": "orbit",
-    "url": "",
-    "parent": "01.AI",
-    "summary": "Yi is an orbiting entity associated with 01.AI. This placeholder will be refined. Describe what it does, how it relates to 01.AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "01.AI Platform": {
-    "name": "01.AI Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "01.AI",
-    "summary": "01.AI Platform is an orbiting entity associated with 01.AI. This placeholder will be refined. Describe what it does, how it relates to 01.AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "01.AI Research": {
-    "name": "01.AI Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "01.AI",
-    "summary": "01.AI Research is an orbiting entity associated with 01.AI. This placeholder will be refined. Describe what it does, how it relates to 01.AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Yi-VL": {
-    "name": "Yi-VL",
-    "type": "orbit",
-    "url": "",
-    "parent": "01.AI",
-    "summary": "Yi-VL is an orbiting entity associated with 01.AI. This placeholder will be refined. Describe what it does, how it relates to 01.AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Yi-Video": {
-    "name": "Yi-Video",
-    "type": "orbit",
-    "url": "",
-    "parent": "01.AI",
-    "summary": "Yi-Video is an orbiting entity associated with 01.AI. This placeholder will be refined. Describe what it does, how it relates to 01.AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "GLM": {
-    "name": "GLM",
-    "type": "orbit",
-    "url": "",
-    "parent": "Zhipu AI",
-    "summary": "GLM is an orbiting entity associated with Zhipu AI. This placeholder will be refined. Describe what it does, how it relates to Zhipu AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "BigModel": {
-    "name": "BigModel",
-    "type": "orbit",
-    "url": "",
-    "parent": "Zhipu AI",
-    "summary": "BigModel is an orbiting entity associated with Zhipu AI. This placeholder will be refined. Describe what it does, how it relates to Zhipu AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Zhipu Research": {
-    "name": "Zhipu Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Zhipu AI",
-    "summary": "Zhipu Research is an orbiting entity associated with Zhipu AI. This placeholder will be refined. Describe what it does, how it relates to Zhipu AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "GLM-4/GLM-Edge": {
-    "name": "GLM-4/GLM-Edge",
-    "type": "orbit",
-    "url": "",
-    "parent": "Zhipu AI",
-    "summary": "GLM-4/GLM-Edge is an orbiting entity associated with Zhipu AI. This placeholder will be refined. Describe what it does, how it relates to Zhipu AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ChatGLM": {
-    "name": "ChatGLM",
-    "type": "orbit",
-    "url": "",
-    "parent": "Zhipu AI",
-    "summary": "ChatGLM is an orbiting entity associated with Zhipu AI. This placeholder will be refined. Describe what it does, how it relates to Zhipu AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Exynos NPU": {
-    "name": "Exynos NPU",
-    "type": "orbit",
-    "url": "",
-    "parent": "Samsung Electronics",
-    "summary": "Exynos NPU is an orbiting entity associated with Samsung Electronics. This placeholder will be refined. Describe what it does, how it relates to Samsung Electronics, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Samsung Gauss": {
-    "name": "Samsung Gauss",
-    "type": "orbit",
-    "url": "",
-    "parent": "Samsung Electronics",
-    "summary": "Samsung Gauss is an orbiting entity associated with Samsung Electronics. This placeholder will be refined. Describe what it does, how it relates to Samsung Electronics, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Bixby": {
-    "name": "Bixby",
-    "type": "orbit",
-    "url": "",
-    "parent": "Samsung Electronics",
-    "summary": "Bixby is an orbiting entity associated with Samsung Electronics. This placeholder will be refined. Describe what it does, how it relates to Samsung Electronics, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Samsung Research AI": {
-    "name": "Samsung Research AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Samsung Electronics",
-    "summary": "Samsung Research AI is an orbiting entity associated with Samsung Electronics. This placeholder will be refined. Describe what it does, how it relates to Samsung Electronics, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SmartThings AI": {
-    "name": "SmartThings AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Samsung Electronics",
-    "summary": "SmartThings AI is an orbiting entity associated with Samsung Electronics. This placeholder will be refined. Describe what it does, how it relates to Samsung Electronics, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "HyperCLOVA X": {
-    "name": "HyperCLOVA X",
-    "type": "orbit",
-    "url": "",
-    "parent": "Naver",
-    "summary": "HyperCLOVA X is an orbiting entity associated with Naver. This placeholder will be refined. Describe what it does, how it relates to Naver, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "CLOVA Studio": {
-    "name": "CLOVA Studio",
-    "type": "orbit",
-    "url": "",
-    "parent": "Naver",
-    "summary": "CLOVA Studio is an orbiting entity associated with Naver. This placeholder will be refined. Describe what it does, how it relates to Naver, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "LINE": {
-    "name": "LINE",
-    "type": "orbit",
-    "url": "",
-    "parent": "Naver",
-    "summary": "LINE is an orbiting entity associated with Naver. This placeholder will be refined. Describe what it does, how it relates to Naver, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Naver AI Lab": {
-    "name": "Naver AI Lab",
-    "type": "orbit",
-    "url": "",
-    "parent": "Naver",
-    "summary": "Naver AI Lab is an orbiting entity associated with Naver. This placeholder will be refined. Describe what it does, how it relates to Naver, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Naver Cloud AI": {
-    "name": "Naver Cloud AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Naver",
-    "summary": "Naver Cloud AI is an orbiting entity associated with Naver. This placeholder will be refined. Describe what it does, how it relates to Naver, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Kakao Brain": {
+    "summary": "Meta's Open Pre-trained Transformer models released for research purposes, advancing open science in large language models.",
+    "type": "parent",
+    "url": "https://ai.meta.com/blog/opt-175b-open-pre-trained-transformer-language-models",
+    "use_case_tags": ["Research", "Open Source", "Foundation Models", "Education & Learning", "Dev Tools", "Academic"]
+  },
+  "parent:NVIDIA": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Nemotron (NVIDIA)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "NVIDIA's family of models optimized for GPU acceleration, synthetic data generation, and enterprise deployment on NVIDIA platforms.",
+    "type": "parent",
+    "url": "https://www.nvidia.com/en-us/ai-data-science/generative-ai/nemotron",
+    "use_case_tags": ["GPU Optimization", "Enterprise Apps", "Synthetic Data", "Cloud & Infra", "Foundation Models", "Hardware AI"]
+  },
+  "parent:LLaVA": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "LLaVA (Multimodal)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Open-source vision-language assistant combining visual understanding with conversational abilities, enabling image-based dialogue.",
+    "type": "parent",
+    "url": "https://llava-vl.github.io",
+    "use_case_tags": ["Multimodal", "Computer Vision", "Open Source", "Assistants & Search", "Research", "Education & Learning"]
+  },
+  "parent:Microsoft-Phi": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Phi (Microsoft)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "Small language models achieving surprising capabilities with limited parameters, optimized for reasoning and educational applications.",
+    "type": "parent",
+    "url": "https://www.microsoft.com/en-us/research/project/phi",
+    "use_case_tags": ["Education & Learning", "Efficient AI", "Reasoning", "Research", "Dev Tools", "Foundation Models"]
+  },
+  "parent:Naver": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "HyperCLOVA X (Naver)",
+    "notes": "",
+    "parent": null,
+    "source": "manual",
+    "summary": "South Korea's leading AI model powering Naver's search, chat services, and LINE messenger with optimized Korean language understanding.",
+    "type": "parent",
+    "url": "https://clova.ai",
+    "use_case_tags": ["Foundation Models", "Korean NLP", "Regional AI", "Search", "Enterprise Apps", "Multilingual"]
+  },
+  "parent:Kakao-Brain": {
+    "last_updated": "2025-12-27T12:00:00Z",
     "name": "Kakao Brain",
-    "type": "orbit",
-    "url": "",
-    "parent": "Kakao",
-    "summary": "Kakao Brain is an orbiting entity associated with Kakao. This placeholder will be refined. Describe what it does, how it relates to Kakao, and its role in the AI ecosystem.",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Korean AI research company developing models for Kakao's ecosystem including KakaoTalk, with strong focus on Korean language and culture.",
+    "type": "parent",
+    "url": "https://kakaobrain.com",
+    "use_case_tags": ["Foundation Models", "Korean NLP", "Social Media", "Research", "Enterprise Apps", "Creative Media"]
   },
-  "KoGPT": {
-    "name": "KoGPT",
-    "type": "orbit",
-    "url": "",
-    "parent": "Kakao",
-    "summary": "KoGPT is an orbiting entity associated with Kakao. This placeholder will be refined. Describe what it does, how it relates to Kakao, and its role in the AI ecosystem.",
+  "parent:Yandex": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Yandex GPT",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Russia's leading search engine's AI model family, optimized for Russian language and integrated across Yandex's digital ecosystem.",
+    "type": "parent",
+    "url": "https://yandex.com/company/technologies/yandexgpt",
+    "use_case_tags": ["Foundation Models", "Russian NLP", "Regional AI", "Search", "Enterprise Apps", "Cloud & Infra"]
   },
-  "Kakao i": {
-    "name": "Kakao i",
-    "type": "orbit",
-    "url": "",
-    "parent": "Kakao",
-    "summary": "Kakao i is an orbiting entity associated with Kakao. This placeholder will be refined. Describe what it does, how it relates to Kakao, and its role in the AI ecosystem.",
+  "parent:SAP-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "SAP AI (Joule)",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Enterprise AI platform integrated into SAP's business software suite, focusing on business process automation and intelligent decision support.",
+    "type": "parent",
+    "url": "https://www.sap.com/products/artificial-intelligence.html",
+    "use_case_tags": ["Enterprise Apps", "Business AI", "Productivity", "Foundation Models", "Cloud & Infra", "Dev Tools"]
   },
-  "Kakao Mobility": {
-    "name": "Kakao Mobility",
-    "type": "orbit",
-    "url": "",
-    "parent": "Kakao",
-    "summary": "Kakao Mobility is an orbiting entity associated with Kakao. This placeholder will be refined. Describe what it does, how it relates to Kakao, and its role in the AI ecosystem.",
+  "parent:Siemens-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Siemens Industrial AI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Industrial AI solutions for manufacturing, energy, and infrastructure, focusing on predictive maintenance and operational optimization.",
+    "type": "parent",
+    "url": "https://www.siemens.com/industrial-ai",
+    "use_case_tags": ["Industrial AI", "Robotics & Edge", "Enterprise Apps", "Predictive Analytics", "Cloud & Infra", "Productivity"]
   },
-  "Kakao Cloud AI": {
-    "name": "Kakao Cloud AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Kakao",
-    "summary": "Kakao Cloud AI is an orbiting entity associated with Kakao. This placeholder will be refined. Describe what it does, how it relates to Kakao, and its role in the AI ecosystem.",
+  "parent:Bosch-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Bosch Center for AI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Bosch's AI research center developing solutions for automotive, smart home, and industrial applications with embedded AI capabilities.",
+    "type": "parent",
+    "url": "https://www.bosch-ai.com",
+    "use_case_tags": ["Industrial AI", "Automotive", "Smart Home", "Robotics & Edge", "Enterprise Apps", "Research"]
   },
-  "Chainer (legacy)": {
-    "name": "Chainer (legacy)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Preferred Networks",
-    "summary": "Chainer (legacy) is an orbiting entity associated with Preferred Networks. This placeholder will be refined. Describe what it does, how it relates to Preferred Networks, and its role in the AI ecosystem.",
+  "parent:NEC": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "NEC the WISE",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Japanese technology company's AI platform focusing on biometrics, surveillance, and enterprise security applications.",
+    "type": "parent",
+    "url": "https://www.nec.com/en/global/solutions/ai-analytics/",
+    "use_case_tags": ["Security AI", "Biometrics", "Enterprise Apps", "Computer Vision", "Cloud & Infra", "Regional AI"]
   },
-  "MN-Core": {
-    "name": "MN-Core",
-    "type": "orbit",
-    "url": "",
-    "parent": "Preferred Networks",
-    "summary": "MN-Core is an orbiting entity associated with Preferred Networks. This placeholder will be refined. Describe what it does, how it relates to Preferred Networks, and its role in the AI ecosystem.",
+  "parent:Preferred-Networks": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Preferred Networks",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Japanese deep learning company specializing in edge AI, autonomous systems, and AI-optimized hardware with strong research focus.",
+    "type": "parent",
+    "url": "https://www.preferred.jp/en/",
+    "use_case_tags": ["Research", "Edge AI", "Hardware AI", "Robotics & Edge", "Dev Tools", "Industrial AI"]
   },
-  "PFN Research": {
-    "name": "PFN Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Preferred Networks",
-    "summary": "PFN Research is an orbiting entity associated with Preferred Networks. This placeholder will be refined. Describe what it does, how it relates to Preferred Networks, and its role in the AI ecosystem.",
+  "parent:C3-ai": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "C3.ai AI Suite",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Enterprise AI software platform for accelerating digital transformation across energy, manufacturing, and financial services.",
+    "type": "parent",
+    "url": "https://c3.ai/products/c3-ai-application-platform/",
+    "use_case_tags": ["Enterprise Apps", "Business AI", "Cloud & Infra", "Dev Tools", "Productivity", "Industry Solutions"]
   },
-  "Open Source Projects": {
-    "name": "Open Source Projects",
-    "type": "orbit",
-    "url": "",
-    "parent": "Preferred Networks",
-    "summary": "Open Source Projects is an orbiting entity associated with Preferred Networks. This placeholder will be refined. Describe what it does, how it relates to Preferred Networks, and its role in the AI ecosystem.",
+  "parent:Palantir-AIP": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Palantir AIP",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Palantir's Artificial Intelligence Platform for defense, intelligence, and enterprise applications with strong data integration capabilities.",
+    "type": "parent",
+    "url": "https://www.palantir.com/platforms/aip/",
+    "use_case_tags": ["Enterprise Apps", "Government AI", "Data Integration", "Security AI", "Cloud & Infra", "Defense AI"]
   },
-  "Industrial AI Solutions": {
-    "name": "Industrial AI Solutions",
-    "type": "orbit",
-    "url": "",
-    "parent": "Preferred Networks",
-    "summary": "Industrial AI Solutions is an orbiting entity associated with Preferred Networks. This placeholder will be refined. Describe what it does, how it relates to Preferred Networks, and its role in the AI ecosystem.",
+  "parent:ServiceNow-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "ServiceNow AI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI capabilities integrated into ServiceNow's workflow automation platform for IT service management and enterprise operations.",
+    "type": "parent",
+    "url": "https://www.servicenow.com/products/ai.html",
+    "use_case_tags": ["Enterprise Apps", "IT Operations", "Productivity", "Workflow Automation", "Cloud & Infra", "Business AI"]
   },
-  "Sony AI": {
-    "name": "Sony AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Sony Group",
-    "summary": "Sony AI is an orbiting entity associated with Sony Group. This placeholder will be refined. Describe what it does, how it relates to Sony Group, and its role in the AI ecosystem.",
+  "parent:Workday-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Workday AI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI-powered features within Workday's human capital management and financial management software suite.",
+    "type": "parent",
+    "url": "https://www.workday.com/en-us/products/ai-machine-learning.html",
+    "use_case_tags": ["Enterprise Apps", "HR Tech", "Productivity", "Business AI", "Cloud & Infra", "Data Analytics"]
   },
-  "AITRIOS": {
-    "name": "AITRIOS",
-    "type": "orbit",
-    "url": "",
-    "parent": "Sony Group",
-    "summary": "AITRIOS is an orbiting entity associated with Sony Group. This placeholder will be refined. Describe what it does, how it relates to Sony Group, and its role in the AI ecosystem.",
+  "parent:Intuit-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Intuit AI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI capabilities powering Intuit's financial software including QuickBooks, TurboTax, and Mint for small business and personal finance.",
+    "type": "parent",
+    "url": "https://www.intuit.com/company/ai/",
+    "use_case_tags": ["Enterprise Apps", "Financial AI", "Productivity", "Small Business", "Cloud & Infra", "Data Analytics"]
   },
-  "Imaging & Sensing Solutions": {
-    "name": "Imaging & Sensing Solutions",
-    "type": "orbit",
-    "url": "",
-    "parent": "Sony Group",
-    "summary": "Imaging & Sensing Solutions is an orbiting entity associated with Sony Group. This placeholder will be refined. Describe what it does, how it relates to Sony Group, and its role in the AI ecosystem.",
+  "parent:Qualcomm-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Qualcomm AI Stack",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Qualcomm's comprehensive AI software stack for mobile, automotive, and IoT devices, optimized for Snapdragon platforms.",
+    "type": "parent",
+    "url": "https://www.qualcomm.com/products/technology/ai",
+    "use_case_tags": ["Edge AI", "Hardware AI", "Mobile AI", "Robotics & Edge", "Dev Tools", "Cloud & Infra"]
   },
-  "Gran Turismo Sophy": {
-    "name": "Gran Turismo Sophy",
-    "type": "orbit",
-    "url": "",
-    "parent": "Sony Group",
-    "summary": "Gran Turismo Sophy is an orbiting entity associated with Sony Group. This placeholder will be refined. Describe what it does, how it relates to Sony Group, and its role in the AI ecosystem.",
+  "parent:AMD-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AMD AI Platform",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AMD's AI hardware and software ecosystem including Instinct accelerators, Ryzen AI processors, and ROCm software stack.",
+    "type": "parent",
+    "url": "https://www.amd.com/en/products/ai",
+    "use_case_tags": ["Hardware AI", "GPU Optimization", "Cloud & Infra", "Edge AI", "Dev Tools", "Enterprise Apps"]
   },
-  "Creator AI Tools": {
-    "name": "Creator AI Tools",
-    "type": "orbit",
-    "url": "",
-    "parent": "Sony Group",
-    "summary": "Creator AI Tools is an orbiting entity associated with Sony Group. This placeholder will be refined. Describe what it does, how it relates to Sony Group, and its role in the AI ecosystem.",
+  "parent:Arm-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Arm AI Platform",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Arm's AI-optimized processor IP including Ethos NPUs and Cortex CPUs for edge computing and embedded AI applications.",
+    "type": "parent",
+    "url": "https://www.arm.com/solutions/artificial-intelligence",
+    "use_case_tags": ["Hardware AI", "Edge AI", "Embedded Systems", "Robotics & Edge", "Dev Tools", "Mobile AI"]
   },
-  "Core42": {
-    "name": "Core42",
-    "type": "orbit",
-    "url": "",
-    "parent": "G42",
-    "summary": "Core42 is an orbiting entity associated with G42. This placeholder will be refined. Describe what it does, how it relates to G42, and its role in the AI ecosystem.",
+  "parent:Infosys-Topaz": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Infosys Topaz",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Infosys's AI-first suite of services, solutions, and platforms for enterprise digital transformation and intelligent operations.",
+    "type": "parent",
+    "url": "https://www.infosys.com/topaz/",
+    "use_case_tags": ["Enterprise Apps", "Consulting", "Cloud & Infra", "Business AI", "Productivity", "Industry Solutions"]
   },
-  "Inception": {
-    "name": "Inception",
-    "type": "orbit",
-    "url": "",
-    "parent": "G42",
-    "summary": "Inception is an orbiting entity associated with G42. This placeholder will be refined. Describe what it does, how it relates to G42, and its role in the AI ecosystem.",
+  "parent:Wipro-ai360": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Wipro ai360",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Wipro's comprehensive AI, analytics, and data ecosystem integrating AI into all aspects of enterprise services and solutions.",
+    "type": "parent",
+    "url": "https://www.wipro.com/ai/",
+    "use_case_tags": ["Enterprise Apps", "Consulting", "Data Analytics", "Business AI", "Cloud & Infra", "Industry Solutions"]
   },
-  "Jais": {
-    "name": "Jais",
-    "type": "orbit",
-    "url": "",
-    "parent": "G42",
-    "summary": "Jais is an orbiting entity associated with G42. This placeholder will be refined. Describe what it does, how it relates to G42, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Presight AI": {
-    "name": "Presight AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "G42",
-    "summary": "Presight AI is an orbiting entity associated with G42. This placeholder will be refined. Describe what it does, how it relates to G42, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "G42 Cloud": {
-    "name": "G42 Cloud",
-    "type": "orbit",
-    "url": "",
-    "parent": "G42",
-    "summary": "G42 Cloud is an orbiting entity associated with G42. This placeholder will be refined. Describe what it does, how it relates to G42, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AI Compute/Cloud": {
-    "name": "AI Compute/Cloud",
-    "type": "orbit",
-    "url": "",
-    "parent": "MGX",
-    "summary": "AI Compute/Cloud is an orbiting entity associated with MGX. This placeholder will be refined. Describe what it does, how it relates to MGX, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Model Hosting": {
-    "name": "Model Hosting",
-    "type": "orbit",
-    "url": "",
-    "parent": "MGX",
-    "summary": "Model Hosting is an orbiting entity associated with MGX. This placeholder will be refined. Describe what it does, how it relates to MGX, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AI Training Infrastructure": {
-    "name": "AI Training Infrastructure",
-    "type": "orbit",
-    "url": "",
-    "parent": "MGX",
-    "summary": "AI Training Infrastructure is an orbiting entity associated with MGX. This placeholder will be refined. Describe what it does, how it relates to MGX, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Data Platforms": {
-    "name": "Data Platforms",
-    "type": "orbit",
-    "url": "",
-    "parent": "MGX",
-    "summary": "Data Platforms is an orbiting entity associated with MGX. This placeholder will be refined. Describe what it does, how it relates to MGX, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Developer Tools": {
-    "name": "Developer Tools",
-    "type": "orbit",
-    "url": "",
-    "parent": "MGX",
-    "summary": "Developer Tools is an orbiting entity associated with MGX. This placeholder will be refined. Describe what it does, how it relates to MGX, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "SCAI Platforms": {
-    "name": "SCAI Platforms",
-    "type": "orbit",
-    "url": "",
-    "parent": "Saudi Company for Artificial Intelligence (SCAI)",
-    "summary": "SCAI Platforms is an orbiting entity associated with Saudi Company for Artificial Intelligence (SCAI). This placeholder will be refined. Describe what it does, how it relates to Saudi Company for Artificial Intelligence (SCAI), and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Generative AI Solutions": {
-    "name": "Generative AI Solutions",
-    "type": "orbit",
-    "url": "",
-    "parent": "Saudi Company for Artificial Intelligence (SCAI)",
-    "summary": "Generative AI Solutions is an orbiting entity associated with Saudi Company for Artificial Intelligence (SCAI). This placeholder will be refined. Describe what it does, how it relates to Saudi Company for Artificial Intelligence (SCAI), and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Computer Vision Suite": {
-    "name": "Computer Vision Suite",
-    "type": "orbit",
-    "url": "",
-    "parent": "Saudi Company for Artificial Intelligence (SCAI)",
-    "summary": "Computer Vision Suite is an orbiting entity associated with Saudi Company for Artificial Intelligence (SCAI). This placeholder will be refined. Describe what it does, how it relates to Saudi Company for Artificial Intelligence (SCAI), and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Data & Analytics": {
-    "name": "Data & Analytics",
-    "type": "orbit",
-    "url": "",
-    "parent": "Saudi Company for Artificial Intelligence (SCAI)",
-    "summary": "Data & Analytics is an orbiting entity associated with Saudi Company for Artificial Intelligence (SCAI). This placeholder will be refined. Describe what it does, how it relates to Saudi Company for Artificial Intelligence (SCAI), and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Applied AI R&D": {
-    "name": "Applied AI R&D",
-    "type": "orbit",
-    "url": "",
-    "parent": "Saudi Company for Artificial Intelligence (SCAI)",
-    "summary": "Applied AI R&D is an orbiting entity associated with Saudi Company for Artificial Intelligence (SCAI). This placeholder will be refined. Describe what it does, how it relates to Saudi Company for Artificial Intelligence (SCAI), and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mistral Models (e.g., Mistral 7B/Mixtral)": {
-    "name": "Mistral Models (e.g., Mistral 7B/Mixtral)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Mistral AI",
-    "summary": "Mistral Models (e.g., Mistral 7B/Mixtral) is an orbiting entity associated with Mistral AI. This placeholder will be refined. Describe what it does, how it relates to Mistral AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Le Chat": {
-    "name": "Le Chat",
-    "type": "orbit",
-    "url": "",
-    "parent": "Mistral AI",
-    "summary": "Le Chat is an orbiting entity associated with Mistral AI. This placeholder will be refined. Describe what it does, how it relates to Mistral AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mistral API / La Plateforme": {
-    "name": "Mistral API / La Plateforme",
-    "type": "orbit",
-    "url": "",
-    "parent": "Mistral AI",
-    "summary": "Mistral API / La Plateforme is an orbiting entity associated with Mistral AI. This placeholder will be refined. Describe what it does, how it relates to Mistral AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mistral Codestral": {
-    "name": "Mistral Codestral",
-    "type": "orbit",
-    "url": "",
-    "parent": "Mistral AI",
-    "summary": "Mistral Codestral is an orbiting entity associated with Mistral AI. This placeholder will be refined. Describe what it does, how it relates to Mistral AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Mistral Research": {
-    "name": "Mistral Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Mistral AI",
-    "summary": "Mistral Research is an orbiting entity associated with Mistral AI. This placeholder will be refined. Describe what it does, how it relates to Mistral AI, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Wafer-Scale Engine (WSE)": {
-    "name": "Wafer-Scale Engine (WSE)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cerebras Systems",
-    "summary": "Wafer-Scale Engine (WSE) is an orbiting entity associated with Cerebras Systems. This placeholder will be refined. Describe what it does, how it relates to Cerebras Systems, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "CS-2 System": {
-    "name": "CS-2 System",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cerebras Systems",
-    "summary": "CS-2 System is an orbiting entity associated with Cerebras Systems. This placeholder will be refined. Describe what it does, how it relates to Cerebras Systems, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cerebras Cloud / Condor Galaxy": {
-    "name": "Cerebras Cloud / Condor Galaxy",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cerebras Systems",
-    "summary": "Cerebras Cloud / Condor Galaxy is an orbiting entity associated with Cerebras Systems. This placeholder will be refined. Describe what it does, how it relates to Cerebras Systems, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cerebras Software (Graph Compiler, SDK)": {
-    "name": "Cerebras Software (Graph Compiler, SDK)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cerebras Systems",
-    "summary": "Cerebras Software (Graph Compiler, SDK) is an orbiting entity associated with Cerebras Systems. This placeholder will be refined. Describe what it does, how it relates to Cerebras Systems, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Cerebras Research": {
-    "name": "Cerebras Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Cerebras Systems",
-    "summary": "Cerebras Research is an orbiting entity associated with Cerebras Systems. This placeholder will be refined. Describe what it does, how it relates to Cerebras Systems, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Gen-2": {
-    "name": "Gen-2",
-    "type": "orbit",
-    "url": "",
-    "parent": "Runway",
-    "summary": "Gen-2 is an orbiting entity associated with Runway. This placeholder will be refined. Describe what it does, how it relates to Runway, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Gen-3 Alpha": {
-    "name": "Gen-3 Alpha",
-    "type": "orbit",
-    "url": "",
-    "parent": "Runway",
-    "summary": "Gen-3 Alpha is an orbiting entity associated with Runway. This placeholder will be refined. Describe what it does, how it relates to Runway, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Runway Studio": {
-    "name": "Runway Studio",
-    "type": "orbit",
-    "url": "",
-    "parent": "Runway",
-    "summary": "Runway Studio is an orbiting entity associated with Runway. This placeholder will be refined. Describe what it does, how it relates to Runway, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Text-to-Image / Image-to-Video": {
-    "name": "Text-to-Image / Image-to-Video",
-    "type": "orbit",
-    "url": "",
-    "parent": "Runway",
-    "summary": "Text-to-Image / Image-to-Video is an orbiting entity associated with Runway. This placeholder will be refined. Describe what it does, how it relates to Runway, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Runway Research": {
-    "name": "Runway Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Runway",
-    "summary": "Runway Research is an orbiting entity associated with Runway. This placeholder will be refined. Describe what it does, how it relates to Runway, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Text-to-Speech": {
-    "name": "Text-to-Speech",
-    "type": "orbit",
-    "url": "",
-    "parent": "ElevenLabs",
-    "summary": "Text-to-Speech is an orbiting entity associated with ElevenLabs. This placeholder will be refined. Describe what it does, how it relates to ElevenLabs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Voice Library": {
-    "name": "Voice Library",
-    "type": "orbit",
-    "url": "",
-    "parent": "ElevenLabs",
-    "summary": "Voice Library is an orbiting entity associated with ElevenLabs. This placeholder will be refined. Describe what it does, how it relates to ElevenLabs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "ElevenLabs API": {
-    "name": "ElevenLabs API",
-    "type": "orbit",
-    "url": "",
-    "parent": "ElevenLabs",
-    "summary": "ElevenLabs API is an orbiting entity associated with ElevenLabs. This placeholder will be refined. Describe what it does, how it relates to ElevenLabs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Jamba": {
-    "name": "Jamba",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI21 Labs",
-    "summary": "Jamba is an orbiting entity associated with AI21 Labs. This placeholder will be refined. Describe what it does, how it relates to AI21 Labs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Jurassic-2 (legacy)": {
-    "name": "Jurassic-2 (legacy)",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI21 Labs",
-    "summary": "Jurassic-2 (legacy) is an orbiting entity associated with AI21 Labs. This placeholder will be refined. Describe what it does, how it relates to AI21 Labs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Wordtune": {
-    "name": "Wordtune",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI21 Labs",
-    "summary": "Wordtune is an orbiting entity associated with AI21 Labs. This placeholder will be refined. Describe what it does, how it relates to AI21 Labs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AI21 Studio": {
-    "name": "AI21 Studio",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI21 Labs",
-    "summary": "AI21 Studio is an orbiting entity associated with AI21 Labs. This placeholder will be refined. Describe what it does, how it relates to AI21 Labs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "AI21 Research": {
-    "name": "AI21 Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI21 Labs",
-    "summary": "AI21 Research is an orbiting entity associated with AI21 Labs. This placeholder will be refined. Describe what it does, how it relates to AI21 Labs, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Wix ADI (Artificial Design Intelligence)": {
-    "name": "Wix ADI (Artificial Design Intelligence)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Wix",
-    "summary": "Wix ADI (Artificial Design Intelligence) is an orbiting entity associated with Wix. This placeholder will be refined. Describe what it does, how it relates to Wix, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Wix AI Site Generator": {
-    "name": "Wix AI Site Generator",
-    "type": "orbit",
-    "url": "",
-    "parent": "Wix",
-    "summary": "Wix AI Site Generator is an orbiting entity associated with Wix. This placeholder will be refined. Describe what it does, how it relates to Wix, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Velo by Wix": {
-    "name": "Velo by Wix",
-    "type": "orbit",
-    "url": "",
-    "parent": "Wix",
-    "summary": "Velo by Wix is an orbiting entity associated with Wix. This placeholder will be refined. Describe what it does, how it relates to Wix, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Wix Studio AI": {
-    "name": "Wix Studio AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Wix",
-    "summary": "Wix Studio AI is an orbiting entity associated with Wix. This placeholder will be refined. Describe what it does, how it relates to Wix, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "Wix Data Science / Research": {
-    "name": "Wix Data Science / Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Wix",
-    "summary": "Wix Data Science / Research is an orbiting entity associated with Wix. This placeholder will be refined. Describe what it does, how it relates to Wix, and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "TCS Cognix": {
-    "name": "TCS Cognix",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tata Consultancy Services (TCS)",
-    "summary": "TCS Cognix is an orbiting entity associated with Tata Consultancy Services (TCS). This placeholder will be refined. Describe what it does, how it relates to Tata Consultancy Services (TCS), and its role in the AI ecosystem.",
-    "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
-  },
-  "TCS AI.Cloud": {
+  "parent:TCS-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
     "name": "TCS AI.Cloud",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tata Consultancy Services (TCS)",
-    "summary": "TCS AI.Cloud is an orbiting entity associated with Tata Consultancy Services (TCS). This placeholder will be refined. Describe what it does, how it relates to Tata Consultancy Services (TCS), and its role in the AI ecosystem.",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Tata Consultancy Services' integrated AI and cloud platform for enterprise digital transformation and cognitive business operations.",
+    "type": "parent",
+    "url": "https://www.tcs.com/artificial-intelligence",
+    "use_case_tags": ["Enterprise Apps", "Consulting", "Cloud & Infra", "Business AI", "Productivity", "Industry Solutions"]
   },
-  "TCS MasterCraft": {
-    "name": "TCS MasterCraft",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tata Consultancy Services (TCS)",
-    "summary": "TCS MasterCraft is an orbiting entity associated with Tata Consultancy Services (TCS). This placeholder will be refined. Describe what it does, how it relates to Tata Consultancy Services (TCS), and its role in the AI ecosystem.",
+  "parent:JioBrain": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "JioBrain Platform",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Reliance Jio's AI platform for Indian market applications including telecom, retail, and Indian language processing.",
+    "type": "parent",
+    "url": "https://www.jio.com/platforms/jiobrain",
+    "use_case_tags": ["Regional AI", "Telecom AI", "Indian NLP", "Enterprise Apps", "Cloud & Infra", "Retail AI"]
   },
-  "TCS Research & Innovation": {
-    "name": "TCS Research & Innovation",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tata Consultancy Services (TCS)",
-    "summary": "TCS Research & Innovation is an orbiting entity associated with Tata Consultancy Services (TCS). This placeholder will be refined. Describe what it does, how it relates to Tata Consultancy Services (TCS), and its role in the AI ecosystem.",
+
+  // ===== HEALTHCARE/BIOTECH AI SUNS =====
+  "parent:Tempus": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Tempus",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI-powered precision medicine company building the world's largest library of clinical and molecular data to enable personalized cancer care and drug development.",
+    "type": "parent",
+    "url": "https://www.tempus.com",
+    "use_case_tags": ["Healthcare & Biotech", "Genomics", "Precision Medicine", "Cancer Research", "Clinical Data", "Drug Development"]
   },
-  "ignio (by Digitate)": {
-    "name": "ignio (by Digitate)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Tata Consultancy Services (TCS)",
-    "summary": "ignio (by Digitate) is an orbiting entity associated with Tata Consultancy Services (TCS). This placeholder will be refined. Describe what it does, how it relates to Tata Consultancy Services (TCS), and its role in the AI ecosystem.",
+  "parent:PathAI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "PathAI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI-powered pathology platform improving diagnostic accuracy and accelerating drug development through advanced image analysis of tissue samples.",
+    "type": "parent",
+    "url": "https://www.pathai.com",
+    "use_case_tags": ["Healthcare & Biotech", "Pathology", "Medical Imaging", "Diagnostics", "Drug Development", "Clinical Trials"]
   },
-  "Infosys Nia (legacy)": {
-    "name": "Infosys Nia (legacy)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Infosys",
-    "summary": "Infosys Nia (legacy) is an orbiting entity associated with Infosys. This placeholder will be refined. Describe what it does, how it relates to Infosys, and its role in the AI ecosystem.",
+  "parent:Viz-ai": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Viz.ai",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI-powered care coordination platform that detects strokes and other time-sensitive diseases from medical imaging to accelerate treatment decisions.",
+    "type": "parent",
+    "url": "https://www.viz.ai",
+    "use_case_tags": ["Healthcare & Biotech", "Stroke Detection", "Medical Imaging", "Care Coordination", "Emergency Medicine", "Cardiovascular"]
   },
-  "EdgeVerve": {
-    "name": "EdgeVerve",
-    "type": "orbit",
-    "url": "",
-    "parent": "Infosys",
-    "summary": "EdgeVerve is an orbiting entity associated with Infosys. This placeholder will be refined. Describe what it does, how it relates to Infosys, and its role in the AI ecosystem.",
+  "parent:Butterfly-Network": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Butterfly Network",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Digital health company revolutionizing medical imaging with handheld, whole-body ultrasound devices powered by AI for point-of-care diagnostics.",
+    "type": "parent",
+    "url": "https://www.butterflynetwork.com",
+    "use_case_tags": ["Healthcare & Biotech", "Medical Imaging", "Ultrasound", "Point-of-Care", "Telemedicine", "Diagnostics"]
   },
-  "AssistEdge (EdgeVerve)": {
-    "name": "AssistEdge (EdgeVerve)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Infosys",
-    "summary": "AssistEdge (EdgeVerve) is an orbiting entity associated with Infosys. This placeholder will be refined. Describe what it does, how it relates to Infosys, and its role in the AI ecosystem.",
+  "parent:DeepMind-Health": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "DeepMind Health (Google)",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Google's healthcare AI division developing breakthrough technologies like AlphaFold for protein structure prediction and clinical decision support systems.",
+    "type": "parent",
+    "url": "https://deepmind.google/health",
+    "use_case_tags": ["Healthcare & Biotech", "Protein Folding", "Medical Research", "Clinical Decision Support", "Drug Discovery", "Biomedical AI"]
   },
-  "Infosys Research / IKU": {
-    "name": "Infosys Research / IKU",
-    "type": "orbit",
-    "url": "",
-    "parent": "Infosys",
-    "summary": "Infosys Research / IKU is an orbiting entity associated with Infosys. This placeholder will be refined. Describe what it does, how it relates to Infosys, and its role in the AI ecosystem.",
+  "parent:IBM-Watson-Health": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "IBM Watson Health",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "IBM's healthcare AI platform providing clinical decision support, genomics analysis, and population health management solutions for healthcare organizations.",
+    "type": "parent",
+    "url": "https://www.ibm.com/watson-health",
+    "use_case_tags": ["Healthcare & Biotech", "Clinical Decision Support", "Genomics", "Population Health", "Healthcare IT", "Drug Discovery"]
   },
-  "GrabMaps": {
-    "name": "GrabMaps",
-    "type": "orbit",
-    "url": "",
-    "parent": "Grab",
-    "summary": "GrabMaps is an orbiting entity associated with Grab. This placeholder will be refined. Describe what it does, how it relates to Grab, and its role in the AI ecosystem.",
+  "parent:Paige-AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Paige AI",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Digital pathology company using AI to detect cancer and other diseases from pathology slides, improving diagnostic accuracy and workflow efficiency.",
+    "type": "parent",
+    "url": "https://www.paige.ai",
+    "use_case_tags": ["Healthcare & Biotech", "Digital Pathology", "Cancer Detection", "Diagnostics", "Medical Imaging", "Clinical Workflow"]
   },
-  "GrabDefence": {
-    "name": "GrabDefence",
-    "type": "orbit",
-    "url": "",
-    "parent": "Grab",
-    "summary": "GrabDefence is an orbiting entity associated with Grab. This placeholder will be refined. Describe what it does, how it relates to Grab, and its role in the AI ecosystem.",
+  "parent:Insilico-Medicine": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Insilico Medicine",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI-driven drug discovery company using generative AI and deep learning to accelerate the development of novel therapeutics for aging and diseases.",
+    "type": "parent",
+    "url": "https://insilico.com",
+    "use_case_tags": ["Healthcare & Biotech", "Drug Discovery", "Generative AI", "Aging Research", "Biotech", "Pharmaceuticals"]
   },
-  "AI/ML Platform (Merlin et al.)": {
-    "name": "AI/ML Platform (Merlin et al.)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Grab",
-    "summary": "AI/ML Platform (Merlin et al.) is an orbiting entity associated with Grab. This placeholder will be refined. Describe what it does, how it relates to Grab, and its role in the AI ecosystem.",
+
+  // ===== EDUCATION AI SUNS =====
+  "parent:Duolingo": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Duolingo",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "World's most popular language learning platform using AI to personalize lessons, provide instant feedback, and optimize learning paths for millions of users.",
+    "type": "parent",
+    "url": "https://www.duolingo.com",
+    "use_case_tags": ["Education AI", "Language Learning", "Personalized Learning", "Gamification", "Mobile Learning", "Adaptive Learning"]
   },
-  "GrabAds AI": {
-    "name": "GrabAds AI",
-    "type": "orbit",
-    "url": "",
-    "parent": "Grab",
-    "summary": "GrabAds AI is an orbiting entity associated with Grab. This placeholder will be refined. Describe what it does, how it relates to Grab, and its role in the AI ecosystem.",
+  "parent:Khan-Academy": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Khan Academy",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Non-profit educational organization providing free, world-class education through AI-powered tutoring, personalized learning paths, and interactive exercises.",
+    "type": "parent",
+    "url": "https://www.khanacademy.org",
+    "use_case_tags": ["Education AI", "K-12 Education", "Personalized Learning", "Free Education", "Tutoring", "STEM Education"]
   },
-  "Grab-NUS AI Lab (historical)": {
-    "name": "Grab-NUS AI Lab (historical)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Grab",
-    "summary": "Grab-NUS AI Lab (historical) is an orbiting entity associated with Grab. This placeholder will be refined. Describe what it does, how it relates to Grab, and its role in the AI ecosystem.",
+  "parent:Coursera": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Coursera",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Online learning platform partnering with top universities and companies to offer courses, degrees, and professional certificates with AI-enhanced learning experiences.",
+    "type": "parent",
+    "url": "https://www.coursera.org",
+    "use_case_tags": ["Education AI", "Higher Education", "Professional Development", "Online Courses", "Skills Training", "Corporate Learning"]
   },
-  "AISG 100 Experiments (100E)": {
-    "name": "AISG 100 Experiments (100E)",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI Singapore (AISG)",
-    "summary": "AISG 100 Experiments (100E) is an orbiting entity associated with AI Singapore (AISG). This placeholder will be refined. Describe what it does, how it relates to AI Singapore (AISG), and its role in the AI ecosystem.",
+  "parent:Quizlet": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Quizlet",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Study platform using AI to create personalized study plans, generate practice questions, and provide adaptive learning experiences for students worldwide.",
+    "type": "parent",
+    "url": "https://quizlet.com",
+    "use_case_tags": ["Education AI", "Study Tools", "Test Preparation", "Personalized Learning", "Flashcards", "Homework Help"]
   },
-  "SEA-LION (LLM)": {
-    "name": "SEA-LION (LLM)",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI Singapore (AISG)",
-    "summary": "SEA-LION (LLM) is an orbiting entity associated with AI Singapore (AISG). This placeholder will be refined. Describe what it does, how it relates to AI Singapore (AISG), and its role in the AI ecosystem.",
+  "parent:BYJUS": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "BYJU'S",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "India's largest edtech company providing personalized learning experiences through interactive video lessons, adaptive practice, and AI-driven tutoring.",
+    "type": "parent",
+    "url": "https://byjus.com",
+    "use_case_tags": ["Education AI", "K-12 Education", "Personalized Learning", "Indian Edtech", "Video Lessons", "Test Preparation"]
   },
-  "AI Apprenticeship Programme (AIAP)": {
-    "name": "AI Apprenticeship Programme (AIAP)",
-    "type": "orbit",
-    "url": "",
-    "parent": "AI Singapore (AISG)",
-    "summary": "AI Apprenticeship Programme (AIAP) is an orbiting entity associated with AI Singapore (AISG). This placeholder will be refined. Describe what it does, how it relates to AI Singapore (AISG), and its role in the AI ecosystem.",
+  "parent:Chegg": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Chegg",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Student-first connected learning platform providing AI-powered homework help, textbook solutions, writing assistance, and tutoring services.",
+    "type": "parent",
+    "url": "https://www.chegg.com",
+    "use_case_tags": ["Education AI", "Homework Help", "Tutoring", "Study Resources", "Textbook Solutions", "Writing Assistance"]
   },
-  "AI/Deep Tech Investments": {
-    "name": "AI/Deep Tech Investments",
-    "type": "orbit",
-    "url": "",
-    "parent": "Temasek",
-    "summary": "AI/Deep Tech Investments is an orbiting entity associated with Temasek. This placeholder will be refined. Describe what it does, how it relates to Temasek, and its role in the AI ecosystem.",
+  "parent:Age-of-Learning": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Age of Learning",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Education technology company creating engaging, research-based digital learning programs like ABCmouse and Adventure Academy for children.",
+    "type": "parent",
+    "url": "https://www.ageoflearning.com",
+    "use_case_tags": ["Education AI", "Early Childhood Education", "Gamified Learning", "K-12 Education", "Literacy", "Math Education"]
   },
-  "Digital Infrastructure Initiatives": {
-    "name": "Digital Infrastructure Initiatives",
-    "type": "orbit",
-    "url": "",
-    "parent": "Temasek",
-    "summary": "Digital Infrastructure Initiatives is an orbiting entity associated with Temasek. This placeholder will be refined. Describe what it does, how it relates to Temasek, and its role in the AI ecosystem.",
+  "parent:Photomath": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Photomath",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI-powered math learning app that uses smartphone cameras to read and solve math problems, providing step-by-step explanations and interactive tutorials.",
+    "type": "parent",
+    "url": "https://photomath.com",
+    "use_case_tags": ["Education AI", "Math Education", "Homework Help", "Step-by-Step Solutions", "Mobile Learning", "STEM Education"]
   },
-  "LightOn Large Language Models (API)": {
-    "name": "LightOn Large Language Models (API)",
-    "type": "orbit",
-    "url": "",
-    "parent": "LightOn",
-    "summary": "LightOn Large Language Models (API) is an orbiting entity associated with LightOn. This placeholder will be refined. Describe what it does, how it relates to LightOn, and its role in the AI ecosystem.",
+
+  // ===== ARTILIGENZ - Updated with correct info =====
+  "parent:Artiligenz": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Artiligenz",
+    "notes": "",
+    "parent": null,
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI information hub and directory platform providing comprehensive resources, tools, and insights about artificial intelligence technologies and applications.",
+    "type": "parent",
+    "url": "https://artiligenz.ai",
+    "use_case_tags": ["AI Directory", "Information Hub", "AI Resources", "Tools & Platforms", "Education & Learning", "Research"]
   },
-  "Muse (historical)": {
-    "name": "Muse (historical)",
-    "type": "orbit",
-    "url": "",
-    "parent": "LightOn",
-    "summary": "Muse (historical) is an orbiting entity associated with LightOn. This placeholder will be refined. Describe what it does, how it relates to LightOn, and its role in the AI ecosystem.",
+
+  // ===== PLANETS (Major Applications & Services) =====
+  "orbit:OpenAI|ChatGPT": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "ChatGPT",
+    "notes": "",
+    "parent": "GPT (OpenAI)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "The conversational interface that brought AI assistants to mainstream users, featuring web, mobile, and desktop access with multimodal capabilities.",
+    "type": "orbit",
+    "url": "https://chatgpt.com",
+    "use_case_tags": ["Assistants & Search", "Productivity", "Education & Learning", "Creative Media", "Enterprise Apps", "Consumer AI"]
   },
-  "LightOn SaaS Platform": {
-    "name": "LightOn SaaS Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "LightOn",
-    "summary": "LightOn SaaS Platform is an orbiting entity associated with LightOn. This placeholder will be refined. Describe what it does, how it relates to LightOn, and its role in the AI ecosystem.",
+  "orbit:OpenAI|DALL-E": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "DALL-E",
+    "notes": "",
+    "parent": "GPT (OpenAI)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Pioneering text-to-image generation model creating original images from natural language descriptions across various artistic styles.",
+    "type": "orbit",
+    "url": "https://openai.com/dall-e-3",
+    "use_case_tags": ["Creative Media", "Image Generation", "Foundation Models", "Design", "Marketing", "Entertainment"]
   },
-  "LightOn Research": {
-    "name": "LightOn Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "LightOn",
-    "summary": "LightOn Research is an orbiting entity associated with LightOn. This placeholder will be refined. Describe what it does, how it relates to LightOn, and its role in the AI ecosystem.",
+  "orbit:OpenAI|Sora": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Sora",
+    "notes": "",
+    "parent": "GPT (OpenAI)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Text-to-video generation model creating realistic and imaginative scenes from text descriptions, advancing multimodal AI capabilities.",
+    "type": "orbit",
+    "url": "https://openai.com/sora",
+    "use_case_tags": ["Creative Media", "Video Generation", "Foundation Models", "Entertainment", "Marketing", "Education & Learning"]
   },
-  "Photonic Computing (early work)": {
-    "name": "Photonic Computing (early work)",
-    "type": "orbit",
-    "url": "",
-    "parent": "LightOn",
-    "summary": "Photonic Computing (early work) is an orbiting entity associated with LightOn. This placeholder will be refined. Describe what it does, how it relates to LightOn, and its role in the AI ecosystem.",
+  "orbit:OpenAI|Voice Engine": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Voice Engine",
+    "notes": "",
+    "parent": "GPT (OpenAI)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Text-to-speech model generating natural-sounding speech from text with emotional nuance and accent control.",
+    "type": "orbit",
+    "url": "https://openai.com/voice-engine",
+    "use_case_tags": ["Creative Media", "Audio Generation", "Accessibility", "Entertainment", "Education & Learning", "Assistants & Search"]
   },
-  "Lambda Cloud (GPU)": {
-    "name": "Lambda Cloud (GPU)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Lambda Labs",
-    "summary": "Lambda Cloud (GPU) is an orbiting entity associated with Lambda Labs. This placeholder will be refined. Describe what it does, how it relates to Lambda Labs, and its role in the AI ecosystem.",
+  "orbit:Google-Gemini|Gemini Chat": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Gemini Chat",
+    "notes": "",
+    "parent": "Gemini (Google)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Google's conversational AI assistant integrated with search, workspace, and Android, offering multimodal understanding across text, images, and voice.",
+    "type": "orbit",
+    "url": "https://gemini.google.com",
+    "use_case_tags": ["Assistants & Search", "Productivity", "Mobile AI", "Education & Learning", "Enterprise Apps", "Multimodal"]
   },
-  "Lambda GPU Workstations/Servers": {
-    "name": "Lambda GPU Workstations/Servers",
-    "type": "orbit",
-    "url": "",
-    "parent": "Lambda Labs",
-    "summary": "Lambda GPU Workstations/Servers is an orbiting entity associated with Lambda Labs. This placeholder will be refined. Describe what it does, how it relates to Lambda Labs, and its role in the AI ecosystem.",
+  "orbit:Google-Gemini|Google AI Studio": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Google AI Studio",
+    "notes": "",
+    "parent": "Gemini (Google)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Web-based IDE for prototyping with Gemini models, offering free tier access and seamless integration with Google's AI ecosystem.",
+    "type": "orbit",
+    "url": "https://aistudio.google.com",
+    "use_case_tags": ["Dev Tools", "Prototyping", "Education & Learning", "Research", "Productivity", "Cloud & Infra"]
   },
-  "Lambda Stack": {
-    "name": "Lambda Stack",
-    "type": "orbit",
-    "url": "",
-    "parent": "Lambda Labs",
-    "summary": "Lambda Stack is an orbiting entity associated with Lambda Labs. This placeholder will be refined. Describe what it does, how it relates to Lambda Labs, and its role in the AI ecosystem.",
+  "orbit:Google-Gemini|Imagen 2": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Imagen 2",
+    "notes": "",
+    "parent": "Gemini (Google)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Google's text-to-image generation model producing photorealistic images with strong compositional understanding and safety features.",
+    "type": "orbit",
+    "url": "https://deepmind.google/technologies/imagen-2",
+    "use_case_tags": ["Creative Media", "Image Generation", "Marketing", "Design", "Entertainment", "Enterprise Apps"]
   },
-  "Vector / Echelon (clusters)": {
-    "name": "Vector / Echelon (clusters)",
-    "type": "orbit",
-    "url": "",
-    "parent": "Lambda Labs",
-    "summary": "Vector / Echelon (clusters) is an orbiting entity associated with Lambda Labs. This placeholder will be refined. Describe what it does, how it relates to Lambda Labs, and its role in the AI ecosystem.",
+  "orbit:Google-Gemini|Vertex AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Vertex AI",
+    "notes": "",
+    "parent": "Gemini (Google)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Enterprise-grade ML platform for building, deploying, and scaling AI models, featuring Gemini integration and MLOps capabilities.",
+    "type": "orbit",
+    "url": "https://cloud.google.com/vertex-ai",
+    "use_case_tags": ["Cloud & Infra", "Enterprise Apps", "MLOps", "Dev Tools", "Scalability", "Production AI"]
   },
-  "Lambda Research": {
-    "name": "Lambda Research",
-    "type": "orbit",
-    "url": "",
-    "parent": "Lambda Labs",
-    "summary": "Lambda Research is an orbiting entity associated with Lambda Labs. This placeholder will be refined. Describe what it does, how it relates to Lambda Labs, and its role in the AI ecosystem.",
+  "orbit:Anthropic|Claude.ai": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Claude.ai",
+    "notes": "",
+    "parent": "Claude (Anthropic)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Web interface for Claude AI assistant featuring file upload capabilities, conversation history, and integration with Anthropic's constitutional AI principles.",
+    "type": "orbit",
+    "url": "https://claude.ai",
+    "use_case_tags": ["Assistants & Search", "Productivity", "Document Processing", "Education & Learning", "Enterprise Apps", "Consumer AI"]
   },
-  "CoreWeave GPU Cloud": {
-    "name": "CoreWeave GPU Cloud",
-    "type": "orbit",
-    "url": "",
-    "parent": "CoreWeave",
-    "summary": "CoreWeave GPU Cloud is an orbiting entity associated with CoreWeave. This placeholder will be refined. Describe what it does, how it relates to CoreWeave, and its role in the AI ecosystem.",
+  "orbit:Anthropic|Claude API": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Claude API",
+    "notes": "",
+    "parent": "Claude (Anthropic)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "API access to Claude models for developers, emphasizing safety, long-context processing, and enterprise deployment options.",
+    "type": "orbit",
+    "url": "https://console.anthropic.com",
+    "use_case_tags": ["Dev Tools", "Enterprise Apps", "API Services", "Cloud & Infra", "Productivity", "Research"]
   },
-  "Inference Services": {
-    "name": "Inference Services",
-    "type": "orbit",
-    "url": "",
-    "parent": "CoreWeave",
-    "summary": "Inference Services is an orbiting entity associated with CoreWeave. This placeholder will be refined. Describe what it does, how it relates to CoreWeave, and its role in the AI ecosystem.",
+  "orbit:Meta-Llama|Meta AI Assistant": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Meta AI Assistant",
+    "notes": "",
+    "parent": "Llama (Meta)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "AI assistant integrated across Meta's family of apps (Facebook, Instagram, WhatsApp) powered by Llama models.",
+    "type": "orbit",
+    "url": "https://meta.ai",
+    "use_case_tags": ["Assistants & Search", "Social Media", "Productivity", "Consumer AI", "Mobile AI", "Creative Media"]
   },
-  "Kubernetes-native Platform": {
-    "name": "Kubernetes-native Platform",
-    "type": "orbit",
-    "url": "",
-    "parent": "CoreWeave",
-    "summary": "Kubernetes-native Platform is an orbiting entity associated with CoreWeave. This placeholder will be refined. Describe what it does, how it relates to CoreWeave, and its role in the AI ecosystem.",
+  "orbit:Meta-Llama|Code Llama": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Code Llama",
+    "notes": "",
+    "parent": "Llama (Meta)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Specialized Llama variants fine-tuned for code generation, completion, and debugging across multiple programming languages.",
+    "type": "orbit",
+    "url": "https://llama.meta.com/code-llama",
+    "use_case_tags": ["Dev Tools", "Code Generation", "Programming", "Productivity", "Education & Learning", "Open Source"]
   },
-  "Storage / Networking (with partners)": {
-    "name": "Storage / Networking (with partners)",
-    "type": "orbit",
-    "url": "",
-    "parent": "CoreWeave",
-    "summary": "Storage / Networking (with partners) is an orbiting entity associated with CoreWeave. This placeholder will be refined. Describe what it does, how it relates to CoreWeave, and its role in the AI ecosystem.",
+  "orbit:Meta-Llama|Ray-Ban Meta": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Ray-Ban Meta",
+    "notes": "",
+    "parent": "Llama (Meta)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Smart glasses with integrated AI assistant for hands-free interaction, visual recognition, and real-time information access.",
+    "type": "orbit",
+    "url": "https://meta.com/ray-ban",
+    "use_case_tags": ["Wearable AI", "Assistants & Search", "Consumer Hardware", "Computer Vision", "Mobile AI", "Productivity"]
   },
-  "CoreWeave Engineering / R&D": {
-    "name": "CoreWeave Engineering / R&D",
-    "type": "orbit",
-    "url": "",
-    "parent": "CoreWeave",
-    "summary": "CoreWeave Engineering / R&D is an orbiting entity associated with CoreWeave. This placeholder will be refined. Describe what it does, how it relates to CoreWeave, and its role in the AI ecosystem.",
+  "orbit:Meta-Llama|Quest VR": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Quest VR",
+    "notes": "",
+    "parent": "Llama (Meta)",
     "source": "manual",
-    "last_updated": "2025-11-11T18:15:00Z",
-    "notes": ""
+    "summary": "Virtual reality platform integrating AI assistants for immersive experiences, gaming, and social interaction.",
+    "type": "orbit",
+    "url": "https://meta.com/quest",
+    "use_case_tags": ["Gaming", "VR/AR", "Entertainment", "Social Media", "Immersive AI", "Consumer Hardware"]
+  },
+  "orbit:Naver|HyperCLOVA Chat": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "HyperCLOVA Chat",
+    "notes": "",
+    "parent": "HyperCLOVA X (Naver)",
+    "source": "manual",
+    "summary": "Naver's Korean-language AI chat service integrated with search and other Naver services for the Korean market.",
+    "type": "orbit",
+    "url": "https://clova.ai/chat",
+    "use_case_tags": ["Assistants & Search", "Korean NLP", "Regional AI", "Consumer AI", "Productivity", "Education & Learning"]
+  },
+  "orbit:Naver|SearchGPT": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "SearchGPT",
+    "notes": "",
+    "parent": "HyperCLOVA X (Naver)",
+    "source": "manual",
+    "summary": "AI-enhanced search capabilities integrated into Naver's search engine for the Korean market.",
+    "type": "orbit",
+    "url": "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=SearchGPT",
+    "use_case_tags": ["Assistants & Search", "Korean NLP", "Search", "Regional AI", "Productivity", "Consumer AI"]
+  },
+  "orbit:Kakao-Brain|KoGPT": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "KoGPT",
+    "notes": "",
+    "parent": "Kakao Brain",
+    "source": "manual",
+    "summary": "Korean-specific GPT models optimized for Korean language and cultural context within Kakao's ecosystem.",
+    "type": "orbit",
+    "url": "https://github.com/kakaobrain/kogpt",
+    "use_case_tags": ["Korean NLP", "Open Source", "Research", "Regional AI", "Dev Tools", "Foundation Models"]
+  },
+  "orbit:Kakao-Brain|Karlo": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Karlo Image Studio",
+    "notes": "",
+    "parent": "Kakao Brain",
+    "source": "manual",
+    "summary": "Korean AI image generation service producing culturally relevant images for the Korean market.",
+    "type": "orbit",
+    "url": "https://karlo.ai",
+    "use_case_tags": ["Creative Media", "Image Generation", "Korean AI", "Regional AI", "Entertainment", "Design"]
+  },
+  "orbit:Kakao-Brain|KakaoTalk AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "KakaoTalk AI Features",
+    "notes": "",
+    "parent": "Kakao Brain",
+    "source": "manual",
+    "summary": "AI capabilities integrated into Korea's dominant messaging platform for enhanced user experience.",
+    "type": "orbit",
+    "url": "https://www.kakaocorp.com/page/service/service/KakaoTalk",
+    "use_case_tags": ["Social Media", "Korean AI", "Mobile AI", "Consumer AI", "Productivity", "Assistants & Search"]
+  },
+  "orbit:Yandex|YandexGPT Chat": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "YandexGPT Chat",
+    "notes": "",
+    "parent": "Yandex GPT",
+    "source": "manual",
+    "summary": "Yandex's AI chat interface integrated with its search engine and services for the Russian-speaking market.",
+    "type": "orbit",
+    "url": "https://yandex.ru/lab/yalm",
+    "use_case_tags": ["Assistants & Search", "Russian NLP", "Regional AI", "Consumer AI", "Productivity", "Education & Learning"]
+  },
+  "orbit:Yandex|Alice Assistant": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Alice Assistant",
+    "notes": "",
+    "parent": "Yandex GPT",
+    "source": "manual",
+    "summary": "Yandex's voice assistant for Russian speakers, integrated across devices and Yandex services.",
+    "type": "orbit",
+    "url": "https://alice.yandex.ru",
+    "use_case_tags": ["Assistants & Search", "Voice AI", "Russian NLP", "Regional AI", "Consumer AI", "Mobile AI"]
+  },
+  "orbit:SAP-AI|Joule Copilot": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Joule Copilot",
+    "notes": "",
+    "parent": "SAP AI (Joule)",
+    "source": "manual",
+    "summary": "AI assistant embedded across SAP's business applications for process automation and decision support.",
+    "type": "orbit",
+    "url": "https://www.sap.com/products/joule.html",
+    "use_case_tags": ["Enterprise Apps", "Business AI", "Productivity", "Assistants & Search", "Workflow Automation", "Cloud & Infra"]
+  },
+  "orbit:SAP-AI|SAP AI Core": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "SAP AI Core",
+    "notes": "",
+    "parent": "SAP AI (Joule)",
+    "source": "manual",
+    "summary": "SAP's central AI service for building, deploying, and managing AI models within the SAP ecosystem.",
+    "type": "orbit",
+    "url": "https://www.sap.com/products/ai-core.html",
+    "use_case_tags": ["Enterprise Apps", "Cloud & Infra", "Dev Tools", "Business AI", "MLOps", "Productivity"]
+  },
+  "orbit:Siemens-AI|Industrial Copilot": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Industrial Copilot",
+    "notes": "",
+    "parent": "Siemens Industrial AI",
+    "source": "manual",
+    "summary": "AI assistant for manufacturing and industrial environments, helping with design, maintenance, and operations.",
+    "type": "orbit",
+    "url": "https://www.siemens.com/industrial-copilot",
+    "use_case_tags": ["Industrial AI", "Robotics & Edge", "Enterprise Apps", "Productivity", "Assistants & Search", "Manufacturing"]
+  },
+  "orbit:Siemens-AI|Teamcenter AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Teamcenter AI",
+    "notes": "",
+    "parent": "Siemens Industrial AI",
+    "source": "manual",
+    "summary": "AI-enhanced product lifecycle management platform for manufacturing and engineering workflows.",
+    "type": "orbit",
+    "url": "https://www.plm.automation.siemens.com/global/en/products/teamcenter/teamcenter-ai.html",
+    "use_case_tags": ["Industrial AI", "Enterprise Apps", "Productivity", "Manufacturing", "Engineering", "Cloud & Infra"]
+  },
+  "orbit:Bosch-AI|Automotive AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Automotive AI",
+    "notes": "",
+    "parent": "Bosch Center for AI",
+    "source": "manual",
+    "summary": "AI solutions for automotive applications including driver assistance, predictive maintenance, and vehicle diagnostics.",
+    "type": "orbit",
+    "url": "https://www.bosch-mobility.com/en/solutions/software-and-electronics/artificial-intelligence/",
+    "use_case_tags": ["Automotive", "Robotics & Edge", "Industrial AI", "Predictive Analytics", "Enterprise Apps", "Safety"]
+  },
+  "orbit:Bosch-AI|Smart Home AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Smart Home AI",
+    "notes": "",
+    "parent": "Bosch Center for AI",
+    "source": "manual",
+    "summary": "AI-powered smart home solutions for energy management, security, and home automation.",
+    "type": "orbit",
+    "url": "https://www.bosch-smarthome.com/en/ai/",
+    "use_case_tags": ["Smart Home", "Consumer AI", "IoT", "Robotics & Edge", "Energy Management", "Security"]
+  },
+  "orbit:NEC|Bio-Idiom": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Bio-Idiom Biometrics",
+    "notes": "",
+    "parent": "NEC the WISE",
+    "source": "manual",
+    "summary": "NEC's biometric identification technology combining facial, fingerprint, and iris recognition for security applications.",
+    "type": "orbit",
+    "url": "https://www.nec.com/en/global/solutions/biometrics/",
+    "use_case_tags": ["Security AI", "Biometrics", "Computer Vision", "Enterprise Apps", "Government AI", "Healthcare"]
+  },
+  "orbit:NEC|Video Analytics AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Video Analytics AI",
+    "notes": "",
+    "parent": "NEC the WISE",
+    "source": "manual",
+    "summary": "AI-powered video surveillance and analytics platform for security and operational intelligence.",
+    "type": "orbit",
+    "url": "https://www.nec.com/en/global/solutions/safety/video-analytics/",
+    "use_case_tags": ["Security AI", "Computer Vision", "Video Analytics", "Enterprise Apps", "Government AI", "Surveillance"]
+  },
+  "orbit:Preferred-Networks|Optuna": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Optuna",
+    "notes": "",
+    "parent": "Preferred Networks",
+    "source": "manual",
+    "summary": "Open-source hyperparameter optimization framework widely used in machine learning research and development.",
+    "type": "orbit",
+    "url": "https://optuna.org",
+    "use_case_tags": ["Dev Tools", "Open Source", "Research", "MLOps", "Education & Learning", "Productivity"]
+  },
+  "orbit:Preferred-Networks|MN-Core AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "MN-Core AI Chips",
+    "notes": "",
+    "parent": "Preferred Networks",
+    "source": "manual",
+    "summary": "AI-optimized hardware accelerators designed for deep learning training and inference at scale.",
+    "type": "orbit",
+    "url": "https://www.preferred.jp/en/projects/mn-core/",
+    "use_case_tags": ["Hardware AI", "Research", "High Performance", "Cloud & Infra", "Dev Tools", "Industrial AI"]
+  },
+  "orbit:C3-ai|C3 Generative AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "C3 Generative AI",
+    "notes": "",
+    "parent": "C3.ai AI Suite",
+    "source": "manual",
+    "summary": "Enterprise generative AI capabilities integrated into C3.ai's industry-specific applications.",
+    "type": "orbit",
+    "url": "https://c3.ai/products/generative-ai/",
+    "use_case_tags": ["Enterprise Apps", "Business AI", "Generative AI", "Industry Solutions", "Productivity", "Cloud & Infra"]
+  },
+  "orbit:C3-ai|Enterprise AI Apps": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Enterprise AI Apps",
+    "notes": "",
+    "parent": "C3.ai AI Suite",
+    "source": "manual",
+    "summary": "Industry-specific AI applications for energy, manufacturing, financial services, and supply chain management.",
+    "type": "orbit",
+    "url": "https://c3.ai/applications/",
+    "use_case_tags": ["Enterprise Apps", "Industry Solutions", "Business AI", "Productivity", "Data Analytics", "Cloud & Infra"]
+  },
+  "orbit:Palantir-AIP|Gotham Platform": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Gotham Platform",
+    "notes": "",
+    "parent": "Palantir AIP",
+    "source": "manual",
+    "summary": "Palantir's platform for defense, intelligence, and government applications with strong data integration capabilities.",
+    "type": "orbit",
+    "url": "https://www.palantir.com/platforms/gotham/",
+    "use_case_tags": ["Government AI", "Defense AI", "Data Integration", "Security AI", "Enterprise Apps", "Cloud & Infra"]
+  },
+  "orbit:Palantir-AIP|Foundry Platform": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Foundry Platform",
+    "notes": "",
+    "parent": "Palantir AIP",
+    "source": "manual",
+    "summary": "Enterprise data platform for integrating, managing, and analyzing data with AI capabilities.",
+    "type": "orbit",
+    "url": "https://www.palantir.com/platforms/foundry/",
+    "use_case_tags": ["Enterprise Apps", "Data Integration", "Business AI", "Cloud & Infra", "Data Analytics", "Productivity"]
+  },
+  "orbit:ServiceNow-AI|Now Assist": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Now Assist",
+    "notes": "",
+    "parent": "ServiceNow AI",
+    "source": "manual",
+    "summary": "AI assistant embedded in ServiceNow platform for IT service management, HR, and customer service workflows.",
+    "type": "orbit",
+    "url": "https://www.servicenow.com/products/now-assist.html",
+    "use_case_tags": ["Enterprise Apps", "IT Operations", "Productivity", "Assistants & Search", "Workflow Automation", "Business AI"]
+  },
+  "orbit:ServiceNow-AI|AI Integration Hub": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Integration Hub",
+    "notes": "",
+    "parent": "ServiceNow AI",
+    "source": "manual",
+    "summary": "Platform for integrating external AI models and services into ServiceNow workflows and applications.",
+    "type": "orbit",
+    "url": "https://www.servicenow.com/products/ai-integration-hub.html",
+    "use_case_tags": ["Enterprise Apps", "Cloud & Infra", "Integration", "Dev Tools", "Business AI", "Productivity"]
+  },
+  "orbit:Workday-AI|Skills Cloud": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Skills Cloud",
+    "notes": "",
+    "parent": "Workday AI",
+    "source": "manual",
+    "summary": "AI-powered skills ontology and talent intelligence platform for workforce planning and development.",
+    "type": "orbit",
+    "url": "https://www.workday.com/en-us/products/skills-cloud.html",
+    "use_case_tags": ["Enterprise Apps", "HR Tech", "Data Analytics", "Business AI", "Productivity", "Education & Learning"]
+  },
+  "orbit:Workday-AI|Talent Optimization": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Talent Optimization",
+    "notes": "",
+    "parent": "Workday AI",
+    "source": "manual",
+    "summary": "AI-driven talent management and optimization features within the Workday platform.",
+    "type": "orbit",
+    "url": "https://www.workday.com/en-us/products/talent-optimization.html",
+    "use_case_tags": ["Enterprise Apps", "HR Tech", "Business AI", "Productivity", "Data Analytics", "Workforce Planning"]
+  },
+  "orbit:Intuit-AI|Intuit Assist": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Intuit Assist",
+    "notes": "",
+    "parent": "Intuit AI",
+    "source": "manual",
+    "summary": "AI assistant integrated across Intuit's financial products for personalized financial guidance and automation.",
+    "type": "orbit",
+    "url": "https://www.intuit.com/products/intuit-assist/",
+    "use_case_tags": ["Financial AI", "Productivity", "Assistants & Search", "Small Business", "Enterprise Apps", "Consumer AI"]
+  },
+  "orbit:Intuit-AI|QuickBooks AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "QuickBooks AI",
+    "notes": "",
+    "parent": "Intuit AI",
+    "source": "manual",
+    "summary": "AI features within QuickBooks for automated bookkeeping, expense categorization, and financial insights.",
+    "type": "orbit",
+    "url": "https://quickbooks.intuit.com/ai/",
+    "use_case_tags": ["Financial AI", "Small Business", "Productivity", "Automation", "Enterprise Apps", "Data Analytics"]
+  },
+  "orbit:Qualcomm-AI|Snapdragon Platforms": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Snapdragon Platforms",
+    "notes": "",
+    "parent": "Qualcomm AI Stack",
+    "source": "manual",
+    "summary": "Qualcomm's mobile and compute platforms with integrated AI accelerators for on-device AI processing.",
+    "type": "orbit",
+    "url": "https://www.qualcomm.com/products/snapdragon",
+    "use_case_tags": ["Hardware AI", "Mobile AI", "Edge AI", "Consumer Hardware", "Robotics & Edge", "Dev Tools"]
+  },
+  "orbit:Qualcomm-AI|AI Hub": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Hub Models",
+    "notes": "",
+    "parent": "Qualcomm AI Stack",
+    "source": "manual",
+    "summary": "Repository of pre-optimized AI models for deployment on Qualcomm Snapdragon and other platforms.",
+    "type": "orbit",
+    "url": "https://aihub.qualcomm.com",
+    "use_case_tags": ["Dev Tools", "Mobile AI", "Edge AI", "Model Hub", "Optimization", "Cloud & Infra"]
+  },
+  "orbit:AMD-AI|Instinct MI300": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Instinct MI300",
+    "notes": "",
+    "parent": "AMD AI Platform",
+    "source": "manual",
+    "summary": "AMD's flagship AI accelerator for data center and high-performance computing applications.",
+    "type": "orbit",
+    "url": "https://www.amd.com/en/products/accelerators/instinct/mi300",
+    "use_case_tags": ["Hardware AI", "High Performance", "Cloud & Infra", "Data Center", "Enterprise Apps", "Research"]
+  },
+  "orbit:AMD-AI|Ryzen AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Ryzen AI",
+    "notes": "",
+    "parent": "AMD AI Platform",
+    "source": "manual",
+    "summary": "AMD's AI acceleration technology integrated into Ryzen processors for PC and edge computing.",
+    "type": "orbit",
+    "url": "https://www.amd.com/en/products/ryzen-ai",
+    "use_case_tags": ["Hardware AI", "Edge AI", "Consumer Hardware", "PC AI", "Productivity", "Dev Tools"]
+  },
+  "orbit:Arm-AI|Ethos NPU": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Ethos NPU",
+    "notes": "",
+    "parent": "Arm AI Platform",
+    "source": "manual",
+    "summary": "Arm's Neural Processing Unit IP for efficient AI inference in edge and embedded devices.",
+    "type": "orbit",
+    "url": "https://www.arm.com/products/silicon-ip-cpu/ethos",
+    "use_case_tags": ["Hardware AI", "Edge AI", "Embedded Systems", "Robotics & Edge", "Mobile AI", "Efficient AI"]
+  },
+  "orbit:Arm-AI|Cortex-A/M CPUs": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Cortex-A/M CPUs with AI",
+    "notes": "",
+    "parent": "Arm AI Platform",
+    "source": "manual",
+    "summary": "Arm's CPU architectures with AI acceleration features for various computing segments.",
+    "type": "orbit",
+    "url": "https://www.arm.com/products/silicon-ip-cpu",
+    "use_case_tags": ["Hardware AI", "Processor IP", "Edge AI", "Embedded Systems", "Mobile AI", "Robotics & Edge"]
+  },
+  "orbit:Infosys-Topaz|AI Services": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Services",
+    "notes": "",
+    "parent": "Infosys Topaz",
+    "source": "manual",
+    "summary": "Consulting and implementation services for enterprise AI adoption and digital transformation.",
+    "type": "orbit",
+    "url": "https://www.infosys.com/services/ai-automation.html",
+    "use_case_tags": ["Consulting", "Enterprise Apps", "Business AI", "Industry Solutions", "Cloud & Infra", "Productivity"]
+  },
+  "orbit:Infosys-Topaz|Data Analytics": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Data Analytics Platforms",
+    "notes": "",
+    "parent": "Infosys Topaz",
+    "source": "manual",
+    "summary": "Data analytics and business intelligence solutions powered by AI and machine learning.",
+    "type": "orbit",
+    "url": "https://www.infosys.com/services/data-analytics.html",
+    "use_case_tags": ["Data Analytics", "Business Intelligence", "Enterprise Apps", "Business AI", "Cloud & Infra", "Industry Solutions"]
+  },
+  "orbit:Wipro-ai360|AI Consulting": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Consulting",
+    "notes": "",
+    "parent": "Wipro ai360",
+    "source": "manual",
+    "summary": "AI strategy and implementation consulting services for enterprise digital transformation.",
+    "type": "orbit",
+    "url": "https://www.wipro.com/consulting/ai/",
+    "use_case_tags": ["Consulting", "Enterprise Apps", "Business AI", "Strategy", "Industry Solutions", "Productivity"]
+  },
+  "orbit:Wipro-ai360|Industry Solutions": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Industry Solutions",
+    "notes": "",
+    "parent": "Wipro ai360",
+    "source": "manual",
+    "summary": "Industry-specific AI solutions for healthcare, financial services, retail, and manufacturing.",
+    "type": "orbit",
+    "url": "https://www.wipro.com/industries/",
+    "use_case_tags": ["Industry Solutions", "Enterprise Apps", "Business AI", "Consulting", "Healthcare", "Financial AI"]
+  },
+  "orbit:TCS-AI|Enterprise AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Enterprise AI Solutions",
+    "notes": "",
+    "parent": "TCS AI.Cloud",
+    "source": "manual",
+    "summary": "Comprehensive AI solutions for enterprise digital transformation and cognitive operations.",
+    "type": "orbit",
+    "url": "https://www.tcs.com/what-we-do/services/artificial-intelligence",
+    "use_case_tags": ["Enterprise Apps", "Business AI", "Consulting", "Cloud & Infra", "Industry Solutions", "Productivity"]
+  },
+  "orbit:TCS-AI|TCS CMI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "TCS CMI Platform",
+    "notes": "",
+    "parent": "TCS AI.Cloud",
+    "source": "manual",
+    "summary": "TCS Cognitive Manufacturing & Industrial platform for smart manufacturing and Industry 4.0.",
+    "type": "orbit",
+    "url": "https://www.tcs.com/products/tcs-cognitive-business-operations",
+    "use_case_tags": ["Industrial AI", "Manufacturing", "Enterprise Apps", "IoT", "Robotics & Edge", "Industry Solutions"]
+  },
+  "orbit:JioBrain|Jio Services AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Jio Services AI",
+    "notes": "",
+    "parent": "JioBrain Platform",
+    "source": "manual",
+    "summary": "AI capabilities integrated across Jio's telecom, media, and digital services ecosystem.",
+    "type": "orbit",
+    "url": "https://www.jio.com/platforms",
+    "use_case_tags": ["Telecom AI", "Regional AI", "Consumer AI", "Enterprise Apps", "Media & Entertainment", "Cloud & Infra"]
+  },
+  "orbit:JioBrain|JioMart AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "JioMart AI",
+    "notes": "",
+    "parent": "JioBrain Platform",
+    "source": "manual",
+    "summary": "AI features for JioMart e-commerce platform including recommendations, inventory management, and customer service.",
+    "type": "orbit",
+    "url": "https://www.jiomart.com",
+    "use_case_tags": ["Retail AI", "E-commerce", "Regional AI", "Consumer AI", "Enterprise Apps", "Productivity"]
+  },
+
+  // ===== PLANETS/MOONS FOR NEW COMPANIES =====
+  // Healthcare Planets/Moons
+  "orbit:Tempus|Genomic-Analysis": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Genomic Analysis Platform",
+    "notes": "",
+    "parent": "Tempus",
+    "source": "manual",
+    "summary": "AI-powered platform for analyzing genomic data to identify mutations, biomarkers, and treatment opportunities for personalized cancer care.",
+    "type": "orbit",
+    "url": "https://www.tempus.com/genomic-analysis",
+    "use_case_tags": ["Genomics", "Precision Medicine", "Cancer Research", "Data Analysis", "Biomarkers", "Personalized Treatment"]
+  },
+  "orbit:Tempus|Clinical-Database": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Clinical Database",
+    "notes": "",
+    "parent": "Tempus",
+    "source": "manual",
+    "summary": "Comprehensive database linking clinical outcomes with molecular data to accelerate research and improve patient care decisions.",
+    "type": "orbit",
+    "url": "https://www.tempus.com/data",
+    "use_case_tags": ["Clinical Data", "Research Database", "Real-World Evidence", "Healthcare Analytics", "Data Integration", "Medical Research"]
+  },
+  
+  // Education Planets/Moons
+  "orbit:Duolingo|Duolingo-App": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Duolingo App",
+    "notes": "",
+    "parent": "Duolingo",
+    "source": "manual",
+    "summary": "Mobile and web application for learning languages through gamified lessons, spaced repetition, and AI-powered personalized practice.",
+    "type": "orbit",
+    "url": "https://www.duolingo.com/app",
+    "use_case_tags": ["Language Learning", "Mobile App", "Gamification", "Personalized Learning", "Spaced Repetition", "Daily Practice"]
+  },
+  "orbit:Duolingo|Duolingo-Max": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Duolingo Max (AI Tutor)",
+    "notes": "",
+    "parent": "Duolingo",
+    "source": "manual",
+    "summary": "Premium AI-powered features including Roleplay for conversational practice and Explain My Answer for detailed feedback on mistakes.",
+    "type": "orbit",
+    "url": "https://www.duolingo.com/duolingo-max",
+    "use_case_tags": ["AI Tutor", "Conversational Practice", "Personalized Feedback", "Premium Features", "Language Practice", "Interactive Learning"]
+  },
+  
+  // Artiligenz Planets - Fixed entries
+  "orbit:Artiligenz|Ai-Information-Hub": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Information Hub",
+    "notes": "",
+    "parent": "Artiligenz",
+    "source": "manual",
+    "summary": "Centralized platform offering AI news, research insights, tutorials, and resources for professionals, researchers, and enthusiasts.",
+    "type": "orbit",
+    "url": "https://artiligenz.ai",
+    "use_case_tags": ["AI Resources", "Information Hub", "Research Insights", "Tutorials", "News & Updates", "Learning Materials"]
+  },
+  "orbit:Artiligenz|Ai-Directory": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Directory",
+    "notes": "",
+    "parent": "Artiligenz",
+    "source": "manual",
+    "summary": "Comprehensive directory of AI tools, companies, models, and resources organized for easy discovery and comparison.",
+    "type": "orbit",
+    "url": "https://artiligenz.ai/directory",
+    "use_case_tags": ["AI Directory", "Tool Discovery", "Company Directory", "Resource Catalog", "Comparison Tools", "AI Ecosystem"]
+  },
+  "orbit:Artiligenz|Art-g": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Art-g",
+    "notes": "",
+    "parent": "Artiligenz",
+    "source": "manual",
+    "summary": "AI-powered creative tool for generating and manipulating digital art, offering innovative features for artists and designers.",
+    "type": "orbit",
+    "url": "https://artiligenz.ai/art-g",
+    "use_case_tags": ["Creative Media", "Art Generation", "Digital Art", "Design Tools", "AI Creativity", "Visual Arts"]
+  },
+
+  // ===== MOONS (Specialized APIs, Tools, & Secondary Services) =====
+  "orbit:OpenAI|OpenAI API": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "OpenAI API",
+    "notes": "",
+    "parent": "GPT (OpenAI)",
+    "source": "manual",
+    "summary": "Platform for developers to integrate GPT models into applications, offering various models optimized for different tasks and price points.",
+    "type": "orbit",
+    "url": "https://platform.openai.com",
+    "use_case_tags": ["Dev Tools", "Cloud & Infra", "Enterprise Apps", "API Services", "Productivity", "Research"]
+  },
+  "orbit:OpenAI|GPT Store": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "GPT Store",
+    "notes": "",
+    "parent": "GPT (OpenAI)",
+    "source": "manual",
+    "summary": "Marketplace for custom GPTs created by developers, enabling specialized AI assistants for various tasks and industries.",
+    "type": "orbit",
+    "url": "https://chatgpt.com/gpts",
+    "use_case_tags": ["Marketplace", "Dev Tools", "Enterprise Apps", "Productivity", "Education & Learning", "Creative Media"]
+  },
+  "orbit:Google-Gemini|Gemini API": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Gemini API",
+    "notes": "",
+    "parent": "Gemini (Google)",
+    "source": "manual",
+    "summary": "Google's API platform offering access to Gemini models through Google AI Studio and Vertex AI for developers and enterprises.",
+    "type": "orbit",
+    "url": "https://ai.google.dev",
+    "use_case_tags": ["Dev Tools", "Cloud & Infra", "API Services", "Enterprise Apps", "Productivity", "Research"]
+  },
+  "orbit:Anthropic|Amazon Bedrock (Claude)": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Amazon Bedrock (Claude)",
+    "notes": "",
+    "parent": "Claude (Anthropic)",
+    "source": "manual",
+    "summary": "Claude integration within AWS's managed service for foundation models, enabling secure enterprise deployment on AWS infrastructure.",
+    "type": "orbit",
+    "url": "https://aws.amazon.com/bedrock/claude",
+    "use_case_tags": ["Cloud & Infra", "Enterprise Apps", "AWS Integration", "Security", "Scalability", "Managed Services"]
+  },
+  "orbit:Meta-Llama|Hugging Face Models": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Hugging Face Models",
+    "notes": "",
+    "parent": "Llama (Meta)",
+    "source": "manual",
+    "summary": "Llama model distribution and fine-tuning ecosystem on Hugging Face, enabling community adaptations and specialized variants.",
+    "type": "orbit",
+    "url": "https://huggingface.co/meta-llama",
+    "use_case_tags": ["Open Source", "Dev Tools", "Community", "Model Hub", "Research", "Fine-tuning"]
+  },
+  "orbit:Meta-Llama|GroqCloud / Together AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "GroqCloud / Together AI",
+    "notes": "",
+    "parent": "Llama (Meta)",
+    "source": "manual",
+    "summary": "High-performance inference platforms optimized for Llama models, offering low-latency API access and specialized hardware acceleration.",
+    "type": "orbit",
+    "url": "https://groq.com",
+    "use_case_tags": ["Cloud & Infra", "High Performance", "API Services", "Inference", "Enterprise Apps", "Dev Tools"]
+  },
+  "orbit:Naver|CLOVA API": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "CLOVA API",
+    "notes": "",
+    "parent": "HyperCLOVA X (Naver)",
+    "source": "manual",
+    "summary": "API access to Naver's AI models for developers building Korean-language applications.",
+    "type": "orbit",
+    "url": "https://developers.naver.com/products/clova/",
+    "use_case_tags": ["Dev Tools", "API Services", "Korean NLP", "Regional AI", "Enterprise Apps", "Cloud & Infra"]
+  },
+  "orbit:Naver|LINE Messenger AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "LINE Messenger AI",
+    "notes": "",
+    "parent": "HyperCLOVA X (Naver)",
+    "source": "manual",
+    "summary": "AI features integrated into LINE messaging platform popular in Japan, Taiwan, Thailand, and Indonesia.",
+    "type": "orbit",
+    "url": "https://line.me/en/",
+    "use_case_tags": ["Social Media", "Regional AI", "Mobile AI", "Consumer AI", "Productivity", "Assistants & Search"]
+  },
+  "orbit:Kakao-Brain|AI API Platform": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI API Platform",
+    "notes": "",
+    "parent": "Kakao Brain",
+    "source": "manual",
+    "summary": "API platform for accessing Kakao's AI models and services for Korean-language applications.",
+    "type": "orbit",
+    "url": "https://developers.kakao.com/product/ai",
+    "use_case_tags": ["Dev Tools", "API Services", "Korean NLP", "Regional AI", "Enterprise Apps", "Cloud & Infra"]
+  },
+  "orbit:Yandex|Yandex Cloud AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Yandex Cloud AI",
+    "notes": "",
+    "parent": "Yandex GPT",
+    "source": "manual",
+    "summary": "Yandex's cloud AI services platform offering model hosting, training, and inference capabilities.",
+    "type": "orbit",
+    "url": "https://cloud.yandex.com/en/services/ai",
+    "use_case_tags": ["Cloud & Infra", "Regional AI", "Enterprise Apps", "Dev Tools", "API Services", "Russian NLP"]
+  },
+  "orbit:SAP-AI|SAP Business AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "SAP Business AI APIs",
+    "notes": "",
+    "parent": "SAP AI (Joule)",
+    "source": "manual",
+    "summary": "APIs for integrating AI capabilities into custom SAP applications and business processes.",
+    "type": "orbit",
+    "url": "https://api.sap.com/package/SAPBusinessAI",
+    "use_case_tags": ["Dev Tools", "API Services", "Enterprise Apps", "Business AI", "Integration", "Productivity"]
+  },
+  "orbit:Siemens-AI|Siemens Xcelerator AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Xcelerator AI Services",
+    "notes": "",
+    "parent": "Siemens Industrial AI",
+    "source": "manual",
+    "summary": "AI services and APIs within Siemens' digital business platform for industrial applications.",
+    "type": "orbit",
+    "url": "https://www.siemens.com/xcelerator",
+    "use_case_tags": ["Dev Tools", "API Services", "Industrial AI", "Enterprise Apps", "Cloud & Infra", "Manufacturing"]
+  },
+  "orbit:Bosch-AI|Bosch AI Cloud": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Bosch AI Cloud",
+    "notes": "",
+    "parent": "Bosch Center for AI",
+    "source": "manual",
+    "summary": "Bosch's cloud platform for AI model development, deployment, and management.",
+    "type": "orbit",
+    "url": "https://www.bosch-ai.com/products/bosch-ai-cloud/",
+    "use_case_tags": ["Cloud & Infra", "Enterprise Apps", "Industrial AI", "Dev Tools", "MLOps", "Productivity"]
+  },
+  "orbit:NEC|NEC Cloud AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "NEC Cloud AI",
+    "notes": "",
+    "parent": "NEC the WISE",
+    "source": "manual",
+    "summary": "NEC's cloud-based AI services platform for enterprise and government applications.",
+    "type": "orbit",
+    "url": "https://www.nec.com/en/global/solutions/cloud/ai.html",
+    "use_case_tags": ["Cloud & Infra", "Enterprise Apps", "Security AI", "Government AI", "Dev Tools", "API Services"]
+  },
+  "orbit:Preferred-Networks|PaintsChainer": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "PaintsChainer",
+    "notes": "",
+    "parent": "Preferred Networks",
+    "source": "manual",
+    "summary": "AI-powered automatic colorization service for line art and sketches.",
+    "type": "orbit",
+    "url": "https://paintschainer.preferred.tech",
+    "use_case_tags": ["Creative Media", "Image Processing", "Consumer AI", "Entertainment", "Design", "Research"]
+  },
+  "orbit:C3-ai|C3 AI Platform": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "C3 AI Platform APIs",
+    "notes": "",
+    "parent": "C3.ai AI Suite",
+    "source": "manual",
+    "summary": "APIs for extending and customizing C3.ai's enterprise AI platform for specific use cases.",
+    "type": "orbit",
+    "url": "https://c3.ai/products/c3-ai-platform/",
+    "use_case_tags": ["Dev Tools", "API Services", "Enterprise Apps", "Business AI", "Integration", "Cloud & Infra"]
+  },
+  "orbit:Palantir-AIP|Ontology SDK": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Ontology SDK",
+    "notes": "",
+    "parent": "Palantir AIP",
+    "source": "manual",
+    "summary": "Software development kit for building applications on Palantir's data ontology platform.",
+    "type": "orbit",
+    "url": "https://www.palantir.com/platforms/ontology/",
+    "use_case_tags": ["Dev Tools", "SDK", "Enterprise Apps", "Data Integration", "Business AI", "Government AI"]
+  },
+  "orbit:ServiceNow-AI|Now Platform AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Now Platform AI Features",
+    "notes": "",
+    "parent": "ServiceNow AI",
+    "source": "manual",
+    "summary": "Core AI capabilities and APIs within the ServiceNow platform for workflow automation.",
+    "type": "orbit",
+    "url": "https://www.servicenow.com/platform/ai.html",
+    "use_case_tags": ["Dev Tools", "API Services", "Enterprise Apps", "IT Operations", "Workflow Automation", "Business AI"]
+  },
+  "orbit:Workday-AI|Workday Extend AI": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Workday Extend AI",
+    "notes": "",
+    "parent": "Workday AI",
+    "source": "manual",
+    "summary": "APIs and tools for extending Workday's AI capabilities to custom applications and integrations.",
+    "type": "orbit",
+    "url": "https://www.workday.com/en-us/products/workday-extend/ai.html",
+    "use_case_tags": ["Dev Tools", "API Services", "Enterprise Apps", "HR Tech", "Integration", "Business AI"]
+  },
+  "orbit:Intuit-AI|GenOS": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "GenOS",
+    "notes": "",
+    "parent": "Intuit AI",
+    "source": "manual",
+    "summary": "Intuit's generative AI operating system for building financial AI applications.",
+    "type": "orbit",
+    "url": "https://www.intuit.com/company/ai/genos/",
+    "use_case_tags": ["Dev Tools", "Financial AI", "Enterprise Apps", "Generative AI", "API Services", "Small Business"]
+  },
+  "orbit:Qualcomm-AI|AI Engine SDK": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI Engine SDK",
+    "notes": "",
+    "parent": "Qualcomm AI Stack",
+    "source": "manual",
+    "summary": "Software development kit for optimizing AI models on Qualcomm hardware platforms.",
+    "type": "orbit",
+    "url": "https://developer.qualcomm.com/software/qualcomm-ai-engine",
+    "use_case_tags": ["Dev Tools", "SDK", "Mobile AI", "Edge AI", "Optimization", "Hardware AI"]
+  },
+  "orbit:AMD-AI|Infinity Hub": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Infinity Hub",
+    "notes": "",
+    "parent": "AMD AI Platform",
+    "source": "manual",
+    "summary": "AMD's software hub for AI and HPC applications, tools, and frameworks.",
+    "type": "orbit",
+    "url": "https://www.amd.com/en/technologies/infinity-hub",
+    "use_case_tags": ["Dev Tools", "Software Hub", "High Performance", "Cloud & Infra", "Research", "Enterprise Apps"]
+  },
+  "orbit:Arm-AI|Arm NN": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Arm NN",
+    "notes": "",
+    "parent": "Arm AI Platform",
+    "source": "manual",
+    "summary": "Arm's neural network inference engine for efficient AI processing on Arm-based devices.",
+    "type": "orbit",
+    "url": "https://developer.arm.com/Processors/Arm%20NN",
+    "use_case_tags": ["Dev Tools", "Inference Engine", "Edge AI", "Mobile AI", "Optimization", "Embedded Systems"]
+  },
+  "orbit:Infosys-Topaz|Infosys Cobalt": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Infosys Cobalt",
+    "notes": "",
+    "parent": "Infosys Topaz",
+    "source": "manual",
+    "summary": "Infosys's cloud ecosystem and marketplace for AI and digital transformation solutions.",
+    "type": "orbit",
+    "url": "https://www.infosys.com/services/cloud/cobalt.html",
+    "use_case_tags": ["Cloud & Infra", "Marketplace", "Enterprise Apps", "Business AI", "Consulting", "Industry Solutions"]
+  },
+  "orbit:Wipro-ai360|Wipro Holmes": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Wipro Holmes Platform",
+    "notes": "",
+    "parent": "Wipro ai360",
+    "source": "manual",
+    "summary": "Wipro's AI and automation platform for cognitive process automation and enterprise AI.",
+    "type": "orbit",
+    "url": "https://www.wipro.com/holmes/",
+    "use_case_tags": ["Enterprise Apps", "Business AI", "Automation", "Platform", "Consulting", "Productivity"]
+  },
+  "orbit:TCS-AI|Ignio AIOps": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "Ignio AIOps",
+    "notes": "",
+    "parent": "TCS AI.Cloud",
+    "source": "manual",
+    "summary": "TCS's AI-powered IT operations platform for predictive incident management and automation.",
+    "type": "orbit",
+    "url": "https://www.tcs.com/products/ignio",
+    "use_case_tags": ["Enterprise Apps", "IT Operations", "AIOps", "Predictive Analytics", "Automation", "Business AI"]
+  },
+  "orbit:JioBrain|AI APIs": {
+    "last_updated": "2025-12-27T12:00:00Z",
+    "name": "AI APIs for Indian Languages",
+    "notes": "",
+    "parent": "JioBrain Platform",
+    "source": "manual",
+    "summary": "APIs for Indian language processing and other AI capabilities within the Jio ecosystem.",
+    "type": "orbit",
+    "url": "https://developer.jio.com",
+    "use_case_tags": ["Dev Tools", "API Services", "Indian NLP", "Regional AI", "Enterprise Apps", "Cloud & Infra"]
   }
 };
-
-

@@ -7,52 +7,63 @@
 
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Phase 2: unified theme behavior for all pages -->
+  <script src="theme.js" defer></script>
+
+  <!-- Components -->
   <script src="components/header.js" defer></script>
   <script src="components/footer.js" defer></script>
 
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind = { config: { darkMode: 'class' } }
+  </script>
+  
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-950 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-sky-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<body class="transition-colors duration-300">
 
   <custom-header mode="simple"></custom-header>
 
   <main class="container mx-auto px-4 py-10 space-y-10">
 
-    <section class="max-w-4xl mx-auto bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-2xl shadow p-8">
+    <section class="max-w-4xl mx-auto az-card">
       <h1 class="text-3xl font-bold mb-4">Explore the Directory</h1>
 
-      <p class="leading-relaxed text-gray-700 dark:text-gray-200">
+      <p class="leading-relaxed">
         The Artiligenz Live Directory has two main views —
         <span class="font-semibold">Universe</span> and <span class="font-semibold">Grid</span> —
-        plus filters, search, and navigation controls. Here’s how to use them.
+        plus filters, search, and navigation controls. Here's how to use them.
       </p>
     </section>
 
     <section class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-      <div class="bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-xl shadow p-7">
+      <div class="az-card">
         <h2 class="text-xl font-semibold mb-3">1. Choose a view</h2>
         <p class="leading-relaxed mb-3">
           Switch between:
         </p>
         <ul class="list-disc list-inside space-y-2">
-          <li><strong>Universe:</strong> a full AI “galaxy” showing structure and clusters.</li>
+          <li><strong>Universe:</strong> a full AI "galaxy" showing structure and clusters.</li>
           <li><strong>Grid:</strong> neat rows/columns for scanning names + logos.</li>
         </ul>
       </div>
 
       <div class="space-y-4">
-        <div class="h-40 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
-          [ Universe view screenshot placeholder ]
+        <div class="az-tile h-40 md:h-44">
+          <img class="block dark:hidden" src="assets/explore/universe_light.jpg" alt="Universe view (light)" loading="lazy" />
+          <img class="hidden dark:block" src="assets/explore/universe_dark.jpg" alt="Universe view (dark)" loading="lazy" />
         </div>
-        <div class="h-40 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
-          [ Grid view screenshot placeholder ]
+        <div class="az-tile h-40 md:h-44">
+          <img class="block dark:hidden" src="assets/explore/grid_view_light.jpg" alt="Grid view (light)" loading="lazy" />
+          <img class="hidden dark:block" src="assets/explore/grid_view_dark.jpg" alt="Grid view (dark)" loading="lazy" />
         </div>
       </div>
     </section>
 
     <section class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-      <div class="bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-xl shadow p-7">
+      <div class="az-card">
         <h2 class="text-xl font-semibold mb-3">2. Filters & Search</h2>
         <p class="leading-relaxed mb-3">
           Use the sidebar to slice the map in real time:
@@ -64,36 +75,36 @@
         </ul>
       </div>
 
-      <div class="h-44 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
-        [ Sidebar filters + search screenshot placeholder ]
+      <div class="az-tile h-44 md:h-56">
+        <img src="assets/explore/search_filter_light.jpg" alt="Sidebar filters and search" loading="lazy" />
       </div>
     </section>
 
-    <section class="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow p-8">
+    <section class="max-w-4xl mx-auto az-card">
       <h2 class="text-xl font-semibold mb-3">3. Navigating the map</h2>
       <ul class="list-disc list-inside space-y-2">
         <li>Pan + zoom directly using your mouse or trackpad.</li>
-        <li>“Nav Controls“ toggle is only on the main directory (not here).</li>
+        <li>"Nav Controls" toggle is only on the main directory (not here).</li>
         <li>The Reset button recenters the layout instantly.</li>
       </ul>
     </section>
 
     <section class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
-      <div class="bg-white/95 dark:bg-white/5 dark:backdrop-blur-2xl dark:border dark:border-white/10 dark:shadow-[0_0_40px_rgba(56,189,248,0.35)] rounded-xl shadow p-7">
+      <div class="az-card">
         <h2 class="text-xl font-semibold mb-3">4. Microcards & Profiles</h2>
         <ul class="list-disc list-inside space-y-2">
           <li><strong>Microcard:</strong> shows logo, category, quick actions.</li>
           <li><strong>More:</strong> opens a full profile drawer.</li>
-          <li><strong>Explore:</strong> shows local “neighbourhood” orbits (if available).</li>
+          <li><strong>Explore:</strong> shows local "neighbourhood" orbits (if available).</li>
         </ul>
       </div>
 
       <div class="space-y-4">
-        <div class="h-44 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
-          [ Node + microcard screenshot placeholder ]
+        <div class="az-tile h-44 md:h-56">
+          <img src="assets/explore/microcard_light.jpg" alt="Node microcard" loading="lazy" />
         </div>
-        <div class="h-44 border border-dashed rounded-xl flex items-center justify-center text-gray-500 dark:text-gray-400">
-          [ Info drawer screenshot placeholder ]
+        <div class="az-tile h-44 md:h-56">
+          <img src="assets/explore/drawer_dark.jpg" alt="Info drawer" loading="lazy" />
         </div>
       </div>
     </section>
@@ -102,14 +113,5 @@
 
   <custom-footer></custom-footer>
 
-  <script>
-    (function () {
-      const stored = localStorage.getItem('theme');
-      const prefersDark =
-        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const isDark = stored === 'dark' || (!stored && prefersDark);
-      document.documentElement.classList.toggle('dark', isDark);
-    })();
-  </script>
 </body>
 </html>

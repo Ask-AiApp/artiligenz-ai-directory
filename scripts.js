@@ -1,891 +1,624 @@
-// Artiligenz-Galaxy v5 — Universe | Grid + Orbit, Microcard, Drawer, Breadcrumb
-// Updated: Hover, Drawer wiring, Blue-noise Universe, No Galaxy, Correct Orbit exit
+// scripts.js
+// Artiligenz Live Directory — App Orchestrator (data + views + interactions)
 
-window.addEventListener('error', (e) => {
-  const b = document.createElement('div');
-  b.style.cssText =
-    'position:fixed;left:0;right:0;top:0;z-index:99999;background:#ef4444;color:#fff;padding:8px;font:12px system-ui';
-  b.textContent = 'JS error: ' + (e.message || 'unknown');
-  document.body.appendChild(b);
-});
+(function () {
+  let cy = null;
+  let currentView = 'universe';
+  let orbitState = {
+    active: false,
+    fromNodeId: null,
+    sunId: null,
+    pan: null,
+    zoom: null,
+    hiddenIds: [],
+    prevView: 'universe', // ✅ ADDED: remember where orbit was launched from
+  };
 
-// theme toggle (will also refresh cytoscape + microcard once cy exists)
-const toggleTheme = () => {
-  document.documentElement.classList.toggle('dark');
-  localStorage.setItem(
-    'theme',
-    document.documentElement.classList.contains('dark') ? 'dark' : 'light'
-  );
-  if (window.Skin?.apply && window.cy) Skin.apply(window.cy);
-  if (window.__applyMicroStyle) window.__applyMicroStyle();
-  if (window.__refreshStarfieldTheme) window.__refreshStarfieldTheme();
-};
-window.toggleTheme = toggleTheme;
-
-// initial theme
-if (
-  localStorage.getItem('theme') === 'dark' ||
-  (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
-  document.documentElement.classList.add('dark');
-} else {
-  document.documentElement.classList.remove('dark');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  if (window.feather?.replace) feather.replace();
-  if (!window.cytoscape) throw new Error('Cytoscape not loaded');
-  if (!window.Skin) throw new Error('Skin module not loaded');
-  if (!window.Views) throw new Error('Views module not loaded'); // universe / orbital / smartFit
-  if (!window.Layouts?.gridPositions) console.warn('gridPositions missing (Grid view)');
-
-  const cy = (window.cy = cytoscape({
-    container: document.getElementById('cy'),
-    pixelRatio: 1,
-    minZoom: 0.35,
-    maxZoom: 2.0,
-    style: Skin.styles(),
-    layout: { name: 'preset' }
-  }));
-
-  // Ensure #cy can host overlays relative to it
-  const cyContainer = cy.container();
-  if (getComputedStyle(cyContainer).position === 'static') cyContainer.style.position = 'relative';
-
-  // =========================
-  // VIEW ADD: STARFIELD BG
-  // =========================
-  (function initStarfield() {
-    try {
-      const star = document.createElement('canvas');
-      star.id = 'starfield';
-      Object.assign(star.style, {
-        position: 'absolute',
-        inset: '0',
-        zIndex: '0',
-        pointerEvents: 'none'
-      });
-      cyContainer.style.background = 'transparent';
-      cyContainer.prepend(star);
-
-      const ctx = star.getContext('2d');
-      const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-
-      function themeColors() {
-        const dark = document.documentElement.classList.contains('dark');
-        return {
-          bg: dark ? '#0b1020' : '#f8fafc',
-          white: dark ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.35)',
-          blue: dark ? 'rgba(170,210,255,0.85)' : 'rgba(80,120,180,0.40)'
-        };
-      }
-      let COL = themeColors();
-
-      let stars = [],
-        W = 0,
-        H = 0;
-      function makeStars(w, h, density) {
-        const count = Math.min(900, Math.round(w * h * density));
-        const arr = new Array(count);
-        for (let i = 0; i < count; i++) {
-          arr[i] = {
-            x: Math.random() * w,
-            y: Math.random() * h,
-            r: (Math.random() * 1.2 + 0.4) * DPR,
-            a: 0.25 + Math.random() * 0.45,
-            tint: Math.random() < 0.25 ? 'blue' : 'white'
-          };
-        }
-        return arr;
-      }
-      function resize() {
-        const rect = cyContainer.getBoundingClientRect();
-        W = Math.max(1, Math.floor(rect.width * DPR));
-        H = Math.max(1, Math.floor(rect.height * DPR));
-        star.width = W;
-        star.height = H;
-        star.style.width = rect.width + 'px';
-        star.style.height = rect.height + 'px';
-        const density = document.documentElement.classList.contains('dark') ? 0.00012 : 0.00006;
-        stars = makeStars(W, H, density);
-        draw(0, 0);
-      }
-      function draw(panX, panY) {
-        ctx.clearRect(0, 0, W, H);
-        ctx.fillStyle = COL.bg;
-        ctx.fillRect(0, 0, W, H);
-
-        const ox = (panX || 0) * DPR * 0.05;
-        const oy = (panY || 0) * DPR * 0.05;
-
-        for (const s of stars) {
-          let x = (s.x + ox) % W;
-          if (x < 0) x += W;
-          let y = (s.y + oy) % H;
-          if (y < 0) y += H;
-          ctx.beginPath();
-          ctx.fillStyle = s.tint === 'blue' ? COL.blue : COL.white;
-          ctx.shadowColor = ctx.fillStyle;
-          ctx.shadowBlur = 4 * DPR;
-          ctx.globalAlpha = s.a;
-          ctx.arc(x, y, s.r, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        ctx.globalAlpha = 1;
-        ctx.shadowBlur = 0;
-      }
-
-      const redraw = () => {
-        const p = cy.pan();
-        draw(p.x, p.y);
-      };
-      cy.on('pan zoom', redraw);
-      window.addEventListener('resize', resize);
-      window.__refreshStarfieldTheme = () => {
-        COL = themeColors();
-        resize();
-      };
-      resize();
-    } catch (e) {
-      console.warn('Starfield init failed:', e);
-    }
-  })();
-  // =========================
-  // END VIEW ADD: STARFIELD
-  // =========================
-
-  // ---------- camera helpers ----------
-  function computeFitViewport(cy, eles, pad = 30) {
-    if (!eles || eles.length === 0) return null;
-    const bb = eles.boundingBox();
-    const w = cy.width(),
-      h = cy.height();
-    const sx = (w - pad * 2) / Math.max(bb.w, 1);
-    const sy = (h - pad * 2) / Math.max(bb.h, 1);
-    const zoom = Math.min(sx, sy);
-    const cx = (bb.x1 + bb.x2) / 2,
-      cyy = (bb.y1 + bb.y2) / 2;
-    return { zoom, pan: { x: w / 2 - cx * zoom, y: h / 2 - cyy * zoom } };
-  }
-  function smoothFit(cy, eles, duration = 450) {
-    const vp = computeFitViewport(cy, eles);
-    if (!vp) return;
-    cy.animate({ fit: { eles, padding: 30 } }, { duration, easing: 'ease' });
-    setTimeout(() => cy.viewport(vp), duration + 10);
-  }
-
-  // ---------- data + tiers ----------
-  let currentView = 'universe'; // 'universe' | 'grid' | {type:'orbit', focusId:'...'}
-  let lastHighLevel = 'universe';
-  const savedCameras = {}; // { universe: {zoom,pan}, grid: {…} }
-  const orbitPath = [];
+  // B) Add filter state (near top)
+  let filterState = { categories: [], search: '' };
   let hasActiveFilter = false;
-  let orbitPrevVisibleIds = null;
 
-  const USE_GENERATOR = false;
-  let nodes = [],
-    edges = [];
-  if (USE_GENERATOR && window.DirectoryGenerator?.make) {
-    const gen = window.DirectoryGenerator.make(150);
-    nodes = gen.nodes || [];
-    edges = gen.edges || [];
-  } else if (window.Directory) {
-    nodes = window.Directory.nodes || [];
-    edges = window.Directory.edges || [];
-  }
-  cy.add(nodes);
-  cy.add(edges);
-
-  function massOf(n) {
-    const v = Number(n.data('valuation_usd') || n.data('market_cap_usd') || 0);
-    return isNaN(v) ? 0 : v;
-  }
-  function recomputeTiers() {
-    const arr = cy
-      .nodes()
-      .toArray()
-      .sort((a, b) => massOf(b) - massOf(a));
-    const n = arr.length;
-    const sunsCount = Math.min(Math.max(8, Math.round(n * 0.06)), 24);
-    const planetsCount = Math.min(Math.max(20, Math.round(n * 0.15)), 160);
-    arr.forEach((el, i) => {
-      let tier = 'moon';
-      if (i < sunsCount) tier = 'sun';
-      else if (i < sunsCount + planetsCount) tier = 'planet';
-      el.data('auto_tier', tier);
-    });
-    cy.nodes().forEach((nd) => {
-      const t = nd.data('override_tier') || nd.data('auto_tier');
-      let size = 7.2;
-      if (t === 'sun') size = 21.6;
-      else if (t === 'planet') size = 12;
-      nd.style('width', size);
-      nd.style('height', size);
-    });
-  }
-  recomputeTiers();
-
-  const tierOf = (n) => n.data('override_tier') || n.data('auto_tier') || '';
-  const isSun = (n) => tierOf(n) === 'sun';
-  const isPlanet = (n) => tierOf(n) === 'planet';
-  const isMoon = (n) => tierOf(n) === 'moon';
-  const parentIdOf = (n) => n.data('parent_id') || null;
-  const hasChildren = (id) => cy.nodes().some((x) => (x.data('parent_id') || '') === id);
-  const childrenOf = (id) => cy.nodes().filter((x) => (x.data('parent_id') || '') === id);
-
-  // ---------- drawer ----------
-  const drawer =
-    document.querySelector('info-drawer') ||
-    (() => {
-      const el = document.createElement('info-drawer');
-      document.body.appendChild(el);
-      return el;
-    })();
-
-  // ---------- microcard ----------
-  const micro = document.createElement('div');
-  micro.style.cssText = `
-    position:absolute; pointer-events:auto; z-index:5;
-    left:0; top:0; transform:translate(-9999px,-9999px);
-    border-radius:12px; padding:10px 12px; font:12px/1.25 system-ui;
-    box-shadow:0 8px 24px rgba(0,0,0,.14); max-width:260px
-  `;
-  cyContainer.appendChild(micro);
-  let microNodeId = null;
-
-  const isDark = () => document.documentElement.classList.contains('dark');
-  function applyMicroStyle() {
-    micro.style.background = isDark() ? 'rgba(17,24,39,.96)' : '#ffffff';
-    micro.style.color = isDark() ? '#e5e7eb' : '#111827';
-    micro.style.border = isDark()
-      ? '1px solid rgba(255,255,255,.08)'
-      : '1px solid rgba(0,0,0,.08)';
-    micro.style.boxShadow = isDark()
-      ? '0 12px 28px rgba(0,0,0,.45)'
-      : '0 8px 24px rgba(0,0,0,.12)';
-  }
-  applyMicroStyle();
-  window.__applyMicroStyle = applyMicroStyle;
-
-  function anchorPos(node) {
-    const rp = node.renderedPosition();
-    const rect = cyContainer.getBoundingClientRect();
-    const pad = 8;
-    const x = Math.max(pad, Math.min(rp.x, rect.width - pad));
-    const y = Math.max(pad, Math.min(rp.y, rect.height - pad));
-    return { x, y };
+  function isSunNode(node) {
+    try { return node && typeof node.id === 'function' && String(node.id()).startsWith('parent:'); }
+    catch { return false; }
   }
 
-  function renderMicrocard(node) {
-    applyMicroStyle();
-    const d = node.data();
-    const canExplore = hasChildren(node.id());
-
-    const favicon = d.favicon || '';
-    const name = d.name || '';
-    const bucket = d.bucket_label || '';
-
-    micro.innerHTML = `
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-        <div style="font-weight:700;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">
-          ${name}
-        </div>
-        <div>
-          ${
-            favicon
-              ? `<img src="${favicon}" alt="${name} favicon" width="20" height="20"
-                 style="width:20px;height:20px;border-radius:50%;object-fit:cover;"
-                 onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22><circle cx=%2210%22 cy=%2210%22 r=%2210%22 fill=%22%23CBD5E1%22/></svg>';" />`
-              : `<span style="display:inline-block;width:20px;height:20px;border-radius:50%;background:#CBD5E1;"></span>`
-          }
-        </div>
-      </div>
-
-      <div style="opacity:.8;font-size:11px;margin-bottom:8px">${bucket}</div>
-
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        ${
-          canExplore
-            ? `<button id="btn-explore" style="padding:6px 10px;border-radius:8px;background:#2563eb;color:#fff;border:none">Explore 🪐</button>`
-            : ``
-        }
-        <button id="btn-more" style="padding:6px 10px;border-radius:8px;background:#10b981;color:#0b1;border:none">More 📄</button>
-      </div>
-    `;
-
-    micro.querySelector('#btn-more')?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (typeof drawer.update === 'function') {
-        drawer.update(d);
+  function resolveSun(node) {
+    if (!node || !cy) return null;
+    if (isSunNode(node)) return node;
+    const pid = node.data && node.data('parent_id');
+    if (pid) {
+      const sun = cy.getElementById(pid);
+      if (sun && sun.nonempty && typeof sun.nonempty === 'function') {
+        return sun.nonempty() ? sun : null;
       }
-      drawer.open = true;
-    });
-
-    micro.querySelector('#btn-explore')?.addEventListener('click', (e) => {
-      e.stopPropagation();
-
-      // extra safety: only call if everything we need exists
-      const focusId = node && typeof node.id === 'function' ? node.id() : null;
-      if (!focusId) return;
-
-      if (typeof promoteToOrbit === 'function') {
-        promoteToOrbit(focusId);
-      }
-    });
-
-    const p = anchorPos(node);
-    micro.style.transform = `translate(${p.x + 10}px, ${p.y - 12}px)`;
-    microNodeId = node.id();
-  }
-
-  function hideMicro() {
-    micro.style.transform = 'translate(-9999px,-9999px)';
-    microNodeId = null;
-  }
-  cy.on('pan zoom', hideMicro);
-  cy.on('tap', (e) => {
-    if (e.target === cy) hideMicro();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      if (microNodeId) hideMicro();
-      else if (isInOrbit()) exitOrbit();
+      return sun && sun.length ? sun : null;
     }
-  });
+    return null;
+  }
 
-  // ---------- breadcrumb ----------
-  const crumb = document.createElement('div');
-  crumb.style.cssText = `
-    position:absolute; left:8px; top:8px; z-index:6;
-    display:none; gap:6px; align-items:center; flex-wrap:wrap;
-    font:12px/1.2 system-ui; background:rgba(17,24,39,.5);
-    color:#e5e7eb; padding:4px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.12)
-  `;
-  cyContainer.appendChild(crumb);
+  function getOrbitChildren(sun) {
+    if (!sun || !cy) return [];
+    const sid = typeof sun.id === 'function' ? sun.id() : null;
+    if (!sid) return [];
+    return cy.nodes().filter(n => n.data('parent_id') === sid).toArray();
+  }
 
-  const orbitClose = document.createElement('button');
-  orbitClose.textContent = 'Close';
-  orbitClose.style.cssText = `
-    position:absolute; right:8px; top:8px; z-index:6;
-    display:none; padding:4px 10px; border-radius:999px;
-    background:#111827; color:#e5e7eb; border:1px solid rgba(255,255,255,.15);
-    font:12px/1.2 system-ui; cursor:pointer
-  `;
-  orbitClose.addEventListener('click', () => exitOrbit());
-  cyContainer.appendChild(orbitClose);
+  function ensureOrbitUi() {
+    const host = cy?.container?.();
+    if (!host) return;
+    host.style.position = host.style.position || 'relative';
 
-  function updateBreadcrumb() {
-    if (!isInOrbit()) {
-      crumb.style.display = 'none';
-      crumb.innerHTML = '';
-      orbitClose.style.display = 'none';
+    // Breadcrumb pill (top-left)
+    let crumb = host.querySelector('[data-orbit-crumb]');
+    if (!crumb) {
+      crumb = document.createElement('div');
+      crumb.setAttribute('data-orbit-crumb', '1');
+      crumb.style.position = 'absolute';
+      crumb.style.top = '12px';
+      crumb.style.left = '12px';
+      crumb.style.zIndex = '40';
+      crumb.style.padding = '6px 10px';
+      crumb.style.borderRadius = '999px';
+      crumb.style.fontSize = '12px';
+      crumb.style.fontWeight = '600';
+      crumb.style.background = 'rgba(15,23,42,0.72)';
+      crumb.style.color = '#e2e8f0';
+      crumb.style.border = '1px solid rgba(148,163,184,0.35)';
+      crumb.style.backdropFilter = 'blur(10px)';
+      crumb.style.webkitBackdropFilter = 'blur(10px)';
+      host.appendChild(crumb);
+    }
+
+    // Close button (top-right)
+    let btn = host.querySelector('[data-orbit-close]');
+    if (!btn) {
+      btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-orbit-close', '1');
+      btn.textContent = 'Close';
+      btn.style.position = 'absolute';
+      btn.style.top = '12px';
+      btn.style.right = '12px';
+      btn.style.zIndex = '40';
+      btn.style.padding = '6px 12px';
+      btn.style.borderRadius = '999px';
+      btn.style.fontSize = '12px';
+      btn.style.fontWeight = '600';
+      btn.style.background = 'rgba(15,23,42,0.82)';
+      btn.style.color = '#e2e8f0';
+      btn.style.border = '1px solid rgba(148,163,184,0.35)';
+      btn.style.cursor = 'pointer';
+      btn.style.backdropFilter = 'blur(10px)';
+      btn.style.webkitBackdropFilter = 'blur(10px)';
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        exitOrbit();
+      });
+      host.appendChild(btn);
+    }
+  }
+
+  function setOrbitUiVisible(visible, sunName = '') {
+    const host = cy?.container?.();
+    if (!host) return;
+    const crumb = host.querySelector('[data-orbit-crumb]');
+    const btn = host.querySelector('[data-orbit-close]');
+    if (crumb) {
+      crumb.style.display = visible ? 'block' : 'none';
+      crumb.textContent = visible ? sunName : '';
+    }
+    if (btn) btn.style.display = visible ? 'block' : 'none';
+  }
+
+  // --- ORBIT LABELS (Orbit-only) ---
+  function ensureOrbitLabelStyle() {
+    if (!cy) return;
+
+    // Add an orbit-only selector without changing base styling
+    cy.style()
+      .selector('.orbitLabel')
+      .style({
+        'label': (ele) => {
+          return ele.data('name') || ele.data('label') || ele.id();
+        },
+        'text-wrap': 'wrap',
+        'text-max-width': 180,
+        'font-size': 14,
+        'text-valign': 'center',
+        'text-halign': 'center',
+        'text-outline-width': 4,
+        'text-outline-color': 'rgba(2, 6, 23, 0.90)',
+        'color': '#e2e8f0'
+      })
+      .update();
+  }
+
+  function enterOrbit(fromNode) {
+    if (!cy || !window.Views || typeof window.Views.placeOrbital !== 'function') return;
+
+    const sun = resolveSun(fromNode);
+    if (!sun) {
+      console.warn('[Artiligenz] Orbit unavailable: no parent sun resolved');
       return;
     }
-    const names = orbitPath.map((id) => cy.getElementById(id).data('name') || '…');
-    crumb.innerHTML = names
-      .map(
-        (nm, i) =>
-          `<a data-i="${i}" style="cursor:pointer;text-decoration:none;color:#e5e7eb">${nm}</a>`
-      )
-      .join('<span style="opacity:.6;margin:0 4px">›</span>');
-    crumb.style.display = 'flex';
-    orbitClose.style.display = 'inline-block';
-    [...crumb.querySelectorAll('a')].forEach((a) => {
-      a.addEventListener('click', () => {
-        const idx = Number(a.getAttribute('data-i'));
-        const targetId = orbitPath[idx];
-        orbitPath.splice(idx + 1);
-        enterOrbit(targetId, { keepPath: true });
+
+    const children = getOrbitChildren(sun);
+    if (!children.length) {
+      console.warn('[Artiligenz] Orbit unavailable: sun has no children');
+      return;
+    }
+
+    // ✅ ADDED: remember where we came from (grid or universe)
+    orbitState.prevView = currentView;
+
+    // Save state for return
+    orbitState.active = true;
+    orbitState.fromNodeId = typeof fromNode.id === 'function' ? fromNode.id() : null;
+    orbitState.sunId = typeof sun.id === 'function' ? sun.id() : null;
+    orbitState.pan = cy.pan();
+    orbitState.zoom = cy.zoom();
+
+    currentView = 'orbit';
+
+    // Hide everything outside this orbit set (nodes + edges among them)
+    const orbitNodes = cy.collection([sun, ...children]);
+    const orbitEdges = cy.edges().filter(e => orbitNodes.contains(e.source()) && orbitNodes.contains(e.target()));
+    const keep = orbitNodes.union(orbitEdges);
+    const hide = cy.elements().difference(keep);
+
+    orbitState.hiddenIds = hide.map(el => el.id());
+
+    hide.forEach(el => el.style('display', 'none'));
+    keep.forEach(el => el.style('display', 'element'));
+
+    // Apply orbit-only labels (sun + children)
+    ensureOrbitLabelStyle();
+    orbitNodes.addClass('orbitLabel');
+
+    // Layout positions (V1 behavior) — now ellipse-capable via orbitalview opts
+    const positions = window.Views.placeOrbital(sun, children, { ellipseRatio: 0.65 });
+    if (positions) {
+      if (positions[sun.id()]) sun.position(positions[sun.id()]);
+      children.forEach(ch => {
+        const p = positions[ch.id()];
+        if (p) ch.position(p);
       });
-    });
-  }
-
-  // ---------- views ----------
-  function applyUniverse() {
-  cy.nodes().removeClass('grid-colored');  // keep grid styles out of Universe
-
-  const visible = cy.nodes(':visible');
-
-  if (hasActiveFilter) {
-    // Filtered Universe: labels on for all, compact polyhedron layout
-    visible.forEach((n) => {
-      n.style('label', n.data('name') || '');
-    });
-    applyPolyhedronLayout(visible);
-  } else {
-    // Baseline Universe: only Foundation Models have persistent labels
-    visible.forEach((n) => {
-  // bucket might be "foundation_models" or similar
-  const rawBucket =
-    (n.data('bucket') || n.data('bucket_slug') || '')
-      .toString()
-      .toLowerCase();
-
-  const isFoundationBucket =
-    rawBucket.includes('foundation'); // catches "foundation_models", "foundation-models", etc.
-
-  const isFoundationSun = isSun(n) && isFoundationBucket;
-
-  // Only foundation suns get their name as a base label
-  n.style('label', isFoundationSun ? (n.data('name') || '') : '');
-});
-
-    const suns = visible.filter((n) => isSun(n)).toArray();
-    const planets = visible.filter((n) => isPlanet(n)).toArray();
-    const moons = visible.filter((n) => isMoon(n)).toArray();
-
-    const planetsBySun = {};
-    suns.forEach((s) => {
-      planetsBySun[s.id()] = planets.filter((p) => parentIdOf(p) === s.id());
-    });
-
-    const moonsByPlanet = {};
-    planets.forEach((p) => {
-      moonsByPlanet[p.id()] = moons.filter((m) => parentIdOf(m) === p.id());
-    });
-
-    let positions = {};
-    if (window.Views && typeof Views.placeUniverse === 'function') {
-      // This now uses your NEW ring-based Universe layout
-      positions = Views.placeUniverse(cy, suns, planetsBySun, moonsByPlanet, {});
     }
 
-    cy.layout({
-      name: 'preset',
-      positions: (node) => positions[node.id()] || node.position(),
-      fit: false,
-      animate: false
-    }).run();
-
-    const set = cy.collection(visible);
-    if (set.size()) {
-      cy.animate(
-        { fit: { eles: set, padding: 70 } },
-        { duration: 350 }
-      );
-    }
-  }
-
-  // Edges:
-  // - full Universe: edges ON
-  // - filtered/polyhedron: edges OFF
-  cy.edges().style('display', hasActiveFilter ? 'none' : 'element');
-
-  crumb.style.display = 'none';
-  orbitClose.style.display = 'none';
-}
-
-  function applyGrid() {
-    cy.stop(true);
-
-    // Grid view presentation:
-    // - labels always on
-    // - neutral fill from skin
-    // - bucket-coloured outline always on
-    cy.nodes().removeClass('grid-colored'); // Clear any polyhedron/grid flags carried over from Universe
-    cy.nodes().removeClass('filtered');
-
-    const visible = cy.nodes(':visible');
-
-    visible.forEach((node) => {
-      node.style('label', node.data('name') || '');
-
-      const bucketColor = node.data('bucket_color');
-      if (bucketColor) {
-        node.style('border-color', bucketColor);
-      } else {
-        // fall back to whatever the base skin uses
-        node.style('border-color', undefined);
-      }
-    });
-
-    const suns = visible.filter(isSun);
-    const planets = visible.filter(isPlanet);
-    const moons = visible.filter(isMoon);
-    const rest = visible.difference(suns).difference(planets).difference(moons);
-    const ordered = suns.union(planets).union(moons).union(rest).toArray();
-
-    const gp = window.Layouts?.gridPositions;
-    if (!gp) return console.error('gridPositions missing');
-
-    const pos = gp(ordered, {
-      cols: 6,
-      gapX: 168,
-      gapY: 128,
-      startX: 40,
-      startY: 40
-    });
-
-    cy.layout({
-      name: 'preset',
-      positions: (node) => pos[node.id()],
-      fit: false,
-      animate: false
-    }).run();
-
-    const set = cy.collection(visible);
-    if (set.size()) {
-      const bb = set.boundingBox();
-      const w = cy.width();
-      const centerX = (bb.x1 + bb.x2) / 2;
-      cy.viewport({
-        zoom: 1,
-        pan: {
-          x: w / 2 - centerX,
-          y: 0
-        }
-      });
-    } else {
-      cy.viewport({ zoom: 1, pan: { x: 0, y: 0 } });
+    // Fit view to orbit set
+    if (typeof window.Views.smartFit === 'function') {
+      window.Views.smartFit(cy, keep, 80);
     }
 
-    // Grid = nodes only, no edges
-    cy.edges().style('display', 'none');
-
-    crumb.style.display = 'none';
-    orbitClose.style.display = 'none';
-  }
-
-  // ---------- orbit ----------
-  function isInOrbit() {
-    return typeof currentView === 'object' && currentView?.type === 'orbit';
-  }
-  function orbitEles(focusId) {
-    return { center: cy.getElementById(focusId), children: childrenOf(focusId) };
-  }
-
-  function enterOrbit(focusId, opts = {}) {
-    // snapshot camera + visible nodes only when first entering orbit
-    if (!isInOrbit()) {
-      savedCameras[lastHighLevel] = { zoom: cy.zoom(), pan: cy.pan() };
-      if (!hasActiveFilter) {
-        orbitPrevVisibleIds = cy.nodes(':visible').map((n) => n.id());
-      } else {
-        orbitPrevVisibleIds = null;
-      }
-    }
-    currentView = { type: 'orbit', focusId };
-    hideMicro();
-
-    if (!opts.keepPath) {
-      const idx = orbitPath.indexOf(focusId);
-      if (idx >= 0) orbitPath.splice(idx + 1);
-      else orbitPath.push(focusId);
-    }
-
-    const { center, children } = orbitEles(focusId);
-    cy.startBatch();
-    cy.nodes().style('display', 'none');
-    center.style('display', 'element');
-    children.style('display', 'element');
-    cy.edges().style('display', 'none');
-    cy.endBatch();
-
-    const map = Views.placeOrbital(center, children.toArray(), { tiltDeg: 22, radius: 260 });
-    cy.layout({
-      name: 'preset',
-      positions: (node) => map[node.id()],
-      fit: false,
-      animate: false
-    }).run();
-    smoothFit(cy, center.union(children));
-    updateBreadcrumb();
-  }
-    function promoteToOrbit(focusId) {
-    if (!focusId) return;
-    enterOrbit(focusId);
+    ensureOrbitUi();
+    setOrbitUiVisible(true, sun.data('name') || sun.data('label') || sun.id());
   }
 
   function exitOrbit() {
-    if (!isInOrbit()) return;
-    hideMicro();
-    orbitPath.pop();
-    if (orbitPath.length) {
-      enterOrbit(orbitPath[orbitPath.length - 1], { keepPath: true });
-    } else {
-      // final exit → restore previously visible nodes if no filters were active
-      if (!hasActiveFilter && orbitPrevVisibleIds && orbitPrevVisibleIds.length) {
-        cy.startBatch();
-        const idSet = new Set(orbitPrevVisibleIds);
-        cy.nodes().forEach((n) => {
-          n.style('display', idSet.has(n.id()) ? 'element' : 'none');
-        });
-        cy.endBatch();
-      }
-      orbitPrevVisibleIds = null;
+    if (!cy || !orbitState.active) return;
 
-      currentView = lastHighLevel;
-      applyMode();
-      const cam = savedCameras[lastHighLevel];
-      if (cam) cy.viewport(cam);
-    }
-  }
+    // Remove orbit-only labels
+    cy.nodes().removeClass('orbitLabel');
 
-  // ---------- mode switching ----------
-  function applyMode() {
-    hideMicro();
-    if (currentView === 'universe') {
-      lastHighLevel = 'universe';
-      orbitPath.length = 0;
-      applyUniverse();
-    } else if (currentView === 'grid') {
-      lastHighLevel = 'grid';
-      orbitPath.length = 0;
-      applyGrid();
-    } else if (isInOrbit()) {
-      enterOrbit(currentView.focusId, { keepPath: true });
-    }
-  }
-  document.addEventListener('mode-changed', (e) => {
-    const m = e.detail?.mode || 'universe';
-    currentView = m;
-    applyMode();
-  });
-
-// Compact “polyhedron” layout for filtered views.
-// Shape adapts to node count: 1 centre, then 1–N concentric rings.
-function applyPolyhedronLayout(activeNodes) {
-  const collection =
-    activeNodes && typeof activeNodes.size === 'function'
-      ? activeNodes
-      : cy.nodes(':visible');
-
-  if (!collection || collection.size() === 0) return;
-
-  const nodes = collection.toArray();
-  const count = nodes.length;
-
-  const w = cy.width();
-  const h = cy.height();
-  const cx = w / 2;
-  const cyy = h / 2;
-  const minDim = Math.min(w, h);
-
-  const baseRadius = minDim * 0.16;
-  const ringGap    = minDim * 0.16;
-
-  // Decide how many rings & how many nodes per ring
-  const rings = [];
-
-  if (count === 1) {
-    rings.push({ count: 1, radius: 0 });
-  } else {
-    let remaining = count;
-    let ringIndex = 0;
-
-    while (remaining > 0) {
-      // Inner ring small, outer rings can host more nodes
-      const cap =
-        ringIndex === 0
-          ? 6                 // up to 6 on the first ring
-          : 6 + ringIndex * 6; // 12, 18, ... as we go outwards
-
-      const num = Math.min(remaining, cap);
-      rings.push({
-        count: num,
-        radius: baseRadius + ringGap * ringIndex
+    // Restore hidden elements (bring everything back)
+    if (orbitState.hiddenIds && orbitState.hiddenIds.length) {
+      orbitState.hiddenIds.forEach(id => {
+        const el = cy.getElementById(id);
+        if (el && el.length) el.style('display', 'element');
       });
+    }
 
-      remaining -= num;
-      ringIndex++;
+    // Hide orbit UI
+    setOrbitUiVisible(false);
+
+    // ✅ CHANGED: return to the view that launched orbit
+    const backTo = orbitState.prevView || 'universe';
+
+    // Clear orbit state (keep pan/zoom until after view restore below)
+    const savedPan = orbitState.pan;
+    const savedZoom = orbitState.zoom;
+    const savedFrom = orbitState.fromNodeId;
+
+    orbitState.active = false;
+    orbitState.fromNodeId = null;
+    orbitState.sunId = null;
+    orbitState.pan = null;
+    orbitState.zoom = null;
+    orbitState.hiddenIds = [];
+
+    currentView = 'universe';
+
+    // Universe: restore default layout + camera
+
+      // Universe: restore default layout + camera
+      if (window.Views && typeof window.Views.placeUniverse === 'function') {
+        window.Views.placeUniverse(cy);
+        window.Views.smartFit?.(cy, cy.elements());
+      if (savedPan) cy.pan(savedPan);
+      if (typeof savedZoom === 'number') cy.zoom(savedZoom);
+    }
+
+    // Reselect original node (best-effort)
+    if (savedFrom) {
+      const n = cy.getElementById(savedFrom);
+      if (n && n.length) n.select();
     }
   }
 
-  // Assign positions
-  const positions = {};
-  let idx = 0;
+  // -----------------------------
+  // Element normalization
+  // -----------------------------
+  function isCytoscapeElement(el) {
+    return el && typeof el === 'object' && 'data' in el;
+  }
 
-  rings.forEach((ring, ringIndex) => {
-    // Single-node centre
-    if (ring.radius === 0) {
-      const n = nodes[idx++];
-      if (!n) return;
-      positions[n.id()] = { x: cx, y: cyy };
-      return;
+  function normalizeNodeData(raw, fallbackIdPrefix = 'node') {
+    const d = raw && raw.data ? raw.data : raw;
+    const id =
+      (d && (d.id || d.ID || d._id)) ||
+      `${fallbackIdPrefix}:${Math.random().toString(36).slice(2, 9)}`;
+
+    return {
+      data: {
+        id: String(id),
+        ...d,
+        id: String(id),
+      },
+    };
+  }
+
+  function normalizeEdgeData(raw, idx = 0) {
+    const d = raw && raw.data ? raw.data : raw;
+
+    const source = d && (d.source || d.from);
+    const target = d && (d.target || d.to);
+
+    if (!source || !target) return null;
+
+    const id = (d && d.id) || `edge:${source}->${target}:${idx}`;
+
+    return {
+      data: {
+        id: String(id),
+        source: String(source),
+        target: String(target),
+        ...d,
+        id: String(id),
+        source: String(source),
+        target: String(target),
+      },
+    };
+  }
+
+  function normalizeElements(nodesRaw, edgesRaw) {
+    const nodes = (nodesRaw || [])
+      .map((n) => normalizeNodeData(n, 'node'))
+      .filter(Boolean);
+
+    const edges = (edgesRaw || [])
+      .map((e, i) => normalizeEdgeData(e, i))
+      .filter(Boolean);
+
+    return { nodes, edges };
+  }
+
+  function getDirectoryData() {
+    // Primary: window.Directory with {nodes, edges}
+    if (window.Directory && Array.isArray(window.Directory.nodes)) {
+      const edgesRaw = Array.isArray(window.Directory.edges)
+        ? window.Directory.edges
+        : (window.Directory.links || []);
+      return normalizeElements(window.Directory.nodes, edgesRaw);
     }
 
-    const step  = (Math.PI * 2) / ring.count;
-    const phase = ringIndex % 2 === 0 ? 0 : step / 2; // stagger rings a bit
-
-    for (let i = 0; i < ring.count; i++) {
-      const n = nodes[idx++];
-      if (!n) break;
-
-      const angle = phase + step * i;
-      positions[n.id()] = {
-        x: cx + ring.radius * Math.cos(angle),
-        y: cyy + ring.radius * Math.sin(angle)
-      };
-    }
-  });
-
-  // Apply positions without touching labels/colours/edges
-  cy.layout({
-    name: 'preset',
-    positions: (node) => positions[node.id()] || node.position(),
-    fit: false,
-    animate: false
-  }).run();
-
-  // Then gently fit camera around the constellation
-  cy.animate(
-    { fit: { eles: collection, padding: 80 } },
-    { duration: 450, easing: 'ease' }
-  );
-}
-
-  // ---------- Sidebar → Filters + Search ----------
-  document.addEventListener('filters-changed', (e) => {
-    const { categories = [], search = '' } = e.detail || {};
-    applyFilters({ categories, search });
-
-    // After filtering, if we're in Universe with an active filter,
-    // reshape the visible nodes into a compact “polyhedron” layout.
-    const q = (search || '').trim();
-    const hasFilter = (categories && categories.length > 0) || q !== '';
-
-    if (currentView === 'universe' && hasFilter && !isInOrbit()) {
-      const visible = cy.nodes(':visible');
-      applyPolyhedronLayout(visible);
-    }
-  });
-  // Show/hide by bucket + name; re-run current layout (preserv
-
-  function applyFilters({ categories = [], search = '' } = {}) {
-    const q = (search || '').trim().toLowerCase();
-    const allNodes = cy.nodes();
-    const allEdges = cy.edges();
-    const hasCat = categories && categories.length > 0;
-    const hasText = q !== '';
-    hasActiveFilter = hasCat || hasText;
-
-    // No filters → full universe
-    if (!hasActiveFilter) {
-      cy.startBatch();
-      allNodes.style('display', 'element');
-      allNodes.removeClass('filtered');  // clear polyhedron flag
-      allEdges.style('display', 'element');
-      cy.endBatch();
-
-      if (isInOrbit()) {
-        exitOrbit();
-      } else {
-        applyMode();
+    // If a single mixed array exists (legacy)
+    if (Array.isArray(window.Directory)) {
+      const mixed = window.Directory;
+      const already = mixed.every(isCytoscapeElement);
+      if (already) {
+        // Try to split by edge signature
+        const nodes = mixed.filter((el) => !el.data || (!el.data.source && !el.data.target));
+        const edges = mixed.filter((el) => el.data && el.data.source && el.data.target);
+        return { nodes, edges };
       }
-      return;
+
+      // If raw mixed, best-effort: classify by presence of source/target
+      const nodes = [];
+      const edges = [];
+      for (const el of mixed) {
+        if (el && (el.source || el.target || el.from || el.to)) edges.push(el);
+        else nodes.push(el);
+      }
+      return normalizeElements(nodes, edges);
     }
 
-    // Some filter active → polyhedron mode
-    cy.startBatch();
-    allNodes.style('display', 'none');
-    allNodes.removeClass('filtered');
+    // Some builds used window.DirectoryData
+    if (Array.isArray(window.DirectoryData)) {
+      const mixed = window.DirectoryData;
+      const already = mixed.every(isCytoscapeElement);
+      if (already) {
+        const nodes = mixed.filter((el) => !el.data || (!el.data.source && !el.data.target));
+        const edges = mixed.filter((el) => el.data && el.data.source && el.data.target);
+        return { nodes, edges };
+      }
+      const nodes = [];
+      const edges = [];
+      for (const el of mixed) {
+        if (el && (el.source || el.target || el.from || el.to)) edges.push(el);
+        else nodes.push(el);
+      }
+      return normalizeElements(nodes, edges);
+    }
 
-    const active = allNodes.filter((n) => {
-      const bucket = String(n.data('bucket') || '').toLowerCase();
-      const name = String(n.data('name') || '').toLowerCase();
-      const okBucket = !hasCat || categories.includes(bucket);
-      const okText = !hasText || name.includes(q);
-      return okBucket && okText;
+    console.warn('[Artiligenz] No directory data found on window.Directory / window.DirectoryData');
+    return { nodes: [], edges: [] };
+  }
+
+  // -----------------------------
+  // Cytoscape init
+  // -----------------------------
+  function initCytoscape() {
+    const { nodes, edges } = getDirectoryData();
+
+    if (!nodes.length) {
+      console.warn('[Artiligenz] No nodes found. Check your data files are loaded.');
+    }
+
+    cy = cytoscape({
+      container: document.getElementById('cy'),
+      elements: [...nodes, ...edges],
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'background-color': '#38bdf8',
+            'label': '',
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'font-size': 12,
+            'width': 30,
+            'height': 30,
+          },
+        },
+        {
+          selector: 'edge',
+          style: {
+            'line-color': '#cbd5e1',
+            'width': 1,
+            'curve-style': 'haystack',
+            'opacity': 0.55,
+          },
+        },
+      ],
+      layout: { name: 'preset' },
+      wheelSensitivity: 0.2,
     });
 
-    active.style('display', 'element');
-    active.addClass('filtered');       // used by skin for bucket ring/fill
-    allEdges.style('display', 'none'); // polyhedron = nodes only
+    // Expose for debugging
+    window.__cy = cy;
+
+    // ✅ Ensure theme skin is applied after Cytoscape exists
+    window.Skin?.apply?.(cy);
+
+    // Initial view
+    if (window.Views && typeof window.Views.placeUniverse === 'function') {
+      window.Views.placeUniverse(cy);
+      if (typeof window.Views.smartFit === 'function') {
+        window.Views.smartFit(cy, cy.elements());
+      }
+    }
+
+    return cy;
+  }
+
+  // -----------------------------
+  // Filter application
+  // -----------------------------
+  function applyFilters() {
+    if (!cy) return;
+
+    const activeNodes = cy.nodes().filter((n) => {
+      const name = String(n.data('name') || '').toLowerCase();
+      const bucket = String(n.data('bucket') || '').toLowerCase();
+
+      const q = filterState.search.toLowerCase();
+      const hasText = q && name.includes(q);
+      const hasCat =
+        filterState.categories.length === 0 ||
+        filterState.categories.includes(bucket);
+
+      return (!q || hasText) && hasCat;
+    });
+
+    // Hide everything else
+    cy.startBatch();
+    cy.edges().style('display', 'none');
+    cy.nodes().style('display', 'none');
+    activeNodes.style('display', 'element');
     cy.endBatch();
 
-    if (isInOrbit()) {
-      // we don't want to stay in orbit when filtering
-      exitOrbit();
+    // Apply polyhedron rule
+    if (window.HedronLayout && typeof window.HedronLayout.apply === 'function') {
+      window.HedronLayout.apply(cy, activeNodes.toArray());
     }
 
-    applyMode();
+    hasActiveFilter = filterState.search || filterState.categories.length > 0;
   }
 
-  // ---------- click behavior ----------
-  cy.on('tap', 'node', (evt) => {
-    const n = evt.target;
-    const d = n.data();
-    d.url = d.url || '';
-    d.favicon = d.favicon || '';
-
-    if (currentView === 'grid') {
-      renderMicrocard(n);
-      return;
+  // -----------------------------
+  // View switch
+  // -----------------------------
+  function initViewControls() {
+    const universeBtn = document.getElementById('btnUniverse');if (universeBtn) {
+      universeBtn.addEventListener('click', () => setView('universe'));
     }
-
-    if (!isInOrbit() && currentView === 'universe') {
-      renderMicrocard(n);
-      return;
-    }
-
-    if (isInOrbit()) {
-      const { center, children } = orbitEles(currentView.focusId);
-      if (n.id() === center.id() || children.some((x) => x.id() === n.id())) {
-        renderMicrocard(n);
-      }
-    }
-  });
-
-  // ---------- hover highlight ----------
-  let highlightedNode = null;
-
-  function resetNodeHighlight(n) {
-    if (!n) return;
-    if (typeof n.removed === 'function' && n.removed()) return;
-
-    n.removeClass('hovered');
-
-    if (currentView === 'universe') {
-      if (hasActiveFilter) {
-        // Polyhedron: labels always on when filtered
-        n.style('label', n.data('name') || '');
-      } else {
-        const bucket = String(n.data('bucket') || '').toLowerCase();
-        const isFoundation = bucket === 'foundation_models';
-        n.style('label', isFoundation ? (n.data('name') || '') : '');
-      }
-    } else if (currentView === 'grid') {
-      // In grid, labels are always on
-      n.style('label', n.data('name') || '');
-    } else {
-      // Orbit and any other views can clear label on mouse out
-      n.style('label', undefined);
-    }
-  }
-
-  cy.on('mouseover', 'node', (evt) => {
-    const n = evt.target;
-
-    if (highlightedNode && highlightedNode.id() !== n.id()) {
-      resetNodeHighlight(highlightedNode);
-    }
-    highlightedNode = n;
-
-    n.addClass('hovered');
-    n.style('label', n.data('name') || '');
-  });
-
-  cy.on('mouseout', 'node', (evt) => {
-    const n = evt.target;
-    resetNodeHighlight(n);
-    if (highlightedNode && highlightedNode.id() === n.id()) {
-      highlightedNode = null;
-    }
-  });
-
-  // ---------- init + secondary recenter ----------
-  applyMode();
-
-  setTimeout(() => {
-    if (currentView === 'universe' && !isInOrbit()) {
-      const visible = cy.nodes(':visible');
-      if (visible.size()) {
-        if (window.Views && Views.smartFit) {
-          Views.smartFit(cy, visible, 70);
-        } else {
-          cy.fit(visible, 70);
+    window.setView = function (mode) {
+      if (!cy) return;
+      try {
+        mode = (mode === 'universe') ? 'universe' : 'universe';
+        currentView = mode;        // Exiting orbit if user changes mode
+        if (orbitState.active && mode !== 'orbit') {
+          exitOrbit();
         }
+
+        // Clear filters when switching views
+        if (mode === 'universe') {
+          filterState = { categories: [], search: '' };
+          hasActiveFilter = false;
+          cy.elements().style('display', 'element');
+
+          if (mode === 'universe') {
+            window.Views.placeUniverse(cy);
+            window.Views.smartFit?.(cy, cy.elements());
+          }}
+        // Orbit view removed - enter orbit only via Explore button
+      } catch (e) {
+        console.error('[Artiligenz] setView failed:', e);
+      }
+    };
+  }
+
+  // -----------------------------
+  // Interactions
+  // -----------------------------
+  function initInteractions() {
+    if (!cy) return;
+
+    // Node tap → show microcard
+    cy.on('tap', 'node', (evt) => {
+      const node = evt.target;
+
+      if (window.Microcard && typeof window.Microcard.show === 'function') {
+        window.Microcard.show(node, {
+          cy,
+          container: cy.container(),
+          onViewEcosystem: () => {enterOrbit(node);
+          },
+          onOpenProfile: () => {
+            document.querySelector('info-drawer')?.update(node.data());
+          }
+        });
+      }
+    });
+
+    // Tap background → hide microcard
+    cy.on('tap', (evt) => {
+      if (evt.target === cy) {
+        window.Microcard?.hide?.();
+      }
+    });
+
+    // ✅ Click anywhere outside the Cytoscape canvas (header/sidebar/etc) → hide microcard
+    document.addEventListener('pointerdown', (e) => {
+      const host = cy?.container?.();
+      if (!host) return;
+
+      if (!host.contains(e.target)) {
+        window.Microcard?.hide?.();
+      }
+    }, true);
+
+    // Pan / zoom → keep overlays in sync
+    cy.on('pan zoom', () => {
+      window.Microcard?.reposition?.();
+      window.Starfield?.onViewportChange?.(cy);
+    });
+
+    // Escape → exit orbit (if active), else close microcard + drawer
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (orbitState.active) {
+          exitOrbit();
+          return;
+        }
+        window.Microcard?.hide?.();
+        document.querySelector('info-drawer')?.close?.();
+      }
+    });
+  }
+
+  // -----------------------------
+  // Theme reactivity
+  // -----------------------------
+  function initThemeReactivity() {
+    const observer = new MutationObserver(() => {
+      try {
+        window.Microcard?.refreshTheme?.();
+        window.Skin?.apply?.(window.__cy || cy);
+      } catch (_) {}
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  // -----------------------------
+  // Boot
+  // -----------------------------
+  function boot() {
+    initCytoscape();
+    
+    // ✅ Add missing edges if data loads late
+    if (window.Directory?.edges?.length) {
+      const missing = window.Directory.edges.filter(e =>
+        window.__cy.getElementById(e.data?.id).length === 0
+      );
+      if (missing.length) {
+        window.__cy.add(missing);
       }
     }
-  }, 650);
-});
+    
+    initViewControls();
+    initInteractions();
+    initThemeReactivity();
+
+    // ✅ Sidebar → Orchestrator wiring
+    document.addEventListener('filters-changed', (e) => {
+      // ✅ UX: when filters change, close any open microcard
+      window.Microcard?.hide?.();
+
+      const { categories = [], search = '' } = e.detail || {};
+      filterState = { categories, search };
+      applyFilters();
+    });
+
+    document.addEventListener('mode-changed', (e) => {
+      // ✅ UX: mode switches should also close microcard
+      window.Microcard?.hide?.();
+
+      let mode = e.detail?.mode || 'universe';
+      if (mode !== 'universe') mode = 'universe';
+      // Sidebar already resets filters before mode switch
+      window.setView?.(mode);
+    });
+
+    // Expose filter functions globally
+    window.FilterManager = {
+      updateSearch: function(search) {
+        filterState.search = search;
+        applyFilters();
+      },
+      updateCategories: function(categories) {
+        filterState.categories = categories;
+        applyFilters();
+      },
+      clearFilters: function() {
+        filterState = { categories: [], search: '' };
+        hasActiveFilter = false;
+        cy.elements().style('display', 'element');
+        if (currentView === 'universe') {
+          window.Views.placeUniverse(cy);
+          window.Views.smartFit?.(cy, cy.elements());
+        }},
+      getState: function() {
+        return { ...filterState, hasActiveFilter };
+      }
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();

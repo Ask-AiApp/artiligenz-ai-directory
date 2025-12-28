@@ -232,7 +232,6 @@ class CustomSidebar extends HTMLElement {
             <div class="section-body">
               <div class="chip-row" role="group" aria-label="View mode">
                 <div class="chip active" data-mode="universe">Universe</div>
-                <div class="chip" data-mode="grid">Grid</div>
               </div>
             </div>
           </details>
@@ -274,7 +273,7 @@ class CustomSidebar extends HTMLElement {
       holder.appendChild(d);
     }
 
-    // View chips: Universe + Grid (MVP behaviour)
+    // View chips: Universe-only
     const viewChips = this.shadowRoot.querySelectorAll('.chip[data-mode]');
     viewChips.forEach(chip => {
       chip.addEventListener('click', () => {
@@ -299,12 +298,7 @@ class CustomSidebar extends HTMLElement {
           detail: { categories: [], search: '' }
         }));
 
-        // 4) Switch mode (Universe/Grid)
-        this.dispatchEvent(new CustomEvent('mode-changed', {
-          bubbles: true,
-          composed: true,
-          detail: { mode: chip.getAttribute('data-mode') }
-        }));
+        // Note: mode-changed event is no longer emitted since there's only one mode
         // === END RESET BEHAVIOUR ===
       });
     });

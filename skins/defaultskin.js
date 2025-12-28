@@ -5,17 +5,26 @@
   function styles() {
     const isDark = document.documentElement.classList.contains('dark');
 
+    // ✅ Theme-aware palette from CSS variables (falls back to current hardcoded values)
+    const rootStyles = getComputedStyle(document.documentElement);
+    const cssVar = (name, fallback) => (rootStyles.getPropertyValue(name).trim() || fallback);
+
     // Canvas + text palette
     const baseBg      = isDark ? '#111827' : '#ffffff';   // match sidebar in dark mode
     const nodeFill    = isDark ? '#95ddf0' : '#7cb8c9';
-    const nodeLabel   = isDark ? '#e5e7eb' : '#111827';
-    const textOutline = isDark ? '#111827' : '#ffffff';
+
+    // ✅ Make label + outline theme-aware
+    const nodeLabel   = cssVar('--text-primary', (isDark ? '#f8fafc' : '#111827'));
+    const textOutline = isDark ? '#FFFFFF' : '#ffffff';
+
     const fallbackRing= isDark ? '#b6f8e0' : '#d2dee0';
-    const edgeColor   = isDark ? '#2df3aa' : '#9b9e9e';
+
+    // ✅ Make edge color theme-aware (use CSS var if present, else fallback)
+    const edgeColor   = cssVar('--border-medium', (isDark ? '#2df3aa' : '#9b9e9e'));
     const edgeOpacity = isDark ? 0.50 : 0.50;
 
     // Uniform ring width
-    const RING_WIDTH = 1.5;
+    const RING_WIDTH = 1.1;
 
     // Base node style (sizing handled in scripts/layouts)
     const baseNode = {
@@ -31,13 +40,13 @@
       // Labels are fully controlled in scripts.js (Universe + Orbit).
       label: '',
       color: nodeLabel,
-      'font-size': 20,
+      'font-size': 24,
       'text-wrap': 'wrap',
       'text-max-width': '110px',
       'text-halign': 'center',
       'text-valign': 'center',
       'text-outline-color': textOutline,
-      'text-outline-width': .9,
+      'text-outline-width': isDark ? 0.1 : 0.1,
 
       // interaction
       'overlay-opacity': 0,
@@ -94,9 +103,11 @@
     cy.style(styles()).update();
 
     // Ensure canvas background matches theme
-    const isDark = document.documentElement.classList.contains('dark');
-    const baseBg = isDark ? '#111827' : '#ffffff';
-    cy.container().style.backgroundColor = baseBg;
+    const bg = getComputedStyle(document.documentElement)
+      .getPropertyValue('--canvas-bg')
+      .trim();
+
+    cy.container().style.background = bg;
   }
 
   // Export

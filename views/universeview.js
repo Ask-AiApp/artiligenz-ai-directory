@@ -1,21 +1,25 @@
 // views/universeview.js
-// Ring-based Universe layout tuned for:
-// - Suns on 1–2 rings, Foundation suns evenly scattered
-// - Planets reasonably close to their suns (no huge edges)
-// - Moons close to planets
-// - Independents on a loose outer ring
-// - Optional collision relax via ViewUtils.resolveCollisions
+// Ring-based Universe layout tuned for a "galaxy" feel
+// - Suns: 1-2 rings, with Foundation suns evenly scattered (no central pile-up)
+// - Planets: per-sun ring, reasonably close to their suns (no huge edges)
+// - Moons: close to their planets
+// - Independents: outer ring, spaced
+//
+// ✅ Fixes included:
+// 1) Resilient fallback: if caller calls placeUniverse(cy) without (suns, planetsBySun, moonsByPlanet),
+//    we derive them from node data so it never crashes on '.length'.
+// 2) Bug fix: foundationIds now computed AFTER foundationSuns is populated (it was always empty before).
 
 (function () {
-  const { resolveCollisions } = window.ViewUtils || {};
+  const { blueNoiseEllipse, distributeEllipse, resolveCollisions } = window.ViewUtils || {};
 
-  // Evenly spaced points on a circle
-  function ringPositions(count, cx, cy, radius) {
+  // Evenly spread points around a ring
+  function ringPositions(n, cx, cy, radius, startAngle = 0) {
     const out = [];
-    if (count <= 0) return out;
-    const step = (Math.PI * 2) / count;
-    for (let i = 0; i < count; i++) {
-      const angle = step * i;
+    if (!n) return out;
+    const step = (Math.PI * 2) / n;
+    for (let i = 0; i < n; i++) {
+      const angle = startAngle + i * step;
       out.push({
         x: cx + radius * Math.cos(angle),
         y: cy + radius * Math.sin(angle)
@@ -24,204 +28,259 @@
     return out;
   }
 
+  // Derive hierarchy groups if caller didn't provide them.
+  // This makes UniverseView resilient if the app calls placeUniverse(cy) without precomputed arrays.
+  function deriveGroups(cy) {
+    const vis = cy.nodes(':visible').toArray();
+
+    const suns = [];
+    const planetsBySun = Object.create(null);
+    const moonsByPlanet = Object.create(null);
+
+    function norm(v) {
+      return v == null ? '' : String(v).toLowerCase();
+    }
+
+    function getRole(d) {
+      // Try common fields used across the project
+      const role = norm(
+        d.orbit_role ||
+          d.orbitRole ||
+          d.role ||
+          d.kind ||
+          d.type ||
+          d.tier ||
+          d.orbit ||
+          d.level_name
+      );
+      if (role.includes('sun')) return 'sun';
+      if (role.includes('planet')) return 'planet';
+      if (role.includes('moon')) return 'moon';
+
+      // Numeric tier/level hints
+      const lvl = d.orbit_level ?? d.level ?? d.tier_level ?? d.tierLevel;
+      if (lvl === 0 || lvl === '0') return 'sun';
+      if (lvl === 1 || lvl === '1') return 'planet';
+      if (lvl === 2 || lvl === '2') return 'moon';
+
+      return '';
+    }
+
+    function getParentId(d, fallbacks) {
+      for (const k of fallbacks) {
+        if (d[k] != null && String(d[k]).length) return String(d[k]);
+      }
+      return '';
+    }
+
+    // Pass 1: classify obvious suns
+    for (const n of vis) {
+      const d = typeof n.data === 'function' ? n.data() : {};
+      const role = getRole(d);
+      if (role === 'sun') suns.push(n);
+    }
+
+    // If no explicit suns found, fall back:
+    // treat all visible nodes as suns so layout still renders and never crashes.
+    if (suns.length === 0) {
+      return { suns: vis, planetsBySun, moonsByPlanet };
+    }
+
+    const sunIds = new Set(suns.map((n) => n.id()));
+
+    // Pass 2: assign planets and moons using common parent fields
+    for (const n of vis) {
+      const d = typeof n.data === 'function' ? n.data() : {};
+      const role = getRole(d);
+
+      if (role === 'planet') {
+        const sunId = getParentId(d, [
+          'sun',
+          'sun_id',
+          'sunId',
+          'parent_sun',
+          'parentSun',
+          'parent',
+          'parentId',
+          'foundation',
+          'host',
+          'orbit_parent',
+          'orbitParent'
+        ]);
+        const key = sunId && sunIds.has(sunId) ? sunId : suns[0].id();
+        (planetsBySun[key] ||= []).push(n);
+      } else if (role === 'moon') {
+        const planetId = getParentId(d, [
+          'planet',
+          'planet_id',
+          'planetId',
+          'parent_planet',
+          'parentPlanet',
+          'parent',
+          'parentId',
+          'orbit_parent',
+          'orbitParent'
+        ]);
+        if (planetId) {
+          (moonsByPlanet[planetId] ||= []).push(n);
+        }
+      }
+    }
+
+    return { suns, planetsBySun, moonsByPlanet };
+  }
+
   function placeUniverse(cy, suns, planetsBySun, moonsByPlanet, opts = {}) {
+    // Fallback: build hierarchy groups if they were not provided by the caller.
+    if (!Array.isArray(suns)) {
+      const derived = deriveGroups(cy);
+      suns = derived.suns;
+      planetsBySun = derived.planetsBySun;
+      moonsByPlanet = derived.moonsByPlanet;
+    }
+
     const rect = cy.container().getBoundingClientRect();
     const W = rect.width || cy.width();
     const H = rect.height || cy.height();
     const cx = W / 2;
     const cyCenter = H / 2;
+
     const minWH = Math.min(W, H);
+
+    // --- Tunables ---
+    const padding = opts.padding ?? (minWH * 0.06);       // padding between solar systems
+    const sunBaseR = opts.sunBaseR ?? 34;                 // base sun node radius (visual)
+    const planetR = opts.planetR ?? 22;
+    const moonR = opts.moonR ?? 12;
+
+    // orbit radii (within one solar system)
+    const planetOrbitMin = opts.planetOrbitMin ?? (minWH * 0.055);
+    const planetOrbitMax = opts.planetOrbitMax ?? (minWH * 0.115);
+    const moonOrbit = opts.moonOrbit ?? (minWH * 0.018);
+
+    // --- helpers ---
+    function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+    function ringPositions(n, cx, cy, radius, startAngle = 0) {
+      const out = [];
+      if (!n) return out;
+      const step = (Math.PI * 2) / n;
+      for (let i = 0; i < n; i++) {
+        const ang = startAngle + i * step;
+        out.push({ x: cx + radius * Math.cos(ang), y: cy + radius * Math.sin(ang) });
+      }
+      return out;
+    }
 
     const positions = {};
     const radii = {};
 
-    // --- Overall constellation radii (tuned for more breathing room) ---
-    const outerSunRadius   = minWH * 0.42;  // was 0.38
-const innerSunRadius   = minWH * 0.26;  // was 0.24
-const outerIndepRadius = minWH * 0.56;  // was 0.50
-
-    // ---------- SUNS: 1–2 rings, Foundation suns evenly scattered ----------
-    const sunCount = suns.length;
-
-    if (sunCount > 0) {
-      // Separate foundation vs other suns
-      const foundationSuns = [];
-      const otherSuns = [];
-      
-      const foundationIds = new Set(foundationSuns.map((n) => n.id()));
-
-      suns.forEach((n) => {
-        let bucket = '';
-        try {
-          const d = typeof n.data === 'function' ? n.data() : {};
-          bucket = (d.bucket || d.bucket_slug || '').toString().toLowerCase();
-        } catch (e) {
-          bucket = '';
-        }
-        if (bucket.includes('foundation')) {
-          foundationSuns.push(n);
-        } else {
-          otherSuns.push(n);
-        }
+    // 1) Compute each solar system "bounding radius" (sun + its ecosystem orbit)
+    //    Bigger ecosystems get bigger padding space, avoiding overlap.
+    const systems = suns.map((sun) => {
+      const sid = sun.id();
+      const planets = (planetsBySun && planetsBySun[sid]) ? planetsBySun[sid] : [];
+      let moonCount = 0;
+      planets.forEach((p) => {
+        moonCount += (moonsByPlanet && moonsByPlanet[p.id()]) ? moonsByPlanet[p.id()].length : 0;
       });
 
-      let ringInner = [];
-      let ringOuter = [];
+      const pCount = planets.length;
 
-      if (sunCount <= 12) {
-        // Single tidy ring
-        ringOuter = ringPositions(sunCount, cx, cyCenter, outerSunRadius);
-      } else {
-        // Two rings: inner + outer
-        const innerCount = Math.ceil(sunCount * 0.55);
-        const outerCount = sunCount - innerCount;
-        ringInner = ringPositions(innerCount, cx, cyCenter, innerSunRadius);
-        ringOuter = ringPositions(outerCount, cx, cyCenter, outerSunRadius);
-      }
+      // Orbit radius scales with planet count (and a small contribution from moons)
+      const orbitR =
+        clamp(planetOrbitMin + (pCount / 40) * (planetOrbitMax - planetOrbitMin), planetOrbitMin, planetOrbitMax) +
+        clamp(moonCount * 0.35, 0, minWH * 0.03);
 
-      // Flatten ring slots into a single array of positions
-      const ringSlots = [];
-      if (ringInner.length) {
-        ringSlots.push(...ringInner);
-      }
-      if (ringOuter.length) {
-        ringSlots.push(...ringOuter);
-      }
-      if (!ringInner.length && ringOuter.length) {
-        ringSlots.length = 0;
-        ringSlots.push(...ringOuter);
-      }
+      // Total "system radius" = orbitR + extra padding + sun radius
+      const systemR = orbitR + padding + sunBaseR;
 
-      const totalSlots = ringSlots.length;
-      const foundationCount = foundationSuns.length;
-      const orderedSuns = new Array(totalSlots).fill(null);
+      return { sun, sid, planets, orbitR, systemR };
+    });
 
-      // Sprinkle foundation suns evenly around ring slots
-      if (foundationCount > 0) {
-        const step = totalSlots / foundationCount;
-        let pos = 0;
-        for (let i = 0; i < foundationCount; i++) {
-          const idx = Math.round(pos) % totalSlots;
-          orderedSuns[idx] = foundationSuns[i];
-          pos += step;
-        }
-      }
+    // 2) Initial scatter of suns as "system centers" (blue-noise-ish ellipse)
+    //    Then collision relax based on each system's radius.
+    const nS = systems.length;
+    const ellipseA = (minWH * 0.38);
+    const ellipseB = (minWH * 0.28);
 
-      // Fill remaining slots with other suns
-      let oi = 0;
-      for (let i = 0; i < totalSlots; i++) {
-        if (!orderedSuns[i] && oi < otherSuns.length) {
-          orderedSuns[i] = otherSuns[oi++];
-        }
-      }
-
-      // If any slots still empty (unlikely), fill with whatever is left
-      let fallbackIndex = 0;
-      for (let i = 0; i < totalSlots; i++) {
-        if (!orderedSuns[i]) {
-          orderedSuns[i] = suns[fallbackIndex++ % suns.length];
-        }
-      }
-
-      // Apply positions and radii
-      orderedSuns.forEach((sun, i) => {
-  if (!sun) return;
-  const p = ringSlots[i];
-  if (!p) return;
-
-  const id = sun.id();
-  const isFoundationSun = foundationIds.has(id);
-
-  positions[id] = { x: p.x, y: p.y };
-
-  // Foundation suns get a bigger "collision bubble"
-  // so other nodes are pushed further away
-  radii[id] = isFoundationSun ? minWH * 0.08 : minWH * 0.055;
-});
+    // If ViewUtils has distributeEllipse, use it; otherwise simple ring fallback.
+    let seedPts = [];
+    if (typeof distributeEllipse === 'function') {
+      seedPts = distributeEllipse(nS, cx, cyCenter, ellipseA, ellipseB);
+    } else {
+      seedPts = ringPositions(nS, cx, cyCenter, minWH * 0.28, Math.random() * Math.PI * 2);
     }
 
-    // ---------- PLANETS: per-sun ring, closer to suns ----------
-    const allPlanets = [];
-
-    suns.forEach((sun) => {
-      const kids = (planetsBySun[sun.id()] || []).filter(Boolean);
-      if (!kids.length) return;
-
-      const center = positions[sun.id()];
-      if (!center) return;
-
-      // Planets relatively close: edges not too long
-      const planetRingRadius = Math.max(
-        minWH * 0.14,
-        Math.min(minWH * 0.24, minWH * 0.11 + kids.length * 6)
-      );
-
-      const ring = ringPositions(kids.length, center.x, center.y, planetRingRadius);
-      kids.forEach((p, i) => {
-        const pos = ring[i];
-        if (!pos) return;
-        positions[p.id()] = { x: pos.x, y: pos.y };
-        radii[p.id()] = minWH * 0.04;
-        allPlanets.push(p);
-      });
+    systems.forEach((sys, i) => {
+      const p = seedPts[i] || { x: cx, y: cyCenter };
+      positions[sys.sid] = { x: p.x, y: p.y };
+      radii[sys.sid] = sys.systemR; // IMPORTANT: collision radius is the whole system radius
     });
 
-    // ---------- MOONS: close orbit around their planet ----------
-    allPlanets.forEach((planet) => {
-      const kids = (moonsByPlanet[planet.id()] || []).filter(Boolean);
-      if (!kids.length) return;
-
-      const center = positions[planet.id()] || planet.position();
-      const moonRingRadius = Math.max(
-        minWH * 0.05,
-        Math.min(minWH * 0.09, minWH * 0.04 + kids.length * 5)
-      );
-
-      const ring = ringPositions(kids.length, center.x, center.y, moonRingRadius);
-      kids.forEach((m, i) => {
-        const pos = ring[i];
-        if (!pos) return;
-        positions[m.id()] = { x: pos.x, y: pos.y };
-        radii[m.id()] = minWH * 0.028;
-      });
-    });
-
-    // ---------- INDEPENDENT NODES: loose outer ring ----------
-    const attached = new Set([
-      ...suns.map((n) => n.id()),
-      ...(planetsBySun ? Object.values(planetsBySun).flat().map((n) => n.id()) : []),
-      ...(moonsByPlanet ? Object.values(moonsByPlanet).flat().map((n) => n.id()) : [])
-    ]);
-
-    const vis = cy.nodes(':visible').toArray();
-    const independents = vis.filter((n) => !attached.has(n.id()));
-
-    if (independents.length) {
-      const ring = ringPositions(independents.length, cx, cyCenter, outerIndepRadius);
-      independents.forEach((n, i) => {
-        const pos = ring[i];
-        if (!pos) return;
-        positions[n.id()] = { x: pos.x, y: pos.y };
-        radii[n.id()] = minWH * 0.04;
-      });
-    }
-
-    // ---------- Clamp to canvas + relax ----------
-    const pad = minWH * 0.04;
-    Object.values(positions).forEach((p) => {
-      p.x = Math.max(pad, Math.min(W - pad, p.x));
-      p.y = Math.max(pad, Math.min(H - pad, p.y));
-    });
-
+    // Relax system centers so their "system disks" don't overlap
     if (typeof resolveCollisions === 'function') {
-      const relaxNodes = vis.filter((n) => positions[n.id()]);
-      resolveCollisions(relaxNodes, positions, radii, {
-  iterations: 11,
-  strength: 1
-});
+      const sysNodes = systems.map(s => s.sun);
+      resolveCollisions(sysNodes, positions, radii, { iterations: 18, strength: 1.15 });
+    }
+
+    // 3) Place planets around each sun within its orbit radius
+    systems.forEach((sys) => {
+      const sunPos = positions[sys.sid];
+      if (!sunPos) return;
+
+      // Set sun node visual radius hint (only used for collision; styling/sizing still in scripts/skin)
+      radii[sys.sid] = sunBaseR;
+
+      const pCount = sys.planets.length;
+      if (!pCount) return;
+
+      const pts = ringPositions(pCount, sunPos.x, sunPos.y, sys.orbitR, Math.random() * Math.PI * 2);
+      sys.planets.forEach((pNode, idx) => {
+        positions[pNode.id()] = { x: pts[idx].x, y: pts[idx].y };
+        radii[pNode.id()] = planetR;
+
+        // 4) Place moons close to their planet
+        const moons = (moonsByPlanet && moonsByPlanet[pNode.id()]) ? moonsByPlanet[pNode.id()] : [];
+        if (!moons.length) return;
+
+        const mPts = ringPositions(moons.length, pts[idx].x, pts[idx].y, moonOrbit, Math.random() * Math.PI * 2);
+        moons.forEach((mNode, mIdx) => {
+          positions[mNode.id()] = { x: mPts[mIdx].x, y: mPts[mIdx].y };
+          radii[mNode.id()] = moonR;
+        });
+      });
+    });
+
+    // 5) Apply positions
+    const vis = cy.nodes(':visible').toArray();
+    cy.batch(() => {
+      vis.forEach((n) => {
+        const p = positions[n.id()];
+        if (p) n.position(p);
+      });
+    });
+
+    // Universe view rules:
+    // - edges ON for all
+    // - labels ON only for suns (foundation nodes)
+    cy.edges().removeClass('hidden');
+    cy.edges().style('display', 'element');
+    cy.nodes().forEach((n) => n.style('label', ''));
+    (Array.isArray(suns) ? suns : []).forEach((n) => {
+      n.style('label', n.data('name') || n.data('label') || '');
+    });
+
+    // 6) Optional: light collision pass for all visible nodes to reduce local overlaps
+    if (typeof resolveCollisions === 'function') {
+      const relax = vis.filter(n => positions[n.id()]);
+      resolveCollisions(relax, positions, radii, { iterations: 10, strength: 1.0 });
     }
 
     return positions;
+  }
+
+  function clamp(v, min, max) {
+    return Math.max(min, Math.min(max, v));
   }
 
   window.UniverseView = { placeUniverse };

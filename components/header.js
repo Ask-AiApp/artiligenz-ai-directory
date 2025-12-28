@@ -209,7 +209,8 @@ class CustomHeader extends HTMLElement {
 
       <header>
         <div class="left">
-          <a href="/" class="logo">Artiligenz</a>
+          <!-- Targeted: make this stable for static hosting -->
+          <a href="index.html" class="logo">Artiligenz Ai Directory</a>
 
           ${!simple ? `
             <nav class="nav">
@@ -235,7 +236,7 @@ class CustomHeader extends HTMLElement {
             </button>
           ` : `
             <!-- Full header: main directory -->
-            <a href="https://artiligenz.ai" class="gateway-btn">
+            <a href="http://localhost:8080" class="gateway-btn">
               ← Back to Gateway
             </a>
 
@@ -264,8 +265,17 @@ class CustomHeader extends HTMLElement {
       </header>
     `;
 
-    // Highlighting the active link (for full header)
-    const active = this.getAttribute('active-link');
+    // =========================
+    // Active link highlighting
+    // =========================
+    // Targeted: support both conventions:
+    // - active-link="home"
+    // - data-active="home"
+    const active =
+      this.getAttribute('active-link') ||
+      this.getAttribute('data-active') ||
+      '';
+
     if (active) {
       const links = this.shadowRoot.querySelectorAll('nav a');
       links.forEach(link => {
@@ -286,13 +296,24 @@ class CustomHeader extends HTMLElement {
       };
 
       darkBtn.addEventListener('click', () => {
-        if (window.toggleTheme) {
+        // Prefer shared theme.js function; fallback if not present
+        if (typeof window.toggleTheme === 'function') {
           window.toggleTheme();
         } else {
           document.documentElement.classList.toggle('dark');
+          try {
+            localStorage.setItem(
+              'theme',
+              document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+            );
+          } catch (e) {}
         }
         syncDarkState();
       });
+
+      // Targeted: keep header synced if theme changes elsewhere
+      const themeSyncHandler = () => syncDarkState();
+      window.addEventListener('storage', themeSyncHandler);
 
       // initial sync
       syncDarkState();
