@@ -486,39 +486,78 @@
   function initInteractions() {
     if (!cy) return;
 
-    // Node tap → show microcard
-    cy.on('tap', 'node', (evt) => {
-      const node = evt.target;
+    const isCoarsePointer =
+      (typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches) ||
+      (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
+
+    function showNodeMicrocard(node) {
+      if (!node) return;
 
       if (window.Microcard && typeof window.Microcard.show === 'function') {
         window.Microcard.show(node, {
           cy,
           container: cy.container(),
-          onViewEcosystem: () => {enterOrbit(node);
+          onViewEcosystem: () => {
+            enterOrbit(node);
           },
           onOpenProfile: () => {
             document.querySelector('info-drawer')?.update(node.data());
           }
         });
       }
-    });
+    }
 
-    // Tap background → hide microcard
-    cy.on('tap', (evt) => {
-      if (evt.target === cy) {
-        window.Microcard?.hide?.();
+    function nearestNodeForRenderedPoint(rp, maxDistPx) {
+      if (!rp) return null;
+      let best = null;
+      let bestD = Infinity;
+
+      // Only consider visible nodes (prevents grabbing hidden orbit sets / filters)
+      const nodes = cy.nodes().filter(n => n.style('display') !== 'none');
+
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        const nrp = n.renderedPosition();
+        const dx = nrp.x - rp.x;
+        const dy = nrp.y - rp.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < bestD) {
+          bestD = d;
+          best = n;
+        }
       }
-    });
 
-    // ✅ Click anywhere outside the Cytoscape canvas (header/sidebar/etc) → hide microcard
-    document.addEventListener('pointerdown', (e) => {
-      const host = cy?.container?.();
-      if (!host) return;
+      return bestD <= maxDistPx ? best : null;
+    }
 
-      if (!host.contains(e.target)) {
-        window.Microcard?.hide?.();
+    // Node interaction (support both Cytoscape 'tap' and DOM-like 'click' for mobile/webview quirks)
+    const onNodeActivate = (evt) => {
+      const node = evt.target;
+      showNodeMicrocard(node);
+    };
+
+    cy.on('tap', 'node', onNodeActivate);
+    cy.on('click', 'node', onNodeActivate);
+
+    // Background interaction → hide microcard (or, on mobile, pick nearest node if the tap missed)
+    const onBgActivate = (evt) => {
+      if (evt.target !== cy) return;
+
+      // Mobile: nodes can be tiny when zoomed out; allow a small "tap slop" to select nearest node
+      if (isCoarsePointer) {
+        const rp = evt.renderedPosition;
+        const picked = nearestNodeForRenderedPoint(rp, 34);
+        if (picked) {
+          showNodeMicrocard(picked);
+          return;
+        }
       }
-    }, true);
+
+      window.Microcard?.hide?.();
+    };
+
+    cy.on('tap', onBgActivate);
+    cy.on('click', onBgActivate);
 
     // Pan / zoom → keep overlays in sync
     cy.on('pan zoom', () => {
@@ -539,6 +578,7 @@
     });
   }
 
+
   // -----------------------------
   // Theme reactivity
   // -----------------------------
@@ -557,35 +597,18 @@
   // -----------------------------
   function boot() {
     initCytoscape();
-    
-    // ✅ Add missing edges if data loads late
-    if (window.Directory?.edges?.length) {
-      const missing = window.Directory.edges.filter(e =>
-        window.__cy.getElementById(e.data?.id).length === 0
-      );
-      if (missing.length) {
-        window.__cy.add(missing);
-      }
-    }
-    
     initViewControls();
     initInteractions();
     initThemeReactivity();
 
     // ✅ Sidebar → Orchestrator wiring
     document.addEventListener('filters-changed', (e) => {
-      // ✅ UX: when filters change, close any open microcard
-      window.Microcard?.hide?.();
-
       const { categories = [], search = '' } = e.detail || {};
       filterState = { categories, search };
       applyFilters();
     });
 
     document.addEventListener('mode-changed', (e) => {
-      // ✅ UX: mode switches should also close microcard
-      window.Microcard?.hide?.();
-
       let mode = e.detail?.mode || 'universe';
       if (mode !== 'universe') mode = 'universe';
       // Sidebar already resets filters before mode switch

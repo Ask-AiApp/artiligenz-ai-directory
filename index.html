@@ -33,7 +33,8 @@
 
       <div class="lg:col-span-3 relative">
         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden relative">
-          <div id="cy" class="w-full h-[600px]"></div>
+          <!-- ✅ Targeted edit: remove fixed Tailwind height so mobile CSS can size properly -->
+          <div id="cy" class="w-full"></div>
 
           <!-- Navigation Controls (Rendered here on top of #cy) -->
           <nav-controls></nav-controls>
@@ -42,25 +43,28 @@
     </div>
   </main>
 
+  <!-- ✅ Targeted edit: ensure drawer element exists in DOM before app code uses it -->
+  <info-drawer></info-drawer>
+
   <!-- Components -->
   <script src="components/header.js" defer></script>
   <script src="components/sidebar.js" defer></script>
   <script src="components/footer.js" defer></script>
   <script src="components/drawer.js" defer></script>
-  
-   <script src="HedronLayout.js"></script>
+
   <!-- Data (REQUIRED ORDER) -->
+  <!-- ✅ Targeted edit: establish Directory nodes first, then append edges -->
   <script src="data/directory.edges.js" defer></script>
   <script src="data/directory_suns.js" defer></script>
   <script src="data/directory_planets_moons.js" defer></script>
   
-  
- 
 
   <!-- Optional supporting data -->
   <script src="data/company_summaries.js" defer></script>
 
   <!-- Layout / Skin -->
+  <!-- ✅ Targeted edit: keep HedronLayout included once (duplicate removed) -->
+  <script src="HedronLayout.js" defer></script>
   <script src="layouts/layouts.js" defer></script>
   <script src="skins/defaultskin.js" defer></script>
 
@@ -69,7 +73,6 @@
   <script src="components/microcard.js"></script>
 
   <!-- Views -->
-   <script src="HedronLayout.js"></script>
   <script src="views/utils.js" defer></script>
   <script src="views/universeview.js" defer></script>
   <script src="views/orbitalview.js" defer></script>
@@ -78,10 +81,8 @@
 
   <!-- IMPORTANT: Nav Controls must load WITHOUT defer -->
   <script src="components/nav-controls.js"></script>
-  
+
   <!-- App entry -->
   <script src="scripts.js" defer></script>
-
-  <info-drawer></info-drawer>
 </body>
 </html>
