@@ -1837,51 +1837,7 @@ window.Directory.nodes.push(
     }
   },
   
-  // ===== FIX ARTILIGENZ ENTRIES =====
-  {
-    data: {
-      id: "orbit:Artiligenz|Ai-Information-Hub",
-      name: "AI Information Hub",
-      bucket: "sidebar",
-      bucket_label: "Sidebar",
-      bucket_color: "#9FA8DA",
-      url: "https://artiligenz.ai",
-      favicon: "https://www.google.com/s2/favicons?domain=artiligenz.ai&sz=128",
-      type: "orbit",
-      parent_id: "parent:Artiligenz",
-      override_tier: "planet"
-    }
-  },
-  {
-    data: {
-      id: "orbit:Artiligenz|Ai-Directory",
-      name: "AI Directory",
-      bucket: "sidebar",
-      bucket_label: "Sidebar",
-      bucket_color: "#9FA8DA",
-      url: "https://artiligenz.ai/directory",
-      favicon: "https://www.google.com/s2/favicons?domain=artiligenz.ai&sz=128",
-      type: "orbit",
-      parent_id: "parent:Artiligenz",
-      override_tier: "planet"
-    }
-  },
-  {
-    data: {
-      id: "orbit:Artiligenz|Art-g",
-      name: "Art-g",
-      bucket: "creative_genmedia",
-      bucket_label: "Creative & Gen Media",
-      bucket_color: "#CE93D8",
-      url: "https://artiligenz.ai/art-g",
-      favicon: "https://www.google.com/s2/favicons?domain=artiligenz.ai&sz=128",
-      type: "orbit",
-      parent_id: "parent:Artiligenz",
-      override_tier: "planet"
-    }
-  },
-
-  // JioBrain
+  // JioBrains
   {
     data: {
       id: "orbit:JioBrain|Jio Services AI",

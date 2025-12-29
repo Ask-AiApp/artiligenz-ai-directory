@@ -680,19 +680,7 @@ window.CompanySummaries = {
     "use_case_tags": ["Education AI", "Math Education", "Homework Help", "Step-by-Step Solutions", "Mobile Learning", "STEM Education"]
   },
 
-  // ===== ARTILIGENZ - Updated with correct info =====
-  "parent:Artiligenz": {
-    "last_updated": "2025-12-27T12:00:00Z",
-    "name": "Artiligenz",
-    "notes": "",
-    "parent": null,
-    "source": "manual",
-    "summary": "AI information hub and directory platform providing comprehensive resources, tools, and insights about artificial intelligence technologies and applications.",
-    "type": "parent",
-    "url": "https://artiligenz.ai",
-    "use_case_tags": ["AI Directory", "Information Hub", "AI Resources", "Tools & Platforms", "Education & Learning", "Research"]
-  },
-
+  
   // ===== PLANETS (Major Applications & Services) =====
   "orbit:OpenAI|ChatGPT": {
     "last_updated": "2025-12-27T12:00:00Z",

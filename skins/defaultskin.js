@@ -11,7 +11,7 @@
 
     // Canvas + text palette
     const baseBg      = isDark ? '#111827' : '#ffffff';   // match sidebar in dark mode
-    const nodeFill    = isDark ? '#95ddf0' : '#7cb8c9';
+    const nodeFill    = isDark ? '#11b7e6' : '#11b7e6';
 
     // ✅ Make label + outline theme-aware
     const nodeLabel   = cssVar('--text-primary', (isDark ? '#f8fafc' : '#111827'));
@@ -21,7 +21,7 @@
 
     // ✅ Make edge color theme-aware (use CSS var if present, else fallback)
     const edgeColor   = cssVar('--border-medium', (isDark ? '#2df3aa' : '#9b9e9e'));
-    const edgeOpacity = isDark ? 0.50 : 0.50;
+    const edgeOpacity = isDark ? 1 : 1;
 
     // Uniform ring width
     const RING_WIDTH = 1.1;

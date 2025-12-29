@@ -315,19 +315,6 @@ window.Directory = {
     },
     {
       data: {
-        id: "parent:Artiligenz",
-        name: "Artiligenz",
-        bucket: "foundation_models",
-        bucket_label: "Foundation Models",
-        bucket_color: "#FFB347",
-        url: "https://artiligenz.com",
-        favicon: "https://www.google.com/s2/favicons?domain=www.microsoft.com&sz=128",
-        type: "parent",
-        override_tier: "sun"
-      }
-    },
-    {
-      data: {
         id: "parent:Microsoft-Phi",
         name: "Phi (Microsoft)",
         bucket: "foundation_models",

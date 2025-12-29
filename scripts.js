@@ -1,9 +1,11 @@
 // scripts.js
 // Artiligenz Live Directory — App Orchestrator (data + views + interactions)
+// Belt & braces: never crash on bad edges, always build hierarchy edges from parent_id
 
 (function () {
   let cy = null;
   let currentView = 'universe';
+
   let orbitState = {
     active: false,
     fromNodeId: null,
@@ -11,16 +13,56 @@
     pan: null,
     zoom: null,
     hiddenIds: [],
-    prevView: 'universe', // ✅ ADDED: remember where orbit was launched from
+    prevView: 'universe',
   };
 
-  // B) Add filter state (near top)
+  // Filters
   let filterState = { categories: [], search: '' };
   let hasActiveFilter = false;
 
+  // -----------------------------
+  // Universe baseline positions
+  // - HedronLayout.apply() writes node positions (preset layout persists them)
+  // - Snapshot initial "natural" universe ONCE, restore on return-to-universe
+  // -----------------------------
+  let universeBaselinePositions = null;
+
+  function snapshotUniverseBaselinePositionsOnce() {
+    if (!cy || universeBaselinePositions) return;
+    universeBaselinePositions = {};
+    try {
+      cy.nodes().forEach((n) => {
+        universeBaselinePositions[n.id()] = { ...n.position() };
+      });
+    } catch (e) {
+      console.warn('[Artiligenz] snapshotUniverseBaselinePositionsOnce failed:', e);
+      universeBaselinePositions = null;
+    }
+  }
+
+  function restoreUniverseBaselinePositions() {
+    if (!cy || !universeBaselinePositions) return;
+    try {
+      cy.startBatch();
+      cy.nodes().forEach((n) => {
+        const p = universeBaselinePositions[n.id()];
+        if (p) n.position(p);
+      });
+      cy.endBatch();
+    } catch (e) {
+      console.warn('[Artiligenz] restoreUniverseBaselinePositions failed:', e);
+    }
+  }
+
+  // -----------------------------
+  // Orbit helpers
+  // -----------------------------
   function isSunNode(node) {
-    try { return node && typeof node.id === 'function' && String(node.id()).startsWith('parent:'); }
-    catch { return false; }
+    try {
+      return node && typeof node.id === 'function' && String(node.id()).startsWith('parent:');
+    } catch {
+      return false;
+    }
   }
 
   function resolveSun(node) {
@@ -29,9 +71,6 @@
     const pid = node.data && node.data('parent_id');
     if (pid) {
       const sun = cy.getElementById(pid);
-      if (sun && sun.nonempty && typeof sun.nonempty === 'function') {
-        return sun.nonempty() ? sun : null;
-      }
       return sun && sun.length ? sun : null;
     }
     return null;
@@ -41,7 +80,7 @@
     if (!sun || !cy) return [];
     const sid = typeof sun.id === 'function' ? sun.id() : null;
     if (!sid) return [];
-    return cy.nodes().filter(n => n.data('parent_id') === sid).toArray();
+    return cy.nodes().filter((n) => n.data('parent_id') === sid).toArray();
   }
 
   function ensureOrbitUi() {
@@ -49,7 +88,6 @@
     if (!host) return;
     host.style.position = host.style.position || 'relative';
 
-    // Breadcrumb pill (top-left)
     let crumb = host.querySelector('[data-orbit-crumb]');
     if (!crumb) {
       crumb = document.createElement('div');
@@ -70,7 +108,6 @@
       host.appendChild(crumb);
     }
 
-    // Close button (top-right)
     let btn = host.querySelector('[data-orbit-close]');
     if (!btn) {
       btn = document.createElement('button');
@@ -112,48 +149,57 @@
     if (btn) btn.style.display = visible ? 'block' : 'none';
   }
 
-  // --- ORBIT LABELS (Orbit-only) ---
   function ensureOrbitLabelStyle() {
     if (!cy) return;
-
-    // Add an orbit-only selector without changing base styling
     cy.style()
       .selector('.orbitLabel')
       .style({
-        'label': (ele) => {
-          return ele.data('name') || ele.data('label') || ele.id();
-        },
+        label: (ele) => ele.data('name') || ele.data('label') || ele.id(),
         'text-wrap': 'wrap',
         'text-max-width': 180,
-        'font-size': 14,
+        'font-size': 12,
         'text-valign': 'center',
         'text-halign': 'center',
-        'text-outline-width': 4,
+        'text-outline-width': 1,
         'text-outline-color': 'rgba(2, 6, 23, 0.90)',
-        'color': '#e2e8f0'
+        color: '#e2e8f0',
       })
       .update();
   }
 
+  // -----------------------------
+  // Universe label policy (belt & braces)
+  // - Universe (landing): only Suns (id starts with "parent:") show labels
+  // - Everything else: leave unchanged (orbit uses .orbitLabel)
+  // NOTE: Skin.apply() can override styles; call this AFTER Skin.apply().
+  // -----------------------------
+  function enforceUniverseLabelPolicy() {
+    if (!cy) return;
+
+    try {
+      cy.style()
+        .selector('node')
+        .style({ label: '' })
+        .selector('node[id ^= "parent:"]')
+        .style({ label: 'data(name)' })
+        .update();
+    } catch (e) {
+      // Never crash for styling issues
+      console.warn('[Artiligenz] enforceUniverseLabelPolicy failed:', e);
+    }
+  }
+
   function enterOrbit(fromNode) {
-    if (!cy || !window.Views || typeof window.Views.placeOrbital !== 'function') return;
+    if (!cy || !window.Views || typeof window.Views.placeOrbital !== 'function') return false;
 
     const sun = resolveSun(fromNode);
-    if (!sun) {
-      console.warn('[Artiligenz] Orbit unavailable: no parent sun resolved');
-      return;
-    }
+    if (!sun) return false;
 
     const children = getOrbitChildren(sun);
-    if (!children.length) {
-      console.warn('[Artiligenz] Orbit unavailable: sun has no children');
-      return;
-    }
+    if (!children.length) return false;
 
-    // ✅ ADDED: remember where we came from (grid or universe)
     orbitState.prevView = currentView;
 
-    // Save state for return
     orbitState.active = true;
     orbitState.fromNodeId = typeof fromNode.id === 'function' ? fromNode.id() : null;
     orbitState.sunId = typeof sun.id === 'function' ? sun.id() : null;
@@ -162,61 +208,54 @@
 
     currentView = 'orbit';
 
-    // Hide everything outside this orbit set (nodes + edges among them)
     const orbitNodes = cy.collection([sun, ...children]);
-    const orbitEdges = cy.edges().filter(e => orbitNodes.contains(e.source()) && orbitNodes.contains(e.target()));
+    const orbitEdges = cy
+      .edges()
+      .filter((e) => orbitNodes.contains(e.source()) && orbitNodes.contains(e.target()));
     const keep = orbitNodes.union(orbitEdges);
     const hide = cy.elements().difference(keep);
 
-    orbitState.hiddenIds = hide.map(el => el.id());
+    orbitState.hiddenIds = hide.map((el) => el.id());
 
-    hide.forEach(el => el.style('display', 'none'));
-    keep.forEach(el => el.style('display', 'element'));
+    hide.forEach((el) => el.style('display', 'none'));
+    keep.forEach((el) => el.style('display', 'element'));
 
-    // Apply orbit-only labels (sun + children)
     ensureOrbitLabelStyle();
     orbitNodes.addClass('orbitLabel');
 
-    // Layout positions (V1 behavior) — now ellipse-capable via orbitalview opts
     const positions = window.Views.placeOrbital(sun, children, { ellipseRatio: 0.65 });
     if (positions) {
       if (positions[sun.id()]) sun.position(positions[sun.id()]);
-      children.forEach(ch => {
+      children.forEach((ch) => {
         const p = positions[ch.id()];
         if (p) ch.position(p);
       });
     }
 
-    // Fit view to orbit set
     if (typeof window.Views.smartFit === 'function') {
       window.Views.smartFit(cy, keep, 80);
     }
 
     ensureOrbitUi();
     setOrbitUiVisible(true, sun.data('name') || sun.data('label') || sun.id());
+
+    return true;
   }
 
   function exitOrbit() {
     if (!cy || !orbitState.active) return;
 
-    // Remove orbit-only labels
     cy.nodes().removeClass('orbitLabel');
 
-    // Restore hidden elements (bring everything back)
     if (orbitState.hiddenIds && orbitState.hiddenIds.length) {
-      orbitState.hiddenIds.forEach(id => {
+      orbitState.hiddenIds.forEach((id) => {
         const el = cy.getElementById(id);
         if (el && el.length) el.style('display', 'element');
       });
     }
 
-    // Hide orbit UI
     setOrbitUiVisible(false);
 
-    // ✅ CHANGED: return to the view that launched orbit
-    const backTo = orbitState.prevView || 'universe';
-
-    // Clear orbit state (keep pan/zoom until after view restore below)
     const savedPan = orbitState.pan;
     const savedZoom = orbitState.zoom;
     const savedFrom = orbitState.fromNodeId;
@@ -230,17 +269,19 @@
 
     currentView = 'universe';
 
-    // Universe: restore default layout + camera
+    if (window.Views && typeof window.Views.placeUniverse === 'function') {
+      window.Views.placeUniverse(cy);
 
-      // Universe: restore default layout + camera
-      if (window.Views && typeof window.Views.placeUniverse === 'function') {
-        window.Views.placeUniverse(cy);
-        window.Views.smartFit?.(cy, cy.elements());
+      // ✅ Critical: restore the original "natural" universe (undo any HedronLayout position burn-in)
+      restoreUniverseBaselinePositions();
+
+      window.Views.smartFit?.(cy, cy.elements());
+
+      enforceUniverseLabelPolicy();
       if (savedPan) cy.pan(savedPan);
       if (typeof savedZoom === 'number') cy.zoom(savedZoom);
     }
 
-    // Reselect original node (best-effort)
     if (savedFrom) {
       const n = cy.getElementById(savedFrom);
       if (n && n.length) n.select();
@@ -248,7 +289,7 @@
   }
 
   // -----------------------------
-  // Element normalization
+  // Normalization helpers
   // -----------------------------
   function isCytoscapeElement(el) {
     return el && typeof el === 'object' && 'data' in el;
@@ -262,7 +303,6 @@
 
     return {
       data: {
-        id: String(id),
         ...d,
         id: String(id),
       },
@@ -271,19 +311,14 @@
 
   function normalizeEdgeData(raw, idx = 0) {
     const d = raw && raw.data ? raw.data : raw;
-
     const source = d && (d.source || d.from);
     const target = d && (d.target || d.to);
-
     if (!source || !target) return null;
 
     const id = (d && d.id) || `edge:${source}->${target}:${idx}`;
 
     return {
       data: {
-        id: String(id),
-        source: String(source),
-        target: String(target),
         ...d,
         id: String(id),
         source: String(source),
@@ -293,38 +328,32 @@
   }
 
   function normalizeElements(nodesRaw, edgesRaw) {
-    const nodes = (nodesRaw || [])
-      .map((n) => normalizeNodeData(n, 'node'))
-      .filter(Boolean);
-
-    const edges = (edgesRaw || [])
-      .map((e, i) => normalizeEdgeData(e, i))
-      .filter(Boolean);
-
+    const nodes = (nodesRaw || []).map((n) => normalizeNodeData(n, 'node')).filter(Boolean);
+    const edges = (edgesRaw || []).map((e, i) => normalizeEdgeData(e, i)).filter(Boolean);
     return { nodes, edges };
   }
 
+  // -----------------------------
+  // Data ingestion (supports window.Directory / window.DirectoryData)
+  // -----------------------------
   function getDirectoryData() {
-    // Primary: window.Directory with {nodes, edges}
     if (window.Directory && Array.isArray(window.Directory.nodes)) {
       const edgesRaw = Array.isArray(window.Directory.edges)
         ? window.Directory.edges
-        : (window.Directory.links || []);
+        : Array.isArray(window.Directory.links)
+          ? window.Directory.links
+          : [];
       return normalizeElements(window.Directory.nodes, edgesRaw);
     }
 
-    // If a single mixed array exists (legacy)
     if (Array.isArray(window.Directory)) {
       const mixed = window.Directory;
       const already = mixed.every(isCytoscapeElement);
       if (already) {
-        // Try to split by edge signature
         const nodes = mixed.filter((el) => !el.data || (!el.data.source && !el.data.target));
         const edges = mixed.filter((el) => el.data && el.data.source && el.data.target);
         return { nodes, edges };
       }
-
-      // If raw mixed, best-effort: classify by presence of source/target
       const nodes = [];
       const edges = [];
       for (const el of mixed) {
@@ -334,7 +363,6 @@
       return normalizeElements(nodes, edges);
     }
 
-    // Some builds used window.DirectoryData
     if (Array.isArray(window.DirectoryData)) {
       const mixed = window.DirectoryData;
       const already = mixed.every(isCytoscapeElement);
@@ -357,6 +385,84 @@
   }
 
   // -----------------------------
+  // Belts & braces edge strategy
+  // 1) Always create hierarchy edges from node.parent_id (Sun -> orbit)
+  // 2) Merge optional manual edges from Directory.edges
+  // 3) Validate endpoints against actual node IDs
+  // 4) Never crash the app if edges are bad
+  // -----------------------------
+  function buildNodeIdSet(nodes) {
+    const set = new Set();
+    nodes.forEach((n) => {
+      const id = n?.data?.id;
+      if (id) set.add(String(id));
+    });
+    return set;
+  }
+
+  function buildHierarchyEdges(nodes) {
+    const edges = [];
+    const seen = new Set();
+
+    for (const n of nodes) {
+      const childId = n?.data?.id ? String(n.data.id) : '';
+      const parentId = n?.data?.parent_id ? String(n.data.parent_id) : '';
+
+      if (!childId || !parentId) continue;
+
+      const key = `${parentId}→${childId}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      edges.push({
+        data: {
+          id: `edge:${key}`,
+          source: parentId,
+          target: childId,
+          relation: 'has-orbit',
+          weight: 1,
+        },
+      });
+    }
+
+    return edges;
+  }
+
+  function filterEdgesToExistingNodes(edges, nodeIdSet) {
+    const valid = [];
+    const invalid = [];
+    const seen = new Set();
+
+    for (const e of edges) {
+      const s = e?.data?.source ? String(e.data.source) : '';
+      const t = e?.data?.target ? String(e.data.target) : '';
+      if (!s || !t) continue;
+
+      // Dedup by endpoints (belts & braces)
+      const key = `${s}→${t}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+
+      if (nodeIdSet.has(s) && nodeIdSet.has(t)) {
+        valid.push(e);
+      } else {
+        invalid.push(`${s} → ${t}`);
+      }
+    }
+
+    if (invalid.length) {
+      console.warn(
+        '[Artiligenz] Skipped invalid edges:',
+        invalid.slice(0, 12),
+        invalid.length > 12 ? `(+${invalid.length - 12} more)` : ''
+      );
+    }
+
+    console.log(`[Artiligenz] Edges: ${valid.length} valid (${invalid.length} skipped)`);
+    return valid;
+  }
+
+  // -----------------------------
   // Cytoscape init
   // -----------------------------
   function initCytoscape() {
@@ -366,34 +472,44 @@
       console.warn('[Artiligenz] No nodes found. Check your data files are loaded.');
     }
 
+    // ✅ Always synthesize hierarchy edges from parent_id
+    const hierarchyEdges = buildHierarchyEdges(nodes);
+
+    // ✅ Merge manual edges (optional) + hierarchy edges
+    const mergedEdges = [...hierarchyEdges, ...(edges || [])];
+
+    // ✅ Validate endpoints against actual node IDs (never crash)
+    const nodeIdSet = buildNodeIdSet(nodes);
+    const safeEdges = filterEdgesToExistingNodes(mergedEdges, nodeIdSet);
+
     cy = cytoscape({
       container: document.getElementById('cy'),
-      elements: [...nodes, ...edges],
+      elements: [...nodes, ...safeEdges],
       style: [
         {
           selector: 'node',
           style: {
-            'background-color': '#38bdf8',
-            'label': '',
+            'background-color': '#11b2f7',
+            label: '',
             'text-valign': 'center',
             'text-halign': 'center',
             'font-size': 12,
-            'width': 30,
-            'height': 30,
+            width: 30,
+            height: 30,
           },
         },
         {
           selector: 'edge',
           style: {
-            'line-color': '#cbd5e1',
-            'width': 1,
+            'line-color': '#629eee',
+            width: 1,
             'curve-style': 'haystack',
-            'opacity': 0.55,
+            opacity: 0.8,
           },
         },
       ],
       layout: { name: 'preset' },
-      wheelSensitivity: 0.2,
+      wheelSensitivity: 0.6,
     });
 
     // Expose for debugging
@@ -405,16 +521,22 @@
     // Initial view
     if (window.Views && typeof window.Views.placeUniverse === 'function') {
       window.Views.placeUniverse(cy);
+
+      // ✅ Snapshot the initial "natural" universe positions ONCE
+      snapshotUniverseBaselinePositionsOnce();
+
       if (typeof window.Views.smartFit === 'function') {
         window.Views.smartFit(cy, cy.elements());
       }
     }
 
+    // Re-assert Universe-only Sun labels AFTER any view/layout code that may overwrite styles
+    enforceUniverseLabelPolicy();
     return cy;
   }
 
   // -----------------------------
-  // Filter application
+  // Filters
   // -----------------------------
   function applyFilters() {
     if (!cy) return;
@@ -423,8 +545,9 @@
       const name = String(n.data('name') || '').toLowerCase();
       const bucket = String(n.data('bucket') || '').toLowerCase();
 
-      const q = filterState.search.toLowerCase();
+      const q = String(filterState.search || '').toLowerCase();
       const hasText = q && name.includes(q);
+
       const hasCat =
         filterState.categories.length === 0 ||
         filterState.categories.includes(bucket);
@@ -432,48 +555,55 @@
       return (!q || hasText) && hasCat;
     });
 
-    // Hide everything else
     cy.startBatch();
     cy.edges().style('display', 'none');
     cy.nodes().style('display', 'none');
     activeNodes.style('display', 'element');
     cy.endBatch();
 
-    // Apply polyhedron rule
     if (window.HedronLayout && typeof window.HedronLayout.apply === 'function') {
       window.HedronLayout.apply(cy, activeNodes.toArray());
     }
 
-    hasActiveFilter = filterState.search || filterState.categories.length > 0;
+    hasActiveFilter = !!filterState.search || filterState.categories.length > 0;
   }
 
   // -----------------------------
-  // View switch
+  // View controls
   // -----------------------------
   function initViewControls() {
-    const universeBtn = document.getElementById('btnUniverse');if (universeBtn) {
-      universeBtn.addEventListener('click', () => setView('universe'));
+    const universeBtn = document.getElementById('btnUniverse');
+    if (universeBtn) {
+      universeBtn.addEventListener('click', () => window.setView?.('universe'));
     }
+
     window.setView = function (mode) {
       if (!cy) return;
+
       try {
-        mode = (mode === 'universe') ? 'universe' : 'universe';
-        currentView = mode;        // Exiting orbit if user changes mode
+        mode = mode === 'universe' ? 'universe' : 'universe';
+
         if (orbitState.active && mode !== 'orbit') {
           exitOrbit();
         }
 
-        // Clear filters when switching views
-        if (mode === 'universe') {
-          filterState = { categories: [], search: '' };
-          hasActiveFilter = false;
-          cy.elements().style('display', 'element');
+        currentView = mode;
 
-          if (mode === 'universe') {
-            window.Views.placeUniverse(cy);
-            window.Views.smartFit?.(cy, cy.elements());
-          }}
-        // Orbit view removed - enter orbit only via Explore button
+        // Reset filters on universe
+        filterState = { categories: [], search: '' };
+        hasActiveFilter = false;
+        cy.elements().style('display', 'element');
+
+        if (window.Views?.placeUniverse) {
+          window.Views.placeUniverse(cy);
+
+          // ✅ Always return to the original baseline universe after any interaction
+          restoreUniverseBaselinePositions();
+
+          window.Views.smartFit?.(cy, cy.elements());
+
+          enforceUniverseLabelPolicy();
+        }
       } catch (e) {
         console.error('[Artiligenz] setView failed:', e);
       }
@@ -490,6 +620,14 @@
       (typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches) ||
       (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
 
+    // Mobile gesture behavior: let Cytoscape own touch gestures on touch devices
+    try {
+      const host = cy.container();
+      if (host && isCoarsePointer) {
+        host.style.touchAction = 'none';
+      }
+    } catch (_) {}
+
     function showNodeMicrocard(node) {
       if (!node) return;
 
@@ -501,49 +639,69 @@
             enterOrbit(node);
           },
           onOpenProfile: () => {
-            document.querySelector('info-drawer')?.update(node.data());
-          }
+            customElements.whenDefined('info-drawer').then(() => {
+              document.querySelector('info-drawer')?.update(node.data());
+            });
+          },
         });
       }
     }
 
     function nearestNodeForRenderedPoint(rp, maxDistPx) {
       if (!rp) return null;
-      let best = null;
-      let bestD = Infinity;
 
-      // Only consider visible nodes (prevents grabbing hidden orbit sets / filters)
-      const nodes = cy.nodes().filter(n => n.style('display') !== 'none');
+      const maxD2 = maxDistPx * maxDistPx;
+      let best = null;
+      let bestD2 = Infinity;
+
+      const nodes = cy.nodes().filter((n) => n.style('display') !== 'none');
 
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
+
+        // Cheap reject: if tap is far outside node rendered BB (+padding), skip
+        let bb = null;
+        try {
+          bb = n.renderedBoundingBox();
+        } catch (_) {
+          bb = null;
+        }
+        if (bb) {
+          const pad = maxDistPx;
+          if (
+            rp.x < bb.x1 - pad || rp.x > bb.x2 + pad ||
+            rp.y < bb.y1 - pad || rp.y > bb.y2 + pad
+          ) continue;
+        }
+
         const nrp = n.renderedPosition();
         const dx = nrp.x - rp.x;
         const dy = nrp.y - rp.y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < bestD) {
-          bestD = d;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < bestD2) {
+          bestD2 = d2;
           best = n;
         }
       }
 
-      return bestD <= maxDistPx ? best : null;
+      return bestD2 <= maxD2 ? best : null;
     }
 
-    // Node interaction (support both Cytoscape 'tap' and DOM-like 'click' for mobile/webview quirks)
     const onNodeActivate = (evt) => {
       const node = evt.target;
+
+      // Mobile: allow direct orbit entry on first tap if not already in orbit
+      if (isCoarsePointer && !orbitState.active) {
+        const opened = enterOrbit(node);
+        if (opened) return;
+      }
+
       showNodeMicrocard(node);
     };
 
-    cy.on('tap', 'node', onNodeActivate);
-    cy.on('click', 'node', onNodeActivate);
-
-    // Background interaction → hide microcard (or, on mobile, pick nearest node if the tap missed)
     const onBgActivate = (evt) => {
       if (evt.target !== cy) return;
 
-      // Mobile: nodes can be tiny when zoomed out; allow a small "tap slop" to select nearest node
       if (isCoarsePointer) {
         const rp = evt.renderedPosition;
         const picked = nearestNodeForRenderedPoint(rp, 34);
@@ -556,28 +714,40 @@
       window.Microcard?.hide?.();
     };
 
-    cy.on('tap', onBgActivate);
-    cy.on('click', onBgActivate);
+    // ✅ Avoid duplicate firing: use tap on touch, click on desktop
+    const nodeEvt = isCoarsePointer ? 'tap' : 'click';
+    const bgEvt = isCoarsePointer ? 'tap' : 'click';
 
-    // Pan / zoom → keep overlays in sync
-    cy.on('pan zoom', () => {
-      window.Microcard?.reposition?.();
-      window.Starfield?.onViewportChange?.(cy);
-    });
+    cy.on(nodeEvt, 'node', onNodeActivate);
+    cy.on(bgEvt, onBgActivate);
 
-    // Escape → exit orbit (if active), else close microcard + drawer
+    // Escape closes microcard + exits orbit
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        if (orbitState.active) {
-          exitOrbit();
-          return;
-        }
-        window.Microcard?.hide?.();
-        document.querySelector('info-drawer')?.close?.();
-      }
+      if (e.key !== 'Escape') return;
+      window.Microcard?.hide?.();
+      if (orbitState.active) exitOrbit();
     });
-  }
 
+    // Global outside-tap close (belt & braces for mobile)
+    document.addEventListener(
+      'pointerdown',
+      (e) => {
+        const mc = document.getElementById('microcard');
+        const drawer = document.querySelector('info-drawer');
+        const headerMenu = document.querySelector('.mobile-menu-panel, [data-mobile-menu-panel]');
+        const t = e.target;
+
+        const inMicro = mc && mc.contains(t);
+        const inDrawer = drawer && drawer.contains(t);
+        const inHeader = headerMenu && headerMenu.contains(t);
+
+        if (!inMicro && !inDrawer && !inHeader) {
+          window.Microcard?.hide?.();
+        }
+      },
+      true
+    );
+  }
 
   // -----------------------------
   // Theme reactivity
@@ -587,9 +757,38 @@
       try {
         window.Microcard?.refreshTheme?.();
         window.Skin?.apply?.(window.__cy || cy);
+        // Re-assert Universe-only Sun labels after skin overrides
+        enforceUniverseLabelPolicy();
       } catch (_) {}
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+
+  // -----------------------------
+  // Resize / orientation handling (mobile-first)
+  // -----------------------------
+  function initResizeHandling() {
+    let resizeTimer = null;
+    window.addEventListener(
+      'resize',
+      () => {
+        if (!cy) return;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          try {
+            cy.resize();
+
+            // Fit appropriately without changing layout rules
+            if (orbitState.active) {
+              window.Views?.smartFit?.(cy, cy.elements(), 80);
+            } else {
+              window.Views?.smartFit?.(cy, cy.elements());
+            }
+          } catch (_) {}
+        }, 120);
+      },
+      { passive: true }
+    );
   }
 
   // -----------------------------
@@ -600,42 +799,54 @@
     initViewControls();
     initInteractions();
     initThemeReactivity();
+    initResizeHandling();
 
-    // ✅ Sidebar → Orchestrator wiring
+    // Sidebar → Orchestrator wiring
+    // Debounce filter application slightly to keep mobile typing responsive
+    let filterTimer = null;
     document.addEventListener('filters-changed', (e) => {
       const { categories = [], search = '' } = e.detail || {};
       filterState = { categories, search };
-      applyFilters();
+
+      clearTimeout(filterTimer);
+      filterTimer = setTimeout(() => {
+        applyFilters();
+      }, 80);
     });
 
     document.addEventListener('mode-changed', (e) => {
       let mode = e.detail?.mode || 'universe';
       if (mode !== 'universe') mode = 'universe';
-      // Sidebar already resets filters before mode switch
       window.setView?.(mode);
     });
 
-    // Expose filter functions globally
     window.FilterManager = {
-      updateSearch: function(search) {
-        filterState.search = search;
+      updateSearch(search) {
+        filterState.search = search || '';
         applyFilters();
       },
-      updateCategories: function(categories) {
-        filterState.categories = categories;
+      updateCategories(categories) {
+        filterState.categories = Array.isArray(categories) ? categories : [];
         applyFilters();
       },
-      clearFilters: function() {
+      clearFilters() {
         filterState = { categories: [], search: '' };
         hasActiveFilter = false;
-        cy.elements().style('display', 'element');
+        cy?.elements()?.style('display', 'element');
         if (currentView === 'universe') {
-          window.Views.placeUniverse(cy);
-          window.Views.smartFit?.(cy, cy.elements());
-        }},
-      getState: function() {
+          window.Views?.placeUniverse?.(cy);
+
+          // ✅ Restore the original baseline universe layout when clearing filters
+          restoreUniverseBaselinePositions();
+
+          window.Views?.smartFit?.(cy, cy.elements());
+
+          enforceUniverseLabelPolicy();
+        }
+      },
+      getState() {
         return { ...filterState, hasActiveFilter };
-      }
+      },
     };
   }
 

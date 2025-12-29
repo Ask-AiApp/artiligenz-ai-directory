@@ -9,54 +9,54 @@ window.Directory.edges.push(
   // OpenAI edges
   {
     data: {
-      id: "edge:parent:OpenAI->orbit:OpenAI|ChatGPT",
-      source: "parent:OpenAI",
-      target: "orbit:OpenAI|ChatGPT",
+      id: "edge:parent:openai->orbit:openai|chatgpt",
+      source: "parent:openai",
+      target: "orbit:openai|chatgpt",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:OpenAI->orbit:OpenAI|DALL-E",
-      source: "parent:OpenAI",
-      target: "orbit:OpenAI|DALL-E",
+      id: "edge:parent:openai->orbit:openai|dall-e",
+      source: "parent:openai",
+      target: "orbit:openai|dall-e",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:OpenAI->orbit:OpenAI|Sora",
-      source: "parent:OpenAI",
-      target: "orbit:OpenAI|Sora",
+      id: "edge:parent:openai->orbit:openai|sora",
+      source: "parent:openai",
+      target: "orbit:openai|sora",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:OpenAI->orbit:OpenAI|Voice Engine",
-      source: "parent:OpenAI",
-      target: "orbit:OpenAI|Voice Engine",
+      id: "edge:parent:openai->orbit:openai|voice-engine",
+      source: "parent:openai",
+      target: "orbit:openai|voice-engine",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:OpenAI->orbit:OpenAI|OpenAI API",
-      source: "parent:OpenAI",
-      target: "orbit:OpenAI|OpenAI API",
+      id: "edge:parent:openai->orbit:openai|openai-api",
+      source: "parent:openai",
+      target: "orbit:openai|openai-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:OpenAI->orbit:OpenAI|GPT Store",
-      source: "parent:OpenAI",
-      target: "orbit:OpenAI|GPT Store",
+      id: "edge:parent:openai->orbit:openai|gpt-store",
+      source: "parent:openai",
+      target: "orbit:openai|gpt-store",
       relation: "has-orbit",
       weight: 1
     }
@@ -65,45 +65,45 @@ window.Directory.edges.push(
   // Google Gemini edges
   {
     data: {
-      id: "edge:parent:Gemini->orbit:Google-Gemini|Gemini Chat",
-      source: "parent:Gemini",
-      target: "orbit:Google-Gemini|Gemini Chat",
+      id: "edge:parent:gemini->orbit:google-gemini|gemini-chat",
+      source: "parent:gemini",
+      target: "orbit:google-gemini|gemini-chat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Gemini->orbit:Google-Gemini|Google AI Studio",
-      source: "parent:Gemini",
-      target: "orbit:Google-Gemini|Google AI Studio",
+      id: "edge:parent:gemini->orbit:google-gemini|google-ai-studio",
+      source: "parent:gemini",
+      target: "orbit:google-gemini|google-ai-studio",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Gemini->orbit:Google-Gemini|Imagen 2",
-      source: "parent:Gemini",
-      target: "orbit:Google-Gemini|Imagen 2",
+      id: "edge:parent:gemini->orbit:google-gemini|imagen-2",
+      source: "parent:gemini",
+      target: "orbit:google-gemini|imagen-2",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Gemini->orbit:Google-Gemini|Vertex AI",
-      source: "parent:Gemini",
-      target: "orbit:Google-Gemini|Vertex AI",
+      id: "edge:parent:gemini->orbit:google-gemini|vertex-ai",
+      source: "parent:gemini",
+      target: "orbit:google-gemini|vertex-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Gemini->orbit:Google-Gemini|Gemini API",
-      source: "parent:Gemini",
-      target: "orbit:Google-Gemini|Gemini API",
+      id: "edge:parent:gemini->orbit:google-gemini|gemini-api",
+      source: "parent:gemini",
+      target: "orbit:google-gemini|gemini-api",
       relation: "has-orbit",
       weight: 1
     }
@@ -112,27 +112,27 @@ window.Directory.edges.push(
   // Anthropic edges
   {
     data: {
-      id: "edge:parent:Anthropic->orbit:Anthropic|Claude.ai",
-      source: "parent:Anthropic",
-      target: "orbit:Anthropic|Claude.ai",
+      id: "edge:parent:anthropic->orbit:anthropic|claude-ai",
+      source: "parent:anthropic",
+      target: "orbit:anthropic|claude-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Anthropic->orbit:Anthropic|Claude API",
-      source: "parent:Anthropic",
-      target: "orbit:Anthropic|Claude API",
+      id: "edge:parent:anthropic->orbit:anthropic|claude-api",
+      source: "parent:anthropic",
+      target: "orbit:anthropic|claude-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Anthropic->orbit:Anthropic|Amazon Bedrock (Claude)",
-      source: "parent:Anthropic",
-      target: "orbit:Anthropic|Amazon Bedrock (Claude)",
+      id: "edge:parent:anthropic->orbit:anthropic|amazon-bedrock-claude",
+      source: "parent:anthropic",
+      target: "orbit:anthropic|amazon-bedrock-claude",
       relation: "has-orbit",
       weight: 1
     }
@@ -141,45 +141,45 @@ window.Directory.edges.push(
   // Meta-Llama edges
   {
     data: {
-      id: "edge:parent:Meta-Llama->orbit:Meta-Llama|Meta AI Assistant",
-      source: "parent:Meta-Llama",
-      target: "orbit:Meta-Llama|Meta AI Assistant",
+      id: "edge:parent:meta-llama->orbit:meta-llama|meta-ai-assistant",
+      source: "parent:meta-llama",
+      target: "orbit:meta-llama|meta-ai-assistant",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-Llama->orbit:Meta-Llama|Code Llama",
-      source: "parent:Meta-Llama",
-      target: "orbit:Meta-Llama|Code Llama",
+      id: "edge:parent:meta-llama->orbit:meta-llama|code-llama",
+      source: "parent:meta-llama",
+      target: "orbit:meta-llama|code-llama",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-Llama->orbit:Meta-Llama|Ray-Ban Meta",
-      source: "parent:Meta-Llama",
-      target: "orbit:Meta-Llama|Ray-Ban Meta",
+      id: "edge:parent:meta-llama->orbit:meta-llama|ray-ban-meta",
+      source: "parent:meta-llama",
+      target: "orbit:meta-llama|ray-ban-meta",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-Llama->orbit:Meta-Llama|Quest VR",
-      source: "parent:Meta-Llama",
-      target: "orbit:Meta-Llama|Quest VR",
+      id: "edge:parent:meta-llama->orbit:meta-llama|quest-vr",
+      source: "parent:meta-llama",
+      target: "orbit:meta-llama|quest-vr",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-Llama->orbit:Meta-Llama|Hugging Face Models",
-      source: "parent:Meta-Llama",
-      target: "orbit:Meta-Llama|Hugging Face Models",
+      id: "edge:parent:meta-llama->orbit:meta-llama|hugging-face-models",
+      source: "parent:meta-llama",
+      target: "orbit:meta-llama|hugging-face-models",
       relation: "has-orbit",
       weight: 1
     }
@@ -188,27 +188,27 @@ window.Directory.edges.push(
   // xAI edges
   {
     data: {
-      id: "edge:parent:xAI->orbit:xAI|Grok on X",
-      source: "parent:xAI",
-      target: "orbit:xAI|Grok on X",
+      id: "edge:parent:xai->orbit:xai|grok-on-x",
+      source: "parent:xai",
+      target: "orbit:xai|grok-on-x",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:xAI->orbit:xAI|Grok API",
-      source: "parent:xAI",
-      target: "orbit:xAI|Grok API",
+      id: "edge:parent:xai->orbit:xai|grok-api",
+      source: "parent:xai",
+      target: "orbit:xai|grok-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:xAI->orbit:xAI|Open Weights (Grok-1)",
-      source: "parent:xAI",
-      target: "orbit:xAI|Open Weights (Grok-1)",
+      id: "edge:parent:xai->orbit:xai|open-weights-grok-1",
+      source: "parent:xai",
+      target: "orbit:xai|open-weights-grok-1",
       relation: "has-orbit",
       weight: 1
     }
@@ -217,27 +217,27 @@ window.Directory.edges.push(
   // Cohere edges
   {
     data: {
-      id: "edge:parent:Cohere->orbit:Cohere|Coral",
-      source: "parent:Cohere",
-      target: "orbit:Cohere|Coral",
+      id: "edge:parent:cohere->orbit:cohere|coral",
+      source: "parent:cohere",
+      target: "orbit:cohere|coral",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Cohere->orbit:Cohere|Cohere Platform",
-      source: "parent:Cohere",
-      target: "orbit:Cohere|Cohere Platform",
+      id: "edge:parent:cohere->orbit:cohere|cohere-platform",
+      source: "parent:cohere",
+      target: "orbit:cohere|cohere-platform",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Cohere->orbit:Cohere|Embed API",
-      source: "parent:Cohere",
-      target: "orbit:Cohere|Embed API",
+      id: "edge:parent:cohere->orbit:cohere|embed-api",
+      source: "parent:cohere",
+      target: "orbit:cohere|embed-api",
       relation: "has-orbit",
       weight: 1
     }
@@ -246,27 +246,27 @@ window.Directory.edges.push(
   // DeepSeek edges
   {
     data: {
-      id: "edge:parent:DeepSeek->orbit:DeepSeek|DeepSeek Chat",
-      source: "parent:DeepSeek",
-      target: "orbit:DeepSeek|DeepSeek Chat",
+      id: "edge:parent:deepseek->orbit:deepseek|deepseek-chat",
+      source: "parent:deepseek",
+      target: "orbit:deepseek|deepseek-chat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:DeepSeek->orbit:DeepSeek|DeepSeek API",
-      source: "parent:DeepSeek",
-      target: "orbit:DeepSeek|DeepSeek API",
+      id: "edge:parent:deepseek->orbit:deepseek|deepseek-api",
+      source: "parent:deepseek",
+      target: "orbit:deepseek|deepseek-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:DeepSeek->orbit:DeepSeek|Open Weights",
-      source: "parent:DeepSeek",
-      target: "orbit:DeepSeek|Open Weights",
+      id: "edge:parent:deepseek->orbit:deepseek|open-weights",
+      source: "parent:deepseek",
+      target: "orbit:deepseek|open-weights",
       relation: "has-orbit",
       weight: 1
     }
@@ -275,36 +275,36 @@ window.Directory.edges.push(
   // 01AI edges
   {
     data: {
-      id: "edge:parent:01AI->orbit:01AI|Yi Chat / 01.AI Platform",
-      source: "parent:01AI",
-      target: "orbit:01AI|Yi Chat / 01.AI Platform",
+      id: "edge:parent:01ai->orbit:01ai|yi-chat-01-ai-platform",
+      source: "parent:01ai",
+      target: "orbit:01ai|yi-chat-01-ai-platform",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:01AI->orbit:01AI|Yi API",
-      source: "parent:01AI",
-      target: "orbit:01AI|Yi API",
+      id: "edge:parent:01ai->orbit:01ai|yi-api",
+      source: "parent:01ai",
+      target: "orbit:01ai|yi-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:01AI->orbit:01AI|Yi-VL",
-      source: "parent:01AI",
-      target: "orbit:01AI|Yi-VL",
+      id: "edge:parent:01ai->orbit:01ai|yi-vl",
+      source: "parent:01ai",
+      target: "orbit:01ai|yi-vl",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:01AI->orbit:01AI|Open Weights",
-      source: "parent:01AI",
-      target: "orbit:01AI|Open Weights",
+      id: "edge:parent:01ai->orbit:01ai|open-weights",
+      source: "parent:01ai",
+      target: "orbit:01ai|open-weights",
       relation: "has-orbit",
       weight: 1
     }
@@ -313,36 +313,36 @@ window.Directory.edges.push(
   // Mistral AI edges
   {
     data: {
-      id: "edge:parent:Mistral->orbit:Mistral|Le Chat",
-      source: "parent:Mistral",
-      target: "orbit:Mistral|Le Chat",
+      id: "edge:parent:mistral->orbit:mistral|le-chat",
+      source: "parent:mistral",
+      target: "orbit:mistral|le-chat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Mistral->orbit:Mistral|La Plateforme",
-      source: "parent:Mistral",
-      target: "orbit:Mistral|La Plateforme",
+      id: "edge:parent:mistral->orbit:mistral|la-plateforme",
+      source: "parent:mistral",
+      target: "orbit:mistral|la-plateforme",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Mistral->orbit:Mistral|Codestral",
-      source: "parent:Mistral",
-      target: "orbit:Mistral|Codestral",
+      id: "edge:parent:mistral->orbit:mistral|codestral",
+      source: "parent:mistral",
+      target: "orbit:mistral|codestral",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Mistral->orbit:Mistral|Open Weights",
-      source: "parent:Mistral",
-      target: "orbit:Mistral|Open Weights",
+      id: "edge:parent:mistral->orbit:mistral|open-weights",
+      source: "parent:mistral",
+      target: "orbit:mistral|open-weights",
       relation: "has-orbit",
       weight: 1
     }
@@ -351,36 +351,36 @@ window.Directory.edges.push(
   // AI21 edges
   {
     data: {
-      id: "edge:parent:AI21->orbit:AI21|Wordtune",
-      source: "parent:AI21",
-      target: "orbit:AI21|Wordtune",
+      id: "edge:parent:ai21->orbit:ai21|wordtune",
+      source: "parent:ai21",
+      target: "orbit:ai21|wordtune",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:AI21->orbit:AI21|AI21 Studio",
-      source: "parent:AI21",
-      target: "orbit:AI21|AI21 Studio",
+      id: "edge:parent:ai21->orbit:ai21|ai21-studio",
+      source: "parent:ai21",
+      target: "orbit:ai21|ai21-studio",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:AI21->orbit:AI21|Contextual Answers",
-      source: "parent:AI21",
-      target: "orbit:AI21|Contextual Answers",
+      id: "edge:parent:ai21->orbit:ai21|contextual-answers",
+      source: "parent:ai21",
+      target: "orbit:ai21|contextual-answers",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:AI21->orbit:AI21|Jamba Model",
-      source: "parent:AI21",
-      target: "orbit:AI21|Jamba Model",
+      id: "edge:parent:ai21->orbit:ai21|jamba-model",
+      source: "parent:ai21",
+      target: "orbit:ai21|jamba-model",
       relation: "has-orbit",
       weight: 1
     }
@@ -389,45 +389,45 @@ window.Directory.edges.push(
   // Baidu edges
   {
     data: {
-      id: "edge:parent:Baidu->orbit:Baidu|Ernie Bot",
-      source: "parent:Baidu",
-      target: "orbit:Baidu|Ernie Bot",
+      id: "edge:parent:baidu->orbit:baidu|ernie-bot",
+      source: "parent:baidu",
+      target: "orbit:baidu|ernie-bot",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Baidu->orbit:Baidu|Ernie 4.0",
-      source: "parent:Baidu",
-      target: "orbit:Baidu|Ernie 4.0",
+      id: "edge:parent:baidu->orbit:baidu|ernie-4-0",
+      source: "parent:baidu",
+      target: "orbit:baidu|ernie-4-0",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Baidu->orbit:Baidu|Wenxin Workshop",
-      source: "parent:Baidu",
-      target: "orbit:Baidu|Wenxin Workshop",
+      id: "edge:parent:baidu->orbit:baidu|wenxin-workshop",
+      source: "parent:baidu",
+      target: "orbit:baidu|wenxin-workshop",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Baidu->orbit:Baidu|Ernie API",
-      source: "parent:Baidu",
-      target: "orbit:Baidu|Ernie API",
+      id: "edge:parent:baidu->orbit:baidu|ernie-api",
+      source: "parent:baidu",
+      target: "orbit:baidu|ernie-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Baidu->orbit:Baidu|Baidu AI Cloud",
-      source: "parent:Baidu",
-      target: "orbit:Baidu|Baidu AI Cloud",
+      id: "edge:parent:baidu->orbit:baidu|baidu-ai-cloud",
+      source: "parent:baidu",
+      target: "orbit:baidu|baidu-ai-cloud",
       relation: "has-orbit",
       weight: 1
     }
@@ -436,45 +436,45 @@ window.Directory.edges.push(
   // Alibaba edges
   {
     data: {
-      id: "edge:parent:Alibaba->orbit:Alibaba|Tongyi Qianwen",
-      source: "parent:Alibaba",
-      target: "orbit:Alibaba|Tongyi Qianwen",
+      id: "edge:parent:alibaba->orbit:alibaba|tongyi-qianwen",
+      source: "parent:alibaba",
+      target: "orbit:alibaba|tongyi-qianwen",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Alibaba->orbit:Alibaba|Qwen-Coder",
-      source: "parent:Alibaba",
-      target: "orbit:Alibaba|Qwen-Coder",
+      id: "edge:parent:alibaba->orbit:alibaba|qwen-coder",
+      source: "parent:alibaba",
+      target: "orbit:alibaba|qwen-coder",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Alibaba->orbit:Alibaba|Qwen-VL",
-      source: "parent:Alibaba",
-      target: "orbit:Alibaba|Qwen-VL",
+      id: "edge:parent:alibaba->orbit:alibaba|qwen-vl",
+      source: "parent:alibaba",
+      target: "orbit:alibaba|qwen-vl",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Alibaba->orbit:Alibaba|ModelScope",
-      source: "parent:Alibaba",
-      target: "orbit:Alibaba|ModelScope",
+      id: "edge:parent:alibaba->orbit:alibaba|modelscope",
+      source: "parent:alibaba",
+      target: "orbit:alibaba|modelscope",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Alibaba->orbit:Alibaba|DashScope API",
-      source: "parent:Alibaba",
-      target: "orbit:Alibaba|DashScope API",
+      id: "edge:parent:alibaba->orbit:alibaba|dashscope-api",
+      source: "parent:alibaba",
+      target: "orbit:alibaba|dashscope-api",
       relation: "has-orbit",
       weight: 1
     }
@@ -483,36 +483,36 @@ window.Directory.edges.push(
   // Tencent edges
   {
     data: {
-      id: "edge:parent:Tencent->orbit:Tencent|Hunyuan Assistant",
-      source: "parent:Tencent",
-      target: "orbit:Tencent|Hunyuan Assistant",
+      id: "edge:parent:tencent->orbit:tencent|hunyuan-assistant",
+      source: "parent:tencent",
+      target: "orbit:tencent|hunyuan-assistant",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Tencent->orbit:Tencent|Hunyuan-VL",
-      source: "parent:Tencent",
-      target: "orbit:Tencent|Hunyuan-VL",
+      id: "edge:parent:tencent->orbit:tencent|hunyuan-vl",
+      source: "parent:tencent",
+      target: "orbit:tencent|hunyuan-vl",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Tencent->orbit:Tencent|Hunyuan-DiT",
-      source: "parent:Tencent",
-      target: "orbit:Tencent|Hunyuan-DiT",
+      id: "edge:parent:tencent->orbit:tencent|hunyuan-dit",
+      source: "parent:tencent",
+      target: "orbit:tencent|hunyuan-dit",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Tencent->orbit:Tencent|Tencent Cloud AI",
-      source: "parent:Tencent",
-      target: "orbit:Tencent|Tencent Cloud AI",
+      id: "edge:parent:tencent->orbit:tencent|tencent-cloud-ai",
+      source: "parent:tencent",
+      target: "orbit:tencent|tencent-cloud-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -521,45 +521,45 @@ window.Directory.edges.push(
   // TII edges
   {
     data: {
-      id: "edge:parent:TII->orbit:TII|Falcon 180B",
-      source: "parent:TII",
-      target: "orbit:TII|Falcon 180B",
+      id: "edge:parent:tii->orbit:tii|falcon-180b",
+      source: "parent:tii",
+      target: "orbit:tii|falcon-180b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:TII->orbit:TII|Falcon 40B",
-      source: "parent:TII",
-      target: "orbit:TII|Falcon 40B",
+      id: "edge:parent:tii->orbit:tii|falcon-40b",
+      source: "parent:tii",
+      target: "orbit:tii|falcon-40b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:TII->orbit:TII|Falcon 7B",
-      source: "parent:TII",
-      target: "orbit:TII|Falcon 7B",
+      id: "edge:parent:tii->orbit:tii|falcon-7b",
+      source: "parent:tii",
+      target: "orbit:tii|falcon-7b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:TII->orbit:TII|Hugging Face models",
-      source: "parent:TII",
-      target: "orbit:TII|Hugging Face models",
+      id: "edge:parent:tii->orbit:tii|hugging-face-models",
+      source: "parent:tii",
+      target: "orbit:tii|hugging-face-models",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:TII->orbit:TII|TII API",
-      source: "parent:TII",
-      target: "orbit:TII|TII API",
+      id: "edge:parent:tii->orbit:tii|tii-api",
+      source: "parent:tii",
+      target: "orbit:tii|tii-api",
       relation: "has-orbit",
       weight: 1
     }
@@ -568,45 +568,45 @@ window.Directory.edges.push(
   // Databricks edges
   {
     data: {
-      id: "edge:parent:Databricks->orbit:Databricks|MPT-7B",
-      source: "parent:Databricks",
-      target: "orbit:Databricks|MPT-7B",
+      id: "edge:parent:databricks->orbit:databricks|mpt-7b",
+      source: "parent:databricks",
+      target: "orbit:databricks|mpt-7b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Databricks->orbit:Databricks|MPT-30B",
-      source: "parent:Databricks",
-      target: "orbit:Databricks|MPT-30B",
+      id: "edge:parent:databricks->orbit:databricks|mpt-30b",
+      source: "parent:databricks",
+      target: "orbit:databricks|mpt-30b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Databricks->orbit:Databricks|MPT-Instruct",
-      source: "parent:Databricks",
-      target: "orbit:Databricks|MPT-Instruct",
+      id: "edge:parent:databricks->orbit:databricks|mpt-instruct",
+      source: "parent:databricks",
+      target: "orbit:databricks|mpt-instruct",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Databricks->orbit:Databricks|Databricks Mosaic AI",
-      source: "parent:Databricks",
-      target: "orbit:Databricks|Databricks Mosaic AI",
+      id: "edge:parent:databricks->orbit:databricks|databricks-mosaic-ai",
+      source: "parent:databricks",
+      target: "orbit:databricks|databricks-mosaic-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Databricks->orbit:Databricks|Open Weights",
-      source: "parent:Databricks",
-      target: "orbit:Databricks|Open Weights",
+      id: "edge:parent:databricks->orbit:databricks|open-weights",
+      source: "parent:databricks",
+      target: "orbit:databricks|open-weights",
       relation: "has-orbit",
       weight: 1
     }
@@ -615,45 +615,45 @@ window.Directory.edges.push(
   // BigScience edges
   {
     data: {
-      id: "edge:parent:BigScience->orbit:BigScience|BLOOM 176B",
-      source: "parent:BigScience",
-      target: "orbit:BigScience|BLOOM 176B",
+      id: "edge:parent:bigscience->orbit:bigscience|bloom-176b",
+      source: "parent:bigscience",
+      target: "orbit:bigscience|bloom-176b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:BigScience->orbit:BigScience|BLOOMZ",
-      source: "parent:BigScience",
-      target: "orbit:BigScience|BLOOMZ",
+      id: "edge:parent:bigscience->orbit:bigscience|bloomz",
+      source: "parent:bigscience",
+      target: "orbit:bigscience|bloomz",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:BigScience->orbit:BigScience|BLOOMChat",
-      source: "parent:BigScience",
-      target: "orbit:BigScience|BLOOMChat",
+      id: "edge:parent:bigscience->orbit:bigscience|bloomchat",
+      source: "parent:bigscience",
+      target: "orbit:bigscience|bloomchat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:BigScience->orbit:BigScience|Hugging Face integration",
-      source: "parent:BigScience",
-      target: "orbit:BigScience|Hugging Face integration",
+      id: "edge:parent:bigscience->orbit:bigscience|hugging-face-integration",
+      source: "parent:bigscience",
+      target: "orbit:bigscience|hugging-face-integration",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:BigScience->orbit:BigScience|Open Weights",
-      source: "parent:BigScience",
-      target: "orbit:BigScience|Open Weights",
+      id: "edge:parent:bigscience->orbit:bigscience|open-weights",
+      source: "parent:bigscience",
+      target: "orbit:bigscience|open-weights",
       relation: "has-orbit",
       weight: 1
     }
@@ -662,45 +662,45 @@ window.Directory.edges.push(
   // Zhipu edges
   {
     data: {
-      id: "edge:parent:Zhipu->orbit:Zhipu|ChatGLM-4",
-      source: "parent:Zhipu",
-      target: "orbit:Zhipu|ChatGLM-4",
+      id: "edge:parent:zhipu->orbit:zhipu|chatglm-4",
+      source: "parent:zhipu",
+      target: "orbit:zhipu|chatglm-4",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Zhipu->orbit:Zhipu|ChatGLM-6B",
-      source: "parent:Zhipu",
-      target: "orbit:Zhipu|ChatGLM-6B",
+      id: "edge:parent:zhipu->orbit:zhipu|chatglm-6b",
+      source: "parent:zhipu",
+      target: "orbit:zhipu|chatglm-6b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Zhipu->orbit:Zhipu|GLM-4-All Tools",
-      source: "parent:Zhipu",
-      target: "orbit:Zhipu|GLM-4-All Tools",
+      id: "edge:parent:zhipu->orbit:zhipu|glm-4-all-tools",
+      source: "parent:zhipu",
+      target: "orbit:zhipu|glm-4-all-tools",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Zhipu->orbit:Zhipu|Open Weights",
-      source: "parent:Zhipu",
-      target: "orbit:Zhipu|Open Weights",
+      id: "edge:parent:zhipu->orbit:zhipu|open-weights",
+      source: "parent:zhipu",
+      target: "orbit:zhipu|open-weights",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Zhipu->orbit:Zhipu|Zhipu API",
-      source: "parent:Zhipu",
-      target: "orbit:Zhipu|Zhipu API",
+      id: "edge:parent:zhipu->orbit:zhipu|zhipu-api",
+      source: "parent:zhipu",
+      target: "orbit:zhipu|zhipu-api",
       relation: "has-orbit",
       weight: 1
     }
@@ -709,36 +709,36 @@ window.Directory.edges.push(
   // G42 edges
   {
     data: {
-      id: "edge:parent:G42->orbit:G42|Jais 30B",
-      source: "parent:G42",
-      target: "orbit:G42|Jais 30B",
+      id: "edge:parent:g42->orbit:g42|jais-30b",
+      source: "parent:g42",
+      target: "orbit:g42|jais-30b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:G42->orbit:G42|Jais Chat",
-      source: "parent:G42",
-      target: "orbit:G42|Jais Chat",
+      id: "edge:parent:g42->orbit:g42|jais-chat",
+      source: "parent:g42",
+      target: "orbit:g42|jais-chat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:G42->orbit:G42|Open Weights",
-      source: "parent:G42",
-      target: "orbit:G42|Open Weights",
+      id: "edge:parent:g42->orbit:g42|open-weights",
+      source: "parent:g42",
+      target: "orbit:g42|open-weights",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:G42->orbit:G42|G42 Cloud",
-      source: "parent:G42",
-      target: "orbit:G42|G42 Cloud",
+      id: "edge:parent:g42->orbit:g42|g42-cloud",
+      source: "parent:g42",
+      target: "orbit:g42|g42-cloud",
       relation: "has-orbit",
       weight: 1
     }
@@ -747,45 +747,45 @@ window.Directory.edges.push(
   // Google-BERT edges
   {
     data: {
-      id: "edge:parent:Google-BERT->orbit:Google-BERT|BERT Base",
-      source: "parent:Google-BERT",
-      target: "orbit:Google-BERT|BERT Base",
+      id: "edge:parent:google-bert->orbit:google-bert|bert-base",
+      source: "parent:google-bert",
+      target: "orbit:google-bert|bert-base",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-BERT->orbit:Google-BERT|BERT Large",
-      source: "parent:Google-BERT",
-      target: "orbit:Google-BERT|BERT Large",
+      id: "edge:parent:google-bert->orbit:google-bert|bert-large",
+      source: "parent:google-bert",
+      target: "orbit:google-bert|bert-large",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-BERT->orbit:Google-BERT|DistilBERT",
-      source: "parent:Google-BERT",
-      target: "orbit:Google-BERT|DistilBERT",
+      id: "edge:parent:google-bert->orbit:google-bert|distilbert",
+      source: "parent:google-bert",
+      target: "orbit:google-bert|distilbert",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-BERT->orbit:Google-BERT|TensorFlow Hub",
-      source: "parent:Google-BERT",
-      target: "orbit:Google-BERT|TensorFlow Hub",
+      id: "edge:parent:google-bert->orbit:google-bert|tensorflow-hub",
+      source: "parent:google-bert",
+      target: "orbit:google-bert|tensorflow-hub",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-BERT->orbit:Google-BERT|Hugging Face Transformers",
-      source: "parent:Google-BERT",
-      target: "orbit:Google-BERT|Hugging Face Transformers",
+      id: "edge:parent:google-bert->orbit:google-bert|hugging-face-transformers",
+      source: "parent:google-bert",
+      target: "orbit:google-bert|hugging-face-transformers",
       relation: "has-orbit",
       weight: 1
     }
@@ -794,36 +794,36 @@ window.Directory.edges.push(
   // Google-PaLM edges
   {
     data: {
-      id: "edge:parent:Google-PaLM->orbit:Google-PaLM|PaLM 2",
-      source: "parent:Google-PaLM",
-      target: "orbit:Google-PaLM|PaLM 2",
+      id: "edge:parent:google-palm->orbit:google-palm|palm-2",
+      source: "parent:google-palm",
+      target: "orbit:google-palm|palm-2",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-PaLM->orbit:Google-PaLM|Med-PaLM",
-      source: "parent:Google-PaLM",
-      target: "orbit:Google-PaLM|Med-PaLM",
+      id: "edge:parent:google-palm->orbit:google-palm|med-palm",
+      source: "parent:google-palm",
+      target: "orbit:google-palm|med-palm",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-PaLM->orbit:Google-PaLM|Sec-PaLM",
-      source: "parent:Google-PaLM",
-      target: "orbit:Google-PaLM|Sec-PaLM",
+      id: "edge:parent:google-palm->orbit:google-palm|sec-palm",
+      source: "parent:google-palm",
+      target: "orbit:google-palm|sec-palm",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Google-PaLM->orbit:Google-PaLM|Google Cloud Vertex AI",
-      source: "parent:Google-PaLM",
-      target: "orbit:Google-PaLM|Google Cloud Vertex AI",
+      id: "edge:parent:google-palm->orbit:google-palm|google-cloud-vertex-ai",
+      source: "parent:google-palm",
+      target: "orbit:google-palm|google-cloud-vertex-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -832,36 +832,36 @@ window.Directory.edges.push(
   // EleutherAI edges
   {
     data: {
-      id: "edge:parent:EleutherAI->orbit:EleutherAI|GPT-NeoX-20B",
-      source: "parent:EleutherAI",
-      target: "orbit:EleutherAI|GPT-NeoX-20B",
+      id: "edge:parent:eleutherai->orbit:eleutherai|gpt-neox-20b",
+      source: "parent:eleutherai",
+      target: "orbit:eleutherai|gpt-neox-20b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:EleutherAI->orbit:EleutherAI|Pythia suite",
-      source: "parent:EleutherAI",
-      target: "orbit:EleutherAI|Pythia suite",
+      id: "edge:parent:eleutherai->orbit:eleutherai|pythia-suite",
+      source: "parent:eleutherai",
+      target: "orbit:eleutherai|pythia-suite",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:EleutherAI->orbit:EleutherAI|Open Weights",
-      source: "parent:EleutherAI",
-      target: "orbit:EleutherAI|Open Weights",
+      id: "edge:parent:eleutherai->orbit:eleutherai|open-weights",
+      source: "parent:eleutherai",
+      target: "orbit:eleutherai|open-weights",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:EleutherAI->orbit:EleutherAI|GitHub repository",
-      source: "parent:EleutherAI",
-      target: "orbit:EleutherAI|GitHub repository",
+      id: "edge:parent:eleutherai->orbit:eleutherai|github-repository",
+      source: "parent:eleutherai",
+      target: "orbit:eleutherai|github-repository",
       relation: "has-orbit",
       weight: 1
     }
@@ -870,36 +870,36 @@ window.Directory.edges.push(
   // Meta-OPT edges
   {
     data: {
-      id: "edge:parent:Meta-OPT->orbit:Meta-OPT|OPT-175B",
-      source: "parent:Meta-OPT",
-      target: "orbit:Meta-OPT|OPT-175B",
+      id: "edge:parent:meta-opt->orbit:meta-opt|opt-175b",
+      source: "parent:meta-opt",
+      target: "orbit:meta-opt|opt-175b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-OPT->orbit:Meta-OPT|OPT-30B",
-      source: "parent:Meta-OPT",
-      target: "orbit:Meta-OPT|OPT-30B",
+      id: "edge:parent:meta-opt->orbit:meta-opt|opt-30b",
+      source: "parent:meta-opt",
+      target: "orbit:meta-opt|opt-30b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-OPT->orbit:Meta-OPT|Open Weights",
-      source: "parent:Meta-OPT",
-      target: "orbit:Meta-OPT|Open Weights",
+      id: "edge:parent:meta-opt->orbit:meta-opt|open-weights",
+      source: "parent:meta-opt",
+      target: "orbit:meta-opt|open-weights",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Meta-OPT->orbit:Meta-OPT|Research code",
-      source: "parent:Meta-OPT",
-      target: "orbit:Meta-OPT|Research code",
+      id: "edge:parent:meta-opt->orbit:meta-opt|research-code",
+      source: "parent:meta-opt",
+      target: "orbit:meta-opt|research-code",
       relation: "has-orbit",
       weight: 1
     }
@@ -908,36 +908,36 @@ window.Directory.edges.push(
   // NVIDIA edges
   {
     data: {
-      id: "edge:parent:NVIDIA->orbit:NVIDIA|Nemotron-4 340B",
-      source: "parent:NVIDIA",
-      target: "orbit:NVIDIA|Nemotron-4 340B",
+      id: "edge:parent:nvidia->orbit:nvidia|nemotron-4-340b",
+      source: "parent:nvidia",
+      target: "orbit:nvidia|nemotron-4-340b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:NVIDIA->orbit:NVIDIA|Nemotron-3 8B",
-      source: "parent:NVIDIA",
-      target: "orbit:NVIDIA|Nemotron-3 8B",
+      id: "edge:parent:nvidia->orbit:nvidia|nemotron-3-8b",
+      source: "parent:nvidia",
+      target: "orbit:nvidia|nemotron-3-8b",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:NVIDIA->orbit:NVIDIA|NVIDIA NeMo framework",
-      source: "parent:NVIDIA",
-      target: "orbit:NVIDIA|NVIDIA NeMo framework",
+      id: "edge:parent:nvidia->orbit:nvidia|nvidia-nemo-framework",
+      source: "parent:nvidia",
+      target: "orbit:nvidia|nvidia-nemo-framework",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:NVIDIA->orbit:NVIDIA|NGC catalog",
-      source: "parent:NVIDIA",
-      target: "orbit:NVIDIA|NGC catalog",
+      id: "edge:parent:nvidia->orbit:nvidia|ngc-catalog",
+      source: "parent:nvidia",
+      target: "orbit:nvidia|ngc-catalog",
       relation: "has-orbit",
       weight: 1
     }
@@ -946,36 +946,36 @@ window.Directory.edges.push(
   // LLaVA edges
   {
     data: {
-      id: "edge:parent:LLaVA->orbit:LLaVA|LLaVA-1.6",
-      source: "parent:LLaVA",
-      target: "orbit:LLaVA|LLaVA-1.6",
+      id: "edge:parent:llava->orbit:llava|llava-1-6",
+      source: "parent:llava",
+      target: "orbit:llava|llava-1-6",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:LLaVA->orbit:LLaVA|LLaVA-NeXT",
-      source: "parent:LLaVA",
-      target: "orbit:LLaVA|LLaVA-NeXT",
+      id: "edge:parent:llava->orbit:llava|llava-next",
+      source: "parent:llava",
+      target: "orbit:llava|llava-next",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:LLaVA->orbit:LLaVA|Open Weights",
-      source: "parent:LLaVA",
-      target: "orbit:LLaVA|Open Weights",
+      id: "edge:parent:llava->orbit:llava|open-weights",
+      source: "parent:llava",
+      target: "orbit:llava|open-weights",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:LLaVA->orbit:LLaVA|Hugging Face",
-      source: "parent:LLaVA",
-      target: "orbit:LLaVA|Hugging Face",
+      id: "edge:parent:llava->orbit:llava|hugging-face",
+      source: "parent:llava",
+      target: "orbit:llava|hugging-face",
       relation: "has-orbit",
       weight: 1
     }
@@ -984,45 +984,45 @@ window.Directory.edges.push(
   // Microsoft-Phi edges
   {
     data: {
-      id: "edge:parent:Microsoft-Phi->orbit:Microsoft-Phi|Phi-3 Mini",
-      source: "parent:Microsoft-Phi",
-      target: "orbit:Microsoft-Phi|Phi-3 Mini",
+      id: "edge:parent:microsoft-phi->orbit:microsoft-phi|phi-3-mini",
+      source: "parent:microsoft-phi",
+      target: "orbit:microsoft-phi|phi-3-mini",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Microsoft-Phi->orbit:Microsoft-Phi|Phi-3 Medium",
-      source: "parent:Microsoft-Phi",
-      target: "orbit:Microsoft-Phi|Phi-3 Medium",
+      id: "edge:parent:microsoft-phi->orbit:microsoft-phi|phi-3-medium",
+      source: "parent:microsoft-phi",
+      target: "orbit:microsoft-phi|phi-3-medium",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Microsoft-Phi->orbit:Microsoft-Phi|Phi-3 Vision",
-      source: "parent:Microsoft-Phi",
-      target: "orbit:Microsoft-Phi|Phi-3 Vision",
+      id: "edge:parent:microsoft-phi->orbit:microsoft-phi|phi-3-vision",
+      source: "parent:microsoft-phi",
+      target: "orbit:microsoft-phi|phi-3-vision",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Microsoft-Phi->orbit:Microsoft-Phi|Azure AI Studio",
-      source: "parent:Microsoft-Phi",
-      target: "orbit:Microsoft-Phi|Azure AI Studio",
+      id: "edge:parent:microsoft-phi->orbit:microsoft-phi|azure-ai-studio",
+      source: "parent:microsoft-phi",
+      target: "orbit:microsoft-phi|azure-ai-studio",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Microsoft-Phi->orbit:Microsoft-Phi|Open Weights",
-      source: "parent:Microsoft-Phi",
-      target: "orbit:Microsoft-Phi|Open Weights",
+      id: "edge:parent:microsoft-phi->orbit:microsoft-phi|open-weights",
+      source: "parent:microsoft-phi",
+      target: "orbit:microsoft-phi|open-weights",
       relation: "has-orbit",
       weight: 1
     }
@@ -1032,36 +1032,36 @@ window.Directory.edges.push(
   // Naver edges
   {
     data: {
-      id: "edge:parent:Naver->orbit:Naver|HyperCLOVA Chat",
-      source: "parent:Naver",
-      target: "orbit:Naver|HyperCLOVA Chat",
+      id: "edge:parent:naver->orbit:naver|hyperclova-chat",
+      source: "parent:naver",
+      target: "orbit:naver|hyperclova-chat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Naver->orbit:Naver|SearchGPT",
-      source: "parent:Naver",
-      target: "orbit:Naver|SearchGPT",
+      id: "edge:parent:naver->orbit:naver|searchgpt",
+      source: "parent:naver",
+      target: "orbit:naver|searchgpt",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Naver->orbit:Naver|CLOVA API",
-      source: "parent:Naver",
-      target: "orbit:Naver|CLOVA API",
+      id: "edge:parent:naver->orbit:naver|clova-api",
+      source: "parent:naver",
+      target: "orbit:naver|clova-api",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Naver->orbit:Naver|LINE Messenger AI",
-      source: "parent:Naver",
-      target: "orbit:Naver|LINE Messenger AI",
+      id: "edge:parent:naver->orbit:naver|line-messenger-ai",
+      source: "parent:naver",
+      target: "orbit:naver|line-messenger-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1070,36 +1070,36 @@ window.Directory.edges.push(
   // Kakao Brain edges
   {
     data: {
-      id: "edge:parent:Kakao-Brain->orbit:Kakao-Brain|KoGPT",
-      source: "parent:Kakao-Brain",
-      target: "orbit:Kakao-Brain|KoGPT",
+      id: "edge:parent:kakao-brain->orbit:kakao-brain|kogpt",
+      source: "parent:kakao-brain",
+      target: "orbit:kakao-brain|kogpt",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Kakao-Brain->orbit:Kakao-Brain|Karlo",
-      source: "parent:Kakao-Brain",
-      target: "orbit:Kakao-Brain|Karlo",
+      id: "edge:parent:kakao-brain->orbit:kakao-brain|karlo",
+      source: "parent:kakao-brain",
+      target: "orbit:kakao-brain|karlo",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Kakao-Brain->orbit:Kakao-Brain|KakaoTalk AI",
-      source: "parent:Kakao-Brain",
-      target: "orbit:Kakao-Brain|KakaoTalk AI",
+      id: "edge:parent:kakao-brain->orbit:kakao-brain|kakaotalk-ai",
+      source: "parent:kakao-brain",
+      target: "orbit:kakao-brain|kakaotalk-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Kakao-Brain->orbit:Kakao-Brain|AI API Platform",
-      source: "parent:Kakao-Brain",
-      target: "orbit:Kakao-Brain|AI API Platform",
+      id: "edge:parent:kakao-brain->orbit:kakao-brain|ai-api-platform",
+      source: "parent:kakao-brain",
+      target: "orbit:kakao-brain|ai-api-platform",
       relation: "has-orbit",
       weight: 1
     }
@@ -1108,27 +1108,27 @@ window.Directory.edges.push(
   // Yandex edges
   {
     data: {
-      id: "edge:parent:Yandex->orbit:Yandex|YandexGPT Chat",
-      source: "parent:Yandex",
-      target: "orbit:Yandex|YandexGPT Chat",
+      id: "edge:parent:yandex->orbit:yandex|yandexgpt-chat",
+      source: "parent:yandex",
+      target: "orbit:yandex|yandexgpt-chat",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Yandex->orbit:Yandex|Alice Assistant",
-      source: "parent:Yandex",
-      target: "orbit:Yandex|Alice Assistant",
+      id: "edge:parent:yandex->orbit:yandex|alice-assistant",
+      source: "parent:yandex",
+      target: "orbit:yandex|alice-assistant",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Yandex->orbit:Yandex|Yandex Cloud AI",
-      source: "parent:Yandex",
-      target: "orbit:Yandex|Yandex Cloud AI",
+      id: "edge:parent:yandex->orbit:yandex|yandex-cloud-ai",
+      source: "parent:yandex",
+      target: "orbit:yandex|yandex-cloud-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1137,27 +1137,27 @@ window.Directory.edges.push(
   // SAP AI edges
   {
     data: {
-      id: "edge:parent:SAP-AI->orbit:SAP-AI|Joule Copilot",
-      source: "parent:SAP-AI",
-      target: "orbit:SAP-AI|Joule Copilot",
+      id: "edge:parent:sap-ai->orbit:sap-ai|joule-copilot",
+      source: "parent:sap-ai",
+      target: "orbit:sap-ai|joule-copilot",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:SAP-AI->orbit:SAP-AI|SAP AI Core",
-      source: "parent:SAP-AI",
-      target: "orbit:SAP-AI|SAP AI Core",
+      id: "edge:parent:sap-ai->orbit:sap-ai|sap-ai-core",
+      source: "parent:sap-ai",
+      target: "orbit:sap-ai|sap-ai-core",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:SAP-AI->orbit:SAP-AI|SAP Business AI",
-      source: "parent:SAP-AI",
-      target: "orbit:SAP-AI|SAP Business AI",
+      id: "edge:parent:sap-ai->orbit:sap-ai|sap-business-ai",
+      source: "parent:sap-ai",
+      target: "orbit:sap-ai|sap-business-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1166,27 +1166,27 @@ window.Directory.edges.push(
   // Siemens AI edges
   {
     data: {
-      id: "edge:parent:Siemens-AI->orbit:Siemens-AI|Industrial Copilot",
-      source: "parent:Siemens-AI",
-      target: "orbit:Siemens-AI|Industrial Copilot",
+      id: "edge:parent:siemens-ai->orbit:siemens-ai|industrial-copilot",
+      source: "parent:siemens-ai",
+      target: "orbit:siemens-ai|industrial-copilot",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Siemens-AI->orbit:Siemens-AI|Teamcenter AI",
-      source: "parent:Siemens-AI",
-      target: "orbit:Siemens-AI|Teamcenter AI",
+      id: "edge:parent:siemens-ai->orbit:siemens-ai|teamcenter-ai",
+      source: "parent:siemens-ai",
+      target: "orbit:siemens-ai|teamcenter-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Siemens-AI->orbit:Siemens-AI|Siemens Xcelerator AI",
-      source: "parent:Siemens-AI",
-      target: "orbit:Siemens-AI|Siemens Xcelerator AI",
+      id: "edge:parent:siemens-ai->orbit:siemens-ai|siemens-xcelerator-ai",
+      source: "parent:siemens-ai",
+      target: "orbit:siemens-ai|siemens-xcelerator-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1195,27 +1195,27 @@ window.Directory.edges.push(
   // Bosch AI edges
   {
     data: {
-      id: "edge:parent:Bosch-AI->orbit:Bosch-AI|Automotive AI",
-      source: "parent:Bosch-AI",
-      target: "orbit:Bosch-AI|Automotive AI",
+      id: "edge:parent:bosch-ai->orbit:bosch-ai|automotive-ai",
+      source: "parent:bosch-ai",
+      target: "orbit:bosch-ai|automotive-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Bosch-AI->orbit:Bosch-AI|Smart Home AI",
-      source: "parent:Bosch-AI",
-      target: "orbit:Bosch-AI|Smart Home AI",
+      id: "edge:parent:bosch-ai->orbit:bosch-ai|smart-home-ai",
+      source: "parent:bosch-ai",
+      target: "orbit:bosch-ai|smart-home-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Bosch-AI->orbit:Bosch-AI|Bosch AI Cloud",
-      source: "parent:Bosch-AI",
-      target: "orbit:Bosch-AI|Bosch AI Cloud",
+      id: "edge:parent:bosch-ai->orbit:bosch-ai|bosch-ai-cloud",
+      source: "parent:bosch-ai",
+      target: "orbit:bosch-ai|bosch-ai-cloud",
       relation: "has-orbit",
       weight: 1
     }
@@ -1224,27 +1224,27 @@ window.Directory.edges.push(
   // NEC edges
   {
     data: {
-      id: "edge:parent:NEC->orbit:NEC|Bio-Idiom",
-      source: "parent:NEC",
-      target: "orbit:NEC|Bio-Idiom",
+      id: "edge:parent:nec->orbit:nec|bio-idiom",
+      source: "parent:nec",
+      target: "orbit:nec|bio-idiom",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:NEC->orbit:NEC|Video Analytics AI",
-      source: "parent:NEC",
-      target: "orbit:NEC|Video Analytics AI",
+      id: "edge:parent:nec->orbit:nec|video-analytics-ai",
+      source: "parent:nec",
+      target: "orbit:nec|video-analytics-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:NEC->orbit:NEC|NEC Cloud AI",
-      source: "parent:NEC",
-      target: "orbit:NEC|NEC Cloud AI",
+      id: "edge:parent:nec->orbit:nec|nec-cloud-ai",
+      source: "parent:nec",
+      target: "orbit:nec|nec-cloud-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1253,27 +1253,27 @@ window.Directory.edges.push(
   // Preferred Networks edges
   {
     data: {
-      id: "edge:parent:Preferred-Networks->orbit:Preferred-Networks|Optuna",
-      source: "parent:Preferred-Networks",
-      target: "orbit:Preferred-Networks|Optuna",
+      id: "edge:parent:preferred-networks->orbit:preferred-networks|optuna",
+      source: "parent:preferred-networks",
+      target: "orbit:preferred-networks|optuna",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Preferred-Networks->orbit:Preferred-Networks|MN-Core AI",
-      source: "parent:Preferred-Networks",
-      target: "orbit:Preferred-Networks|MN-Core AI",
+      id: "edge:parent:preferred-networks->orbit:preferred-networks|mn-core-ai",
+      source: "parent:preferred-networks",
+      target: "orbit:preferred-networks|mn-core-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Preferred-Networks->orbit:Preferred-Networks|PaintsChainer",
-      source: "parent:Preferred-Networks",
-      target: "orbit:Preferred-Networks|PaintsChainer",
+      id: "edge:parent:preferred-networks->orbit:preferred-networks|paintschainer",
+      source: "parent:preferred-networks",
+      target: "orbit:preferred-networks|paintschainer",
       relation: "has-orbit",
       weight: 1
     }
@@ -1282,27 +1282,27 @@ window.Directory.edges.push(
   // C3.ai edges
   {
     data: {
-      id: "edge:parent:C3-ai->orbit:C3-ai|C3 Generative AI",
-      source: "parent:C3-ai",
-      target: "orbit:C3-ai|C3 Generative AI",
+      id: "edge:parent:c3-ai->orbit:c3-ai|c3-generative-ai",
+      source: "parent:c3-ai",
+      target: "orbit:c3-ai|c3-generative-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:C3-ai->orbit:C3-ai|Enterprise AI Apps",
-      source: "parent:C3-ai",
-      target: "orbit:C3-ai|Enterprise AI Apps",
+      id: "edge:parent:c3-ai->orbit:c3-ai|enterprise-ai-apps",
+      source: "parent:c3-ai",
+      target: "orbit:c3-ai|enterprise-ai-apps",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:C3-ai->orbit:C3-ai|C3 AI Platform",
-      source: "parent:C3-ai",
-      target: "orbit:C3-ai|C3 AI Platform",
+      id: "edge:parent:c3-ai->orbit:c3-ai|c3-ai-platform",
+      source: "parent:c3-ai",
+      target: "orbit:c3-ai|c3-ai-platform",
       relation: "has-orbit",
       weight: 1
     }
@@ -1311,27 +1311,27 @@ window.Directory.edges.push(
   // Palantir edges
   {
     data: {
-      id: "edge:parent:Palantir-AIP->orbit:Palantir-AIP|Gotham Platform",
-      source: "parent:Palantir-AIP",
-      target: "orbit:Palantir-AIP|Gotham Platform",
+      id: "edge:parent:palantir-aip->orbit:palantir-aip|gotham-platform",
+      source: "parent:palantir-aip",
+      target: "orbit:palantir-aip|gotham-platform",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Palantir-AIP->orbit:Palantir-AIP|Foundry Platform",
-      source: "parent:Palantir-AIP",
-      target: "orbit:Palantir-AIP|Foundry Platform",
+      id: "edge:parent:palantir-aip->orbit:palantir-aip|foundry-platform",
+      source: "parent:palantir-aip",
+      target: "orbit:palantir-aip|foundry-platform",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Palantir-AIP->orbit:Palantir-AIP|Ontology SDK",
-      source: "parent:Palantir-AIP",
-      target: "orbit:Palantir-AIP|Ontology SDK",
+      id: "edge:parent:palantir-aip->orbit:palantir-aip|ontology-sdk",
+      source: "parent:palantir-aip",
+      target: "orbit:palantir-aip|ontology-sdk",
       relation: "has-orbit",
       weight: 1
     }
@@ -1340,27 +1340,27 @@ window.Directory.edges.push(
   // ServiceNow edges
   {
     data: {
-      id: "edge:parent:ServiceNow-AI->orbit:ServiceNow-AI|Now Assist",
-      source: "parent:ServiceNow-AI",
-      target: "orbit:ServiceNow-AI|Now Assist",
+      id: "edge:parent:servicenow-ai->orbit:servicenow-ai|now-assist",
+      source: "parent:servicenow-ai",
+      target: "orbit:servicenow-ai|now-assist",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:ServiceNow-AI->orbit:ServiceNow-AI|AI Integration Hub",
-      source: "parent:ServiceNow-AI",
-      target: "orbit:ServiceNow-AI|AI Integration Hub",
+      id: "edge:parent:servicenow-ai->orbit:servicenow-ai|ai-integration-hub",
+      source: "parent:servicenow-ai",
+      target: "orbit:servicenow-ai|ai-integration-hub",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:ServiceNow-AI->orbit:ServiceNow-AI|Now Platform AI",
-      source: "parent:ServiceNow-AI",
-      target: "orbit:ServiceNow-AI|Now Platform AI",
+      id: "edge:parent:servicenow-ai->orbit:servicenow-ai|now-platform-ai",
+      source: "parent:servicenow-ai",
+      target: "orbit:servicenow-ai|now-platform-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1369,27 +1369,27 @@ window.Directory.edges.push(
   // Workday edges
   {
     data: {
-      id: "edge:parent:Workday-AI->orbit:Workday-AI|Skills Cloud",
-      source: "parent:Workday-AI",
-      target: "orbit:Workday-AI|Skills Cloud",
+      id: "edge:parent:workday-ai->orbit:workday-ai|skills-cloud",
+      source: "parent:workday-ai",
+      target: "orbit:workday-ai|skills-cloud",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Workday-AI->orbit:Workday-AI|Talent Optimization",
-      source: "parent:Workday-AI",
-      target: "orbit:Workday-AI|Talent Optimization",
+      id: "edge:parent:workday-ai->orbit:workday-ai|talent-optimization",
+      source: "parent:workday-ai",
+      target: "orbit:workday-ai|talent-optimization",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Workday-AI->orbit:Workday-AI|Workday Extend AI",
-      source: "parent:Workday-AI",
-      target: "orbit:Workday-AI|Workday Extend AI",
+      id: "edge:parent:workday-ai->orbit:workday-ai|workday-extend-ai",
+      source: "parent:workday-ai",
+      target: "orbit:workday-ai|workday-extend-ai",
       relation: "has-orbit",
       weight: 1
     }
@@ -1398,27 +1398,27 @@ window.Directory.edges.push(
   // Intuit edges
   {
     data: {
-      id: "edge:parent:Intuit-AI->orbit:Intuit-AI|Intuit Assist",
-      source: "parent:Intuit-AI",
-      target: "orbit:Intuit-AI|Intuit Assist",
+      id: "edge:parent:intuit-ai->orbit:intuit-ai|intuit-assist",
+      source: "parent:intuit-ai",
+      target: "orbit:intuit-ai|intuit-assist",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Intuit-AI->orbit:Intuit-AI|QuickBooks AI",
-      source: "parent:Intuit-AI",
-      target: "orbit:Intuit-AI|QuickBooks AI",
+      id: "edge:parent:intuit-ai->orbit:intuit-ai|quickbooks-ai",
+      source: "parent:intuit-ai",
+      target: "orbit:intuit-ai|quickbooks-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Intuit-AI->orbit:Intuit-AI|GenOS",
-      source: "parent:Intuit-AI",
-      target: "orbit:Intuit-AI|GenOS",
+      id: "edge:parent:intuit-ai->orbit:intuit-ai|genos",
+      source: "parent:intuit-ai",
+      target: "orbit:intuit-ai|genos",
       relation: "has-orbit",
       weight: 1
     }
@@ -1427,27 +1427,27 @@ window.Directory.edges.push(
   // Qualcomm edges
   {
     data: {
-      id: "edge:parent:Qualcomm-AI->orbit:Qualcomm-AI|Snapdragon Platforms",
-      source: "parent:Qualcomm-AI",
-      target: "orbit:Qualcomm-AI|Snapdragon Platforms",
+      id: "edge:parent:qualcomm-ai->orbit:qualcomm-ai|snapdragon-platforms",
+      source: "parent:qualcomm-ai",
+      target: "orbit:qualcomm-ai|snapdragon-platforms",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Qualcomm-AI->orbit:Qualcomm-AI|AI Hub",
-      source: "parent:Qualcomm-AI",
-      target: "orbit:Qualcomm-AI|AI Hub",
+      id: "edge:parent:qualcomm-ai->orbit:qualcomm-ai|ai-hub",
+      source: "parent:qualcomm-ai",
+      target: "orbit:qualcomm-ai|ai-hub",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Qualcomm-AI->orbit:Qualcomm-AI|AI Engine SDK",
-      source: "parent:Qualcomm-AI",
-      target: "orbit:Qualcomm-AI|AI Engine SDK",
+      id: "edge:parent:qualcomm-ai->orbit:qualcomm-ai|ai-engine-sdk",
+      source: "parent:qualcomm-ai",
+      target: "orbit:qualcomm-ai|ai-engine-sdk",
       relation: "has-orbit",
       weight: 1
     }
@@ -1456,27 +1456,27 @@ window.Directory.edges.push(
   // AMD edges
   {
     data: {
-      id: "edge:parent:AMD-AI->orbit:AMD-AI|Instinct MI300",
-      source: "parent:AMD-AI",
-      target: "orbit:AMD-AI|Instinct MI300",
+      id: "edge:parent:amd-ai->orbit:amd-ai|instinct-mi300",
+      source: "parent:amd-ai",
+      target: "orbit:amd-ai|instinct-mi300",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:AMD-AI->orbit:AMD-AI|Ryzen AI",
-      source: "parent:AMD-AI",
-      target: "orbit:AMD-AI|Ryzen AI",
+      id: "edge:parent:amd-ai->orbit:amd-ai|ryzen-ai",
+      source: "parent:amd-ai",
+      target: "orbit:amd-ai|ryzen-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:AMD-AI->orbit:AMD-AI|Infinity Hub",
-      source: "parent:AMD-AI",
-      target: "orbit:AMD-AI|Infinity Hub",
+      id: "edge:parent:amd-ai->orbit:amd-ai|infinity-hub",
+      source: "parent:amd-ai",
+      target: "orbit:amd-ai|infinity-hub",
       relation: "has-orbit",
       weight: 1
     }
@@ -1485,27 +1485,27 @@ window.Directory.edges.push(
   // Arm edges
   {
     data: {
-      id: "edge:parent:Arm-AI->orbit:Arm-AI|Ethos NPU",
-      source: "parent:Arm-AI",
-      target: "orbit:Arm-AI|Ethos NPU",
+      id: "edge:parent:arm-ai->orbit:arm-ai|ethos-npu",
+      source: "parent:arm-ai",
+      target: "orbit:arm-ai|ethos-npu",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Arm-AI->orbit:Arm-AI|Cortex-A/M CPUs",
-      source: "parent:Arm-AI",
-      target: "orbit:Arm-AI|Cortex-A/M CPUs",
+      id: "edge:parent:arm-ai->orbit:arm-ai|cortex-a-m-cpus",
+      source: "parent:arm-ai",
+      target: "orbit:arm-ai|cortex-a-m-cpus",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Arm-AI->orbit:Arm-AI|Arm NN",
-      source: "parent:Arm-AI",
-      target: "orbit:Arm-AI|Arm NN",
+      id: "edge:parent:arm-ai->orbit:arm-ai|arm-nn",
+      source: "parent:arm-ai",
+      target: "orbit:arm-ai|arm-nn",
       relation: "has-orbit",
       weight: 1
     }
@@ -1514,27 +1514,27 @@ window.Directory.edges.push(
   // Infosys edges
   {
     data: {
-      id: "edge:parent:Infosys-Topaz->orbit:Infosys-Topaz|AI Services",
-      source: "parent:Infosys-Topaz",
-      target: "orbit:Infosys-Topaz|AI Services",
+      id: "edge:parent:infosys-topaz->orbit:infosys-topaz|ai-services",
+      source: "parent:infosys-topaz",
+      target: "orbit:infosys-topaz|ai-services",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Infosys-Topaz->orbit:Infosys-Topaz|Data Analytics",
-      source: "parent:Infosys-Topaz",
-      target: "orbit:Infosys-Topaz|Data Analytics",
+      id: "edge:parent:infosys-topaz->orbit:infosys-topaz|data-analytics",
+      source: "parent:infosys-topaz",
+      target: "orbit:infosys-topaz|data-analytics",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Infosys-Topaz->orbit:Infosys-Topaz|Infosys Cobalt",
-      source: "parent:Infosys-Topaz",
-      target: "orbit:Infosys-Topaz|Infosys Cobalt",
+      id: "edge:parent:infosys-topaz->orbit:infosys-topaz|infosys-cobalt",
+      source: "parent:infosys-topaz",
+      target: "orbit:infosys-topaz|infosys-cobalt",
       relation: "has-orbit",
       weight: 1
     }
@@ -1543,27 +1543,27 @@ window.Directory.edges.push(
   // Wipro edges
   {
     data: {
-      id: "edge:parent:Wipro-ai360->orbit:Wipro-ai360|AI Consulting",
-      source: "parent:Wipro-ai360",
-      target: "orbit:Wipro-ai360|AI Consulting",
+      id: "edge:parent:wipro-ai360->orbit:wipro-ai360|ai-consulting",
+      source: "parent:wipro-ai360",
+      target: "orbit:wipro-ai360|ai-consulting",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Wipro-ai360->orbit:Wipro-ai360|Industry Solutions",
-      source: "parent:Wipro-ai360",
-      target: "orbit:Wipro-ai360|Industry Solutions",
+      id: "edge:parent:wipro-ai360->orbit:wipro-ai360|industry-solutions",
+      source: "parent:wipro-ai360",
+      target: "orbit:wipro-ai360|industry-solutions",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:Wipro-ai360->orbit:Wipro-ai360|Wipro Holmes",
-      source: "parent:Wipro-ai360",
-      target: "orbit:Wipro-ai360|Wipro Holmes",
+      id: "edge:parent:wipro-ai360->orbit:wipro-ai360|wipro-holmes",
+      source: "parent:wipro-ai360",
+      target: "orbit:wipro-ai360|wipro-holmes",
       relation: "has-orbit",
       weight: 1
     }
@@ -1572,27 +1572,27 @@ window.Directory.edges.push(
   // TCS edges
   {
     data: {
-      id: "edge:parent:TCS-AI->orbit:TCS-AI|Enterprise AI",
-      source: "parent:TCS-AI",
-      target: "orbit:TCS-AI|Enterprise AI",
+      id: "edge:parent:tcs-ai->orbit:tcs-ai|enterprise-ai",
+      source: "parent:tcs-ai",
+      target: "orbit:tcs-ai|enterprise-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:TCS-AI->orbit:TCS-AI|TCS CMI",
-      source: "parent:TCS-AI",
-      target: "orbit:TCS-AI|TCS CMI",
+      id: "edge:parent:tcs-ai->orbit:tcs-ai|tcs-cmi",
+      source: "parent:tcs-ai",
+      target: "orbit:tcs-ai|tcs-cmi",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:TCS-AI->orbit:TCS-AI|Ignio AIOps",
-      source: "parent:TCS-AI",
-      target: "orbit:TCS-AI|Ignio AIOps",
+      id: "edge:parent:tcs-ai->orbit:tcs-ai|ignio-aiops",
+      source: "parent:tcs-ai",
+      target: "orbit:tcs-ai|ignio-aiops",
       relation: "has-orbit",
       weight: 1
     }
@@ -1601,27 +1601,27 @@ window.Directory.edges.push(
   // JioBrain edges
   {
     data: {
-      id: "edge:parent:JioBrain->orbit:JioBrain|Jio Services AI",
-      source: "parent:JioBrain",
-      target: "orbit:JioBrain|Jio Services AI",
+      id: "edge:parent:jiobrain->orbit:jiobrain|jio-services-ai",
+      source: "parent:jiobrain",
+      target: "orbit:jiobrain|jio-services-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:JioBrain->orbit:JioBrain|JioMart AI",
-      source: "parent:JioBrain",
-      target: "orbit:JioBrain|JioMart AI",
+      id: "edge:parent:jiobrain->orbit:jiobrain|jiomart-ai",
+      source: "parent:jiobrain",
+      target: "orbit:jiobrain|jiomart-ai",
       relation: "has-orbit",
       weight: 1
     }
   },
   {
     data: {
-      id: "edge:parent:JioBrain->orbit:JioBrain|AI APIs",
-      source: "parent:JioBrain",
-      target: "orbit:JioBrain|AI APIs",
+      id: "edge:parent:jiobrain->orbit:jiobrain|ai-apis",
+      source: "parent:jiobrain",
+      target: "orbit:jiobrain|ai-apis",
       relation: "has-orbit",
       weight: 1
     }

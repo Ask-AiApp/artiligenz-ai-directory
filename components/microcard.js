@@ -36,6 +36,14 @@
     microEl.style.transformOrigin = 'top left';
 
     (state.container || document.body).appendChild(microEl);
+    
+    // CRITICAL: Stop touch events at the microcard root
+    microEl.addEventListener(
+      'pointerdown',
+      (e) => e.stopPropagation(),
+      true
+    );
+    
     applyMicroStyle();
     return microEl;
   }
@@ -179,17 +187,29 @@
       </div>
     `;
 
-    el.querySelector('#mcExplore')?.addEventListener('click', e => {
-      e.stopPropagation();
-      state.onViewEcosystem?.(node);
-      hide();
-    });
+    // Add touch-action to buttons and change click to pointerup
+    const exploreBtn = el.querySelector('#mcExplore');
+    const moreBtn = el.querySelector('#mcMore');
+    
+    if (exploreBtn) {
+      exploreBtn.style.touchAction = 'manipulation';
+      exploreBtn.addEventListener('pointerup', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        state.onViewEcosystem?.(node);
+        hide();
+      });
+    }
 
-    el.querySelector('#mcMore')?.addEventListener('click', e => {
-      e.stopPropagation();
-      state.onOpenProfile?.(node);
-      hide();
-    });
+    if (moreBtn) {
+      moreBtn.style.touchAction = 'manipulation';
+      moreBtn.addEventListener('pointerup', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        state.onOpenProfile?.(node);
+        hide();
+      });
+    }
   }
 
   function show(node, opts) {
