@@ -346,7 +346,7 @@ class CustomHeader extends HTMLElement {
       <header>
         <div class="left">
           <!-- Targeted: make this stable for static hosting -->
-          <a href="index.html" class="logo">Artiligenz Ai Directory</a>
+          <a href="index.html" class="logo">Ai Directory</a>
 
           ${!simple ? `
             <nav class="nav" aria-label="Primary navigation">
