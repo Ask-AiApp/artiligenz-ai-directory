@@ -566,6 +566,51 @@
     }
 
     hasActiveFilter = !!filterState.search || filterState.categories.length > 0;
+
+    // After HedronLayout.apply(cy, activeNodes.toArray());
+    try {
+      const n = activeNodes.length;
+
+      // 1) Spacing: gentle, predictable, no explosion
+      // 20 nodes → ~1.35x
+      // 50 nodes → ~1.55x
+      // 100 nodes → ~1.85x
+      const factor = Math.min(1.9, 1.3 + n / 80);
+
+      let cx = 0, cyy = 0;
+      activeNodes.forEach((node) => {
+        const p = node.position();
+        cx += p.x; cyy += p.y;
+      });
+      cx /= Math.max(1, n);
+      cyy /= Math.max(1, n);
+
+      cy.startBatch();
+      activeNodes.forEach((node) => {
+        const p = node.position();
+        node.position({
+          x: cx + (p.x - cx) * factor,
+          y: cyy + (p.y - cyy) * factor,
+        });
+      });
+      cy.endBatch();
+
+      // 2) Fit with padding, but cap zoom so it never feels jumpy
+      const maxZoom = 0.9;   // key value: prevents "zooming in too much"
+      const minZoom = 0.25;
+
+      if (window.Views?.smartFit) {
+        window.Views.smartFit(cy, activeNodes, 180);
+      } else {
+        cy.fit(activeNodes, 180);
+      }
+
+      const z = cy.zoom();
+      if (z > maxZoom) cy.zoom(maxZoom);
+      if (z < minZoom) cy.zoom(minZoom);
+    } catch (e) {
+      console.warn('[Artiligenz] filter spacing/zoom clamp failed:', e);
+    }
   }
 
   // -----------------------------

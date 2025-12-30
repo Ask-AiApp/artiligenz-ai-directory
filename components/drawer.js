@@ -121,14 +121,36 @@ class InfoDrawer extends HTMLElement {
           position: absolute;
           top: 1.1rem;
           right: 1.1rem;
-          border: none;
-          background: none;
+
+          width: 44px;
+          height: 44px;
+          border-radius: 999px;
+
+          border: 1px solid rgba(148,163,184,0.35);
+          background: rgba(255,255,255,0.65);
           color: var(--subtle);
+
+          display: grid;
+          place-items: center;
+
           cursor: pointer;
-          padding: 0.35rem;
+          padding: 0;
+          z-index: 10;
+
+          pointer-events: auto;
+          touch-action: manipulation;
+
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
         }
         .close-btn:hover {
           color: var(--muted);
+        }
+
+        :host-context(.dark) .close-btn {
+          background: rgba(15,23,42,0.55);
+          border-color: rgba(148,163,184,0.35);
+          color: #e5e7eb;
         }
 
         .scroll {
@@ -273,8 +295,8 @@ class InfoDrawer extends HTMLElement {
             padding: 1.0rem 1.25rem 1.8rem 1.25rem;
           }
           .close-btn {
-            top: 0.85rem;
-            right: 0.85rem;
+            top: calc(0.85rem + env(safe-area-inset-top, 0px));
+            right: calc(0.85rem + env(safe-area-inset-right, 0px));
           }
         }
       </style>
@@ -300,7 +322,16 @@ class InfoDrawer extends HTMLElement {
     this.$header = this.shadowRoot.querySelector(".header");
     this.$body = this.shadowRoot.querySelector(".body");
 
-    this.shadowRoot.querySelector(".close-btn").addEventListener("click", () => this.close());
+    const closeBtn = this.shadowRoot.querySelector(".close-btn");
+    const onClose = (e) => {
+      e?.preventDefault?.();
+      e?.stopPropagation?.();
+      this.close();
+    };
+
+    closeBtn.addEventListener("pointerup", onClose, { passive: false });
+    closeBtn.addEventListener("click", onClose);
+    
     this.$scrim.addEventListener("click", () => this.close());
   }
 
