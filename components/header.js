@@ -373,7 +373,7 @@ class CustomHeader extends HTMLElement {
             </button>
           ` : `
             <!-- Full header: main directory -->
-            <a href="http://artiligenz.ai" class="gateway-btn" aria-label="Back to Gateway">
+            <a href="http://artiligenz.com" class="gateway-btn" aria-label="Back to Gateway">
               <span class="gateway-icon" aria-hidden="true">←</span>
               <span class="gateway-text">Back to Gateway</span>
             </a>
