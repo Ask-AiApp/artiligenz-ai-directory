@@ -105,6 +105,10 @@
       crumb.style.border = '1px solid rgba(148,163,184,0.35)';
       crumb.style.backdropFilter = 'blur(10px)';
       crumb.style.webkitBackdropFilter = 'blur(10px)';
+
+      // ✅ Don’t let the breadcrumb pill intercept taps (can block Close on mobile)
+      crumb.style.pointerEvents = 'none';
+
       host.appendChild(crumb);
     }
 
@@ -128,11 +132,22 @@
       btn.style.cursor = 'pointer';
       btn.style.backdropFilter = 'blur(10px)';
       btn.style.webkitBackdropFilter = 'blur(10px)';
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+
+      // ✅ Ensure overlay receives taps
+      btn.style.pointerEvents = 'auto';
+      btn.style.touchAction = 'manipulation';
+
+      // ✅ Mobile-reliable close (click can be suppressed on some mobile browsers)
+      const closeNow = (e) => {
+        e?.preventDefault?.();
+        e?.stopPropagation?.();
         exitOrbit();
-      });
+      };
+
+      btn.addEventListener('pointerdown', closeNow, { passive: false });
+      btn.addEventListener('touchstart', closeNow, { passive: false });
+      btn.addEventListener('click', closeNow);
+
       host.appendChild(btn);
     }
   }
@@ -540,6 +555,23 @@
   // -----------------------------
   function applyFilters() {
     if (!cy) return;
+
+    // ✅ If no filters at all, restore the original landing universe (no Hedron compaction)
+    const q0 = String(filterState.search || '').trim();
+    const hasFilters0 =
+      (filterState.categories && filterState.categories.length > 0) ||
+      q0.length > 0;
+
+    if (!hasFilters0) {
+      hasActiveFilter = false;
+      cy.elements().style('display', 'element');
+
+      window.Views?.placeUniverse?.(cy);
+      restoreUniverseBaselinePositions();
+      window.Views?.smartFit?.(cy, cy.elements());
+      enforceUniverseLabelPolicy();
+      return;
+    }
 
     const activeNodes = cy.nodes().filter((n) => {
       const name = String(n.data('name') || '').toLowerCase();

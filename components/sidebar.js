@@ -236,7 +236,7 @@ class CustomSidebar extends HTMLElement {
             </div>
           </details>
 
-          <details open class="search-section">
+          <details class="search-section">
             <summary><i data-feather="search"></i> Search</summary>
             <div class="section-body">
               <input type="text" class="search-box" placeholder="Search by name…" />

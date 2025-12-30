@@ -22,6 +22,19 @@ class NavControls extends HTMLElement {
           pointer-events: none; /* only buttons receive events */
         }
 
+        /* Mobile: inline nested placement (between search + canvas) */
+        @media (max-width: 640px) {
+          :host {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+            display: block;
+            margin: 10px auto 12px;
+            z-index: 1;
+          }
+        }
+
         /* Base (light – Artiligenz Clear) */
         .dock {
           display: flex;
@@ -184,8 +197,12 @@ class NavControls extends HTMLElement {
     };
     document.addEventListener('nav-controls-visibility', this._visListener);
 
-    // Start hidden; header toggle turns it on
-    this._applyVisibility(false);
+    // Mobile default: visible. Desktop default: hidden (header toggle controls).
+    const isCoarsePointer =
+      (typeof window.matchMedia === 'function' && window.matchMedia('(pointer: coarse)').matches) ||
+      (typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0);
+
+    this._applyVisibility(isCoarsePointer);
   }
 
   disconnectedCallback() {
